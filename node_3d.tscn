@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dogg66akcwa5j"]
+[gd_scene load_steps=10 format=3 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://dndc21ax8p6x3" path="res://assets/field/driver_station.scn" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://8bhndwlc7tyq" path="res://assets/field/carpet.scn" id="1_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bb02revrkmbgy" path="res://assets/field/driver_station_middle.scn" id="3_jka67"]
 [ext_resource type="PackedScene" uid="uid://ca70r00mynk4n" path="res://assets/field/field_wall.scn" id="4_i5arm"]
 [ext_resource type="PackedScene" uid="uid://cloko8fexs20p" path="res://assets/field/small_driver_station.scn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://dcds12x4fsv1b" path="res://assets/field/DSmiddle.gltf" id="6_i5arm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -159,3 +160,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.026,
 
 [node name="fieldWall9" parent="crowdSideWall" instance=ExtResource("4_i5arm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.026, 0, 8.244)
+
+[node name="Root" parent="." instance=ExtResource("6_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792429, 0, -0.200144)
