@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgowigyxu1rni"
-path="res://.godot/imported/elevator.gltf-24cae7fbf4417d44ef0c87847e9ba512.scn"
+uid="uid://be0i78h478ohv"
+path="res://.godot/imported/SwerveBase.gltf-f44845fd4e45605fc9c959187f90b9d7.scn"
 
 [deps]
 
-source_file="res://assets/robots/elevator/elevator.gltf"
-dest_files=["res://.godot/imported/elevator.gltf-24cae7fbf4417d44ef0c87847e9ba512.scn"]
+source_file="res://assets/robots/testSwerve/SwerveBase.gltf"
+dest_files=["res://.godot/imported/SwerveBase.gltf-f44845fd4e45605fc9c959187f90b9d7.scn"]
 
 [params]
 
@@ -34,17 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:elevatorBase": {
-"generate/physics": true
-},
-"PATH:elevatorCarrage": {
-"generate/physics": true,
-"import/skip_import": true
-},
-"PATH:elevatorMoving": {
+"PATH:base": {
 "generate/physics": true,
 "physics/body_type": 1,
-"physics/shape_type": 2
+"physics/shape_type": 1
 }
 }
 }

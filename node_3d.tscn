@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://dogg66akcwa5j"]
+[gd_scene load_steps=14 format=4 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://dndc21ax8p6x3" path="res://assets/field/driver_station.scn" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://bb02revrkmbgy" path="res://assets/field/driver_station_middle.scn" id="3_jka67"]
 [ext_resource type="PackedScene" uid="uid://ca70r00mynk4n" path="res://assets/field/field_wall.scn" id="4_i5arm"]
 [ext_resource type="PackedScene" uid="uid://cloko8fexs20p" path="res://assets/field/small_driver_station.scn" id="4_jka67"]
 [ext_resource type="Material" uid="uid://d3d8eg7ce3tv2" path="res://assets/field/carpet.tres" id="5_i5arm"]
-[ext_resource type="PackedScene" uid="uid://bfh8n8b1wxbaq" path="res://swerve_drive.tscn" id="6_i5arm"]
-[ext_resource type="PackedScene" uid="uid://bof4ssjstpolk" path="res://assets/robots/elevator/elevator.scn" id="7_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://cgcobkyv6w0t1" path="res://assets/robots/testSwerve/swerve_base.tscn" id="6_i5arm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -321,11 +320,8 @@ physics_material_override = SubResource("PhysicsMaterial_i5arm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0944214, -0.490083, -1.34424)
 shape = SubResource("BoxShape3D_wc5p8")
 
-[node name="SwerveDrive" parent="." instance=ExtResource("6_i5arm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322401, 0)
+[node name="SwerveBase" parent="." instance=ExtResource("6_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Camera3D" type="Camera3D" parent="SwerveDrive"]
-transform = Transform3D(-0.482549, 0.225938, -0.846226, 2.25515e-08, 0.966156, 0.257959, 0.875869, 0.124478, -0.466217, -1.94904, 1.19641, -1.29695)
-
-[node name="Root" parent="." instance=ExtResource("7_wc5p8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121422, 1.9969, 2.99794)
+[node name="Camera3D" type="Camera3D" parent="SwerveBase"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.05692, -2.76666)
