@@ -2,9 +2,14 @@ class_name SwerveBase extends RigidBody3D
 
 @export var TRANSLATION_MULTIPLIER: float = 400
 @export var ROTATION_MULTIPLIER: float = 120
+@export var STATIC_ROT_MULTIPLIER: float = 300
 @export var MAX_MODULE_FORCE: float = 400
 
+@export var FIELD_ORIENT: bool = true
+
 var modules: Array[SwerveModule] = []
+
+#@onready var parentRobot: RigidBody3D = get_parent()
 
 func _ready() -> void:
 	for i in range(4):
@@ -12,6 +17,11 @@ func _ready() -> void:
 		var ray: RayCast3D = get_node("RayCast" + str(i + 1))
 		var module = SwerveModule.new(ray.position, mesh, ray)
 		modules.append(module)
+	
+	#parentRobot.angular_damp = 10
+	#parentRobot.linear_damp = 1.5
+	#parentRobot.mass = 50
+	#parentRobot.continuous_cd = true
 
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +35,8 @@ func _physics_process(delta: float) -> void:
 	var highestForce = 0
 	for module in modules:
 		module.updateForceVector(translateVector, rotationAmount)
+		if FIELD_ORIENT:
+			module.fieldOrient(rotation.y)
 		if module.forceVector.length() > highestForce:
 			highestForce = module.forceVector.length()
 	
@@ -36,8 +48,7 @@ func _physics_process(delta: float) -> void:
 		apply_force(module.forceVector, module.modulePosition)
 	
 	if translateVector.length() < 0.1:
-		apply_torque(Vector3(0, 1, 0) * 300 * sign(rotationAmount))
-
+		apply_torque(Vector3.UP * STATIC_ROT_MULTIPLIER * sign(rotationAmount))
 
 
 class SwerveModule:
@@ -65,5 +76,8 @@ class SwerveModule:
 		var angle = atan2(forceVector.x, forceVector.z)
 		mesh.rotation.y = angle
 	
+	func fieldOrient(robotOrientation: float):
+		forceVector = -forceVector.rotated(Vector3.UP, robotOrientation)
+	
 	func desaturate(highestForce: float, MAX_FORCE: float):
-		forceVector / highestForce * MAX_FORCE
+		forceVector = forceVector / highestForce * MAX_FORCE

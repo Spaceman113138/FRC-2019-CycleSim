@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ca70r00mynk4n" path="res://assets/field/field_wall.scn" id="4_i5arm"]
 [ext_resource type="PackedScene" uid="uid://cloko8fexs20p" path="res://assets/field/small_driver_station.scn" id="4_jka67"]
 [ext_resource type="Material" uid="uid://d3d8eg7ce3tv2" path="res://assets/field/carpet.tres" id="5_i5arm"]
-[ext_resource type="PackedScene" uid="uid://cgcobkyv6w0t1" path="res://assets/robots/testSwerve/swerve_base.tscn" id="6_i5arm"]
+[ext_resource type="PackedScene" uid="uid://crimeylmrrdxs" path="res://assets/robots/testSwerve/Robot.tscn" id="6_i5arm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -320,8 +320,5 @@ physics_material_override = SubResource("PhysicsMaterial_i5arm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0944214, -0.490083, -1.34424)
 shape = SubResource("BoxShape3D_wc5p8")
 
-[node name="SwerveBase" parent="." instance=ExtResource("6_i5arm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Camera3D" type="Camera3D" parent="SwerveBase"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.05692, -2.76666)
+[node name="Robot" parent="." instance=ExtResource("6_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346741, 0)

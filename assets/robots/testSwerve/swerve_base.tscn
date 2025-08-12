@@ -1,8 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://cgcobkyv6w0t1"]
+[gd_scene load_steps=13 format=4 uid="uid://cgcobkyv6w0t1"]
 
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://assets/robots/testSwerve/swerve_base.gd" id="1_rhmok"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rhmok"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nugaj"]
 resource_name = "0.682353_0.333333_0.737255_0.000000_0.000000"
@@ -330,8 +328,7 @@ shadow_mesh = SubResource("ArrayMesh_jbdag")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mhga5"]
 points = PackedVector3Array(-0.381, 0.0254, -0.381, -0.381, 0.0254, 0.381, -0.381, 0.0762, -0.381, 0.381, 0.0254, -0.381, -0.381, 0.0762, 0.381, 0.381, 0.0254, 0.381, 0.381, 0.0762, -0.381, 0.381, 0.0762, 0.381)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_rhmok"]
-height = 0.102
+[sub_resource type="SphereShape3D" id="SphereShape3D_rhmok"]
 radius = 0.051
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lt8c0"]
@@ -437,36 +434,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_842ml")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ytmnh"]
-height = 0.102
+[sub_resource type="SphereShape3D" id="SphereShape3D_ytmnh"]
 radius = 0.051
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_28k27"]
-height = 0.102
+[sub_resource type="SphereShape3D" id="SphereShape3D_28k27"]
 radius = 0.051
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_pnycd"]
-height = 0.102
+[sub_resource type="SphereShape3D" id="SphereShape3D_pnycd"]
 radius = 0.051
 
 [node name="SwerveBase" type="RigidBody3D"]
-mass = 50.0
-physics_material_override = SubResource("PhysicsMaterial_rhmok")
-continuous_cd = true
-linear_damp = 1.5
-angular_damp = 10.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.05, 0)
 script = ExtResource("1_rhmok")
+STATIC_ROT_MULTIPLIER = 500.0
 
 [node name="base" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_sfa16")
 skeleton = NodePath("")
 
 [node name="baseCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0165122, 0)
 shape = SubResource("ConvexPolygonShape3D_mhga5")
 
 [node name="wheelCollider1" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0.051, 0.305)
-shape = SubResource("CylinderShape3D_rhmok")
+shape = SubResource("SphereShape3D_rhmok")
 
 [node name="SwerveWheel1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0, 0.305)
@@ -475,11 +468,11 @@ skeleton = NodePath("")
 
 [node name="RayCast1" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0.051, 0.305)
-target_position = Vector3(0, -0.06, 0)
+target_position = Vector3(0, -0.07, 0)
 
 [node name="wheelCollider2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0.051, 0.305)
-shape = SubResource("CylinderShape3D_ytmnh")
+shape = SubResource("SphereShape3D_ytmnh")
 
 [node name="SwerveWheel2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0, 0.305)
@@ -488,11 +481,11 @@ skeleton = NodePath("")
 
 [node name="RayCast2" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0.051, 0.305)
-target_position = Vector3(0, -0.06, 0)
+target_position = Vector3(0, -0.07, 0)
 
 [node name="wheelCollider3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0.051, -0.305)
-shape = SubResource("CylinderShape3D_28k27")
+shape = SubResource("SphereShape3D_28k27")
 
 [node name="SwerveWheel3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0, -0.305)
@@ -501,11 +494,11 @@ skeleton = NodePath("")
 
 [node name="RayCast3" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305, 0.051, -0.305)
-target_position = Vector3(0, -0.06, 0)
+target_position = Vector3(0, -0.07, 0)
 
 [node name="wheelCollider4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0.051, -0.305)
-shape = SubResource("CylinderShape3D_pnycd")
+shape = SubResource("SphereShape3D_pnycd")
 
 [node name="SwerveWheel4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0, -0.305)
@@ -514,4 +507,4 @@ skeleton = NodePath("")
 
 [node name="RayCast4" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305, 0.051, -0.305)
-target_position = Vector3(0, -0.06, 0)
+target_position = Vector3(0, -0.07, 0)
