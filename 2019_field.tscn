@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgavxffs1bt07"]
+
+[ext_resource type="PackedScene" uid="uid://mwlguu88a25m" path="res://assets/field/2019-DeepSpace/2019 field - carpet.gltf" id="1_or706"]
+[ext_resource type="PackedScene" uid="uid://cc4pn3xus8hta" path="res://assets/field/2019-DeepSpace/2019 field - FieldWall.gltf" id="2_herw4"]
+[ext_resource type="PackedScene" uid="uid://c02nlqebcij3k" path="res://assets/field/2019-DeepSpace/2019 field - HumanPlayerStation.gltf" id="3_2mdm0"]
+[ext_resource type="PackedScene" uid="uid://cx4c1ss8w7aew" path="res://assets/field/2019-DeepSpace/2019 field - DSmiddle.gltf" id="3_5cy3c"]
+[ext_resource type="PackedScene" uid="uid://br7fegd8lloy2" path="res://assets/field/2019-DeepSpace/2019 field - DriverStation.gltf" id="4_574jr"]
+[ext_resource type="PackedScene" uid="uid://dobyf4s382jgv" path="res://assets/field/2019-DeepSpace/2019 field - HabComponents.gltf" id="6_hqrfp"]
+[ext_resource type="PackedScene" uid="uid://hdo0x3lbpndx" path="res://assets/field/2019-DeepSpace/2019 field - CargoShip.gltf" id="7_ldpuh"]
+[ext_resource type="PackedScene" uid="uid://cy7o3fl3wy3f" path="res://assets/field/2019-DeepSpace/2019 field - Rocket.gltf" id="8_parwe"]
+[ext_resource type="PackedScene" uid="uid://bs3ahu5e1pf38" path="res://assets/field/2019-DeepSpace/2019 field - cableBump.gltf" id="9_hqrfp"]
+
+[node name="2019-Field" type="Node3D"]
+
+[node name="Carpet" parent="." instance=ExtResource("1_or706")]
+
+[node name="FieldWall" parent="." instance=ExtResource("2_herw4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.027, 0, 0)
+
+[node name="FieldWall2" parent="." instance=ExtResource("2_herw4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.027, 0, 0)
+
+[node name="BlueDriverStationWall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.25)
+
+[node name="Human Player" parent="BlueDriverStationWall" instance=ExtResource("3_2mdm0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.394, 0, 0)
+
+[node name="dsMiddle4" parent="BlueDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.658, 0, 0)
+
+[node name="DriverStation1" parent="BlueDriverStationWall" instance=ExtResource("4_574jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.829, 0, 0)
+
+[node name="dsMiddle1" parent="BlueDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.829, 0, 0)
+
+[node name="DriverStation2" parent="BlueDriverStationWall" instance=ExtResource("4_574jr")]
+
+[node name="dsMiddle2" parent="BlueDriverStationWall" instance=ExtResource("3_5cy3c")]
+
+[node name="DriverStation3" parent="BlueDriverStationWall" instance=ExtResource("4_574jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.829, 0, 0)
+
+[node name="dsMiddle3" parent="BlueDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.829, 0, 0)
+
+[node name="Human Player2" parent="BlueDriverStationWall" instance=ExtResource("3_2mdm0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.394, 0, 0)
+
+[node name="RedDriverStationWall" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 8.25)
+
+[node name="Human Player" parent="RedDriverStationWall" instance=ExtResource("3_2mdm0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.394, 0, 0)
+
+[node name="dsMiddle4" parent="RedDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.658, 0, 0)
+
+[node name="DriverStation1" parent="RedDriverStationWall" instance=ExtResource("4_574jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.829, 0, 0)
+
+[node name="dsMiddle1" parent="RedDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.829, 0, 0)
+
+[node name="DriverStation2" parent="RedDriverStationWall" instance=ExtResource("4_574jr")]
+
+[node name="dsMiddle2" parent="RedDriverStationWall" instance=ExtResource("3_5cy3c")]
+
+[node name="DriverStation3" parent="RedDriverStationWall" instance=ExtResource("4_574jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.829, 0, 0)
+
+[node name="dsMiddle3" parent="RedDriverStationWall" instance=ExtResource("3_5cy3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.829, 0, 0)
+
+[node name="Human Player2" parent="RedDriverStationWall" instance=ExtResource("3_2mdm0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.394, 0, 0)
+
+[node name="BlueHab" parent="." instance=ExtResource("6_hqrfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.25)
+
+[node name="RedHab" parent="." instance=ExtResource("6_hqrfp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 8.25)
+
+[node name="BlueCargoShip" parent="." instance=ExtResource("7_ldpuh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RedCargoShip" parent="." instance=ExtResource("7_ldpuh")]
+
+[node name="BlueRightRocket" parent="." instance=ExtResource("8_parwe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.027, 0, -2.438)
+
+[node name="BlueLeftRocket" parent="." instance=ExtResource("8_parwe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.027, 0, -2.438)
+
+[node name="RedRightRocket" parent="." instance=ExtResource("8_parwe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.027, 0, 2.438)
+
+[node name="RedLeftRocket" parent="." instance=ExtResource("8_parwe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.027, 0, 2.438)
+
+[node name="CabelBump" parent="." instance=ExtResource("9_hqrfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.578, 0, 0)

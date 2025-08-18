@@ -885,7 +885,6 @@ script = ExtResource("1_tvi0a")
 drivebase = NodePath("SwerveBase")
 
 [node name="SwerveBase" parent="." instance=ExtResource("2_yf6n0")]
-visible = false
 mass = 30.0
 physics_material_override = SubResource("PhysicsMaterial_yf6n0")
 continuous_cd = true
@@ -895,7 +894,6 @@ TRANSLATION_MULTIPLIER = 240.0
 ROTATION_MULTIPLIER = 72.0
 STATIC_ROT_MULTIPLIER = 300.0
 MAX_MODULE_FORCE = 240.0
-FIELD_ORIENT = false
 
 [node name="Camera3D" type="Camera3D" parent="SwerveBase"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.769922, -1.51269)

@@ -1,0 +1,102 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c20ooa6dom60q"
+path="res://.godot/imported/1323 - carrage.gltf-4f795f8fb7d26cc725d0b0d3577ff2ee.scn"
+
+[deps]
+
+source_file="res://assets/robots/1323/1323 - carrage.gltf"
+dest_files=["res://.godot/imported/1323 - carrage.gltf-4f795f8fb7d26cc725d0b0d3577ff2ee.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Part 18": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 19": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 20": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 21": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 22": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 25": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 0
+},
+"PATH:Part 26": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 0
+},
+"PATH:Part 27": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 0
+},
+"PATH:Part 28": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

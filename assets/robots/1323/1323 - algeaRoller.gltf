@@ -1,0 +1,460 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                -0.1587499976158142,
+                0.7365999817848206,
+                0.31743043661117554
+            ],
+            "min": [
+                -0.1587499976158142,
+                0.7111999988555908,
+                0.29216957092285156
+            ],
+            "name": "mesh0_coord_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                -1.0,
+                0.0,
+                0.0
+            ],
+            "min": [
+                -1.0,
+                0.0,
+                0.0
+            ],
+            "name": "mesh0_norm_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0
+            ],
+            "name": "mesh0_texcoord_accessor",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 84,
+            "max": [
+                29
+            ],
+            "min": [
+                0
+            ],
+            "name": "mesh0_idx_accessor",
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                0.1587499976158142,
+                0.7365999817848206,
+                0.30480000376701355
+            ],
+            "min": [
+                -0.1587499976158142,
+                0.7111999988555908,
+                0.29216957092285156
+            ],
+            "name": "mesh1_coord_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                1.6188729268962643e-16,
+                1.0,
+                -2.9651491410791475e-30
+            ],
+            "min": [
+                -1.6188729268962643e-16,
+                -1.0,
+                -0.9945219159126282
+            ],
+            "name": "mesh1_norm_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0
+            ],
+            "name": "mesh1_texcoord_accessor",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 7,
+            "componentType": 5125,
+            "count": 90,
+            "max": [
+                31
+            ],
+            "min": [
+                0
+            ],
+            "name": "mesh1_idx_accessor",
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 8,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                0.1587499976158142,
+                0.7365999817848206,
+                0.31743043661117554
+            ],
+            "min": [
+                -0.1587499976158142,
+                0.7111999988555908,
+                0.30480000376701355
+            ],
+            "name": "mesh2_coord_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 9,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                1.6188729268962643e-16,
+                1.0,
+                0.9945219159126282
+            ],
+            "min": [
+                -1.6188729268962643e-16,
+                -1.0,
+                -1.2246468525851679e-16
+            ],
+            "name": "mesh2_norm_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 10,
+            "componentType": 5126,
+            "count": 32,
+            "max": [
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0
+            ],
+            "name": "mesh2_texcoord_accessor",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 11,
+            "componentType": 5125,
+            "count": 90,
+            "max": [
+                31
+            ],
+            "min": [
+                0
+            ],
+            "name": "mesh2_idx_accessor",
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 12,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                0.1587499976158142,
+                0.7365999817848206,
+                0.31743043661117554
+            ],
+            "min": [
+                0.1587499976158142,
+                0.7111999988555908,
+                0.29216957092285156
+            ],
+            "name": "mesh3_coord_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 13,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                1.0,
+                1.6188729268962643e-16,
+                2.211257394288742e-32
+            ],
+            "min": [
+                1.0,
+                1.6188729268962643e-16,
+                2.211257394288742e-32
+            ],
+            "name": "mesh3_norm_accessor",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 14,
+            "componentType": 5126,
+            "count": 30,
+            "max": [
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0
+            ],
+            "name": "mesh3_texcoord_accessor",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 15,
+            "componentType": 5125,
+            "count": 84,
+            "max": [
+                29
+            ],
+            "min": [
+                0
+            ],
+            "name": "mesh3_idx_accessor",
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "generator": "ONSHAPE BY PTC INC, 1.202",
+        "version": "2.0"
+    },
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "name": "mesh0_coord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "byteOffset": 360,
+            "name": "mesh0_norm_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 240,
+            "byteOffset": 720,
+            "name": "mesh0_texcoord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 336,
+            "byteOffset": 960,
+            "name": "mesh0_idx_bufferView",
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 384,
+            "byteOffset": 1296,
+            "name": "mesh1_coord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 384,
+            "byteOffset": 1680,
+            "name": "mesh1_norm_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 256,
+            "byteOffset": 2064,
+            "name": "mesh1_texcoord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "byteOffset": 2320,
+            "name": "mesh1_idx_bufferView",
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 384,
+            "byteOffset": 2680,
+            "name": "mesh2_coord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 384,
+            "byteOffset": 3064,
+            "name": "mesh2_norm_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 256,
+            "byteOffset": 3448,
+            "name": "mesh2_texcoord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "byteOffset": 3704,
+            "name": "mesh2_idx_bufferView",
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "byteOffset": 4064,
+            "name": "mesh3_coord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 360,
+            "byteOffset": 4424,
+            "name": "mesh3_norm_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 240,
+            "byteOffset": 4784,
+            "name": "mesh3_texcoord_bufferView",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 336,
+            "byteOffset": 5024,
+            "name": "mesh3_idx_bufferView",
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 5360,
+            "name": "Total_buffer",
+            "uri": "data:application/octet-stream;base64,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"
+        }
+    ],
+    "extensionsUsed": [
+        "PTC_onshape_metadata"
+    ],
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "0.000000_0.000000_0.000000_0.000000_0.000000",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "mesh0_mesh",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 0,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 5,
+                        "POSITION": 4,
+                        "TEXCOORD_0": 6
+                    },
+                    "indices": 7,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 9,
+                        "POSITION": 8,
+                        "TEXCOORD_0": 10
+                    },
+                    "indices": 11,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 13,
+                        "POSITION": 12,
+                        "TEXCOORD_0": 14
+                    },
+                    "indices": 15,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "extensions": {
+                "PTC_onshape_metadata": {
+                    "entity_type": "Body",
+                    "id": [
+                        "RDBD"
+                    ]
+                }
+            },
+            "mesh": 0,
+            "name": "algeaRoller"
+        }
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Root",
+            "nodes": [
+                0
+            ]
+        }
+    ]
+}
