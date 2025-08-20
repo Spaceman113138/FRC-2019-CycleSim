@@ -21,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	currentAngle = armBody.rotation_degrees.x + angleOffset
 	var error = currentAngle - targetAngle
-	print(currentAngle)
+	#print(currentAngle)
 	#print(error)
 	
 	if abs(error) > tolorence:

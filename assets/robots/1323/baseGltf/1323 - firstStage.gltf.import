@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnv6bmjq4fkc3"
-path="res://.godot/imported/1323 - lowerAlgeaRoller.gltf-af214d9e4faaf57757c4759e20f6f236.scn"
+uid="uid://uy1cffxlm4ky"
+path="res://.godot/imported/1323 - firstStage.gltf-806d5ce09ae6ec6c72f4b443de189c05.scn"
 
 [deps]
 
-source_file="res://assets/robots/1323/1323 - lowerAlgeaRoller.gltf"
-dest_files=["res://.godot/imported/1323 - lowerAlgeaRoller.gltf-af214d9e4faaf57757c4759e20f6f236.scn"]
+source_file="res://assets/robots/1323/baseGltf/1323 - firstStage.gltf"
+dest_files=["res://.godot/imported/1323 - firstStage.gltf-806d5ce09ae6ec6c72f4b443de189c05.scn"]
 
 [params]
 
@@ -34,7 +34,21 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:lowerAlgeaRoller": {
+"PATH:Part 11": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 12": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 13": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,

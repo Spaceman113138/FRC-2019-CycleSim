@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ypggqyaacmis"
-path="res://.godot/imported/1323 - staticStage.gltf-437aac22087590cf40b94052810ed11c.scn"
+uid="uid://bnv6bmjq4fkc3"
+path="res://.godot/imported/1323 - lowerAlgeaRoller.gltf-d28649fd45a5c2c6fce601a45ad461bc.scn"
 
 [deps]
 
-source_file="res://assets/robots/1323/1323 - staticStage.gltf"
-dest_files=["res://.godot/imported/1323 - staticStage.gltf-437aac22087590cf40b94052810ed11c.scn"]
+source_file="res://assets/robots/1323/baseGltf/1323 - lowerAlgeaRoller.gltf"
+dest_files=["res://.godot/imported/1323 - lowerAlgeaRoller.gltf-d28649fd45a5c2c6fce601a45ad461bc.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name="StaticStage"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -26,7 +26,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
@@ -34,21 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Part 10": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 8": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 9": {
+"PATH:lowerAlgeaRoller": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,

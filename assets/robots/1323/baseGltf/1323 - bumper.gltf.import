@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cyf4n5ptgbc7b"
-path="res://.godot/imported/1323 - bumper.gltf-72e67f6b7bdb8586c79e01b7e6e888cb.scn"
+path="res://.godot/imported/1323 - bumper.gltf-228577f1a072caeff3ca281a58facca2.scn"
 
 [deps]
 
-source_file="res://assets/robots/1323/1323 - bumper.gltf"
-dest_files=["res://.godot/imported/1323 - bumper.gltf-72e67f6b7bdb8586c79e01b7e6e888cb.scn"]
+source_file="res://assets/robots/1323/baseGltf/1323 - bumper.gltf"
+dest_files=["res://.godot/imported/1323 - bumper.gltf-228577f1a072caeff3ca281a58facca2.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://exeubgdphd5q"
-path="res://.godot/imported/1323 - algea intake roller.gltf-3f5e19b21b49d306663ebfc53e99b760.scn"
+uid="uid://cti2qxs3lyjkd"
+path="res://.godot/imported/1323 - algeaRoller.gltf-c57b0b341edba26a470de18cfe0ade1f.scn"
 
 [deps]
 
-source_file="res://assets/robots/1323/1323 - algea intake roller.gltf"
-dest_files=["res://.godot/imported/1323 - algea intake roller.gltf-3f5e19b21b49d306663ebfc53e99b760.scn"]
+source_file="res://assets/robots/1323/baseGltf/1323 - algeaRoller.gltf"
+dest_files=["res://.godot/imported/1323 - algeaRoller.gltf-c57b0b341edba26a470de18cfe0ade1f.scn"]
 
 [params]
 
@@ -34,11 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:algea intake roller": {
+"PATH:algeaRoller": {
 "generate/physics": true,
 "physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 5,
 "physics/shape_type": 1
 }
 }

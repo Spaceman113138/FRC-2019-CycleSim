@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c20ooa6dom60q"
-path="res://.godot/imported/1323 - carrage.gltf-4f795f8fb7d26cc725d0b0d3577ff2ee.scn"
+uid="uid://tm3lhui8lu8k"
+path="res://.godot/imported/1323 - groundIntake.gltf-952576b6315d026810a84976bdb2d063.scn"
 
 [deps]
 
-source_file="res://assets/robots/1323/1323 - carrage.gltf"
-dest_files=["res://.godot/imported/1323 - carrage.gltf-4f795f8fb7d26cc725d0b0d3577ff2ee.scn"]
+source_file="res://assets/robots/1323/baseGltf/1323 - groundIntake.gltf"
+dest_files=["res://.godot/imported/1323 - groundIntake.gltf-952576b6315d026810a84976bdb2d063.scn"]
 
 [params]
 
@@ -34,67 +34,47 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Part 18": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 19": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 20": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 21": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 22": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 1
-},
-"PATH:Part 25": {
+"PATH:Part 32": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
 "physics/mask": 7,
 "physics/shape_type": 0
 },
-"PATH:Part 26": {
+"PATH:Part 35": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 36": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 37": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:Part 38": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 7,
+"physics/shape_type": 1
+},
+"PATH:algea intake": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
 "physics/mask": 7,
 "physics/shape_type": 0
-},
-"PATH:Part 27": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7,
-"physics/shape_type": 0
-},
-"PATH:Part 28": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7
 }
 }
 }

@@ -2,22 +2,15 @@ class_name Madtown extends Node3D
 
 const cargoIntakeStore := 70.0
 
-@onready var cargoIntake := $CargoIntake
-@onready var algeaStop := $ContinuousElevator/Carrage/AlgeaStop
-@onready var elevator := $ContinuousElevator
+@onready var cargoIntake : Arm = $CargoIntake
+@onready var cargoIntakeRollers : Intake = $CargoIntake/groundIntake
+@onready var elevator : ContinuousElevator = $ContinuousElevator
+@onready var CargoManipulator : Intake = $ContinuousElevator/Carrage
 
-enum Heights {Stow, Ship, RocketLow, RocketMid, RocketHigh}
-const heightValues = {
-	Heights.Stow : 0.0,
-	Heights.Ship : 0.5,
-	Heights.RocketLow : 0.15,
-	Heights.RocketMid : 0.85,
-	Heights.RocketHigh : 1.6,
-}
-var currentHeight = Heights.Stow:
-	set(val):
-		currentHeight = val
-		elevator.targetHeight = heightValues[val]
+var hasCargo := false
+var hasHatchPannel := false
+
+@onready var stateMachine: StateMachine = StateMachine.new(MadtownStates.StoreState.new(self))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,43 +23,54 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(Engine.get_frames_per_second())
+	#print(stateMachine.currentState.stateName)
 	if Input.is_action_just_pressed("cargoIntake"):
-		cargoIntake.targetAngle = 0
-		currentHeight = Heights.Stow
+		stateMachine.requestState(MadtownStates.IntakeCargo.new(self))
 	elif Input.is_action_just_released("cargoIntake"):
-		cargoIntake.targetAngle = cargoIntakeStore
+		stateMachine.requestState(MadtownStates.StoreState.new(self))
 
 	if Input.is_action_just_pressed("Eject"):
-		algeaStop.disabled = true
+		CargoManipulator.active = false
 	elif Input.is_action_just_released("Eject"):
-		algeaStop.disabled = false
+		CargoManipulator.active = true
 	
 	if Input.is_action_just_pressed("ShipHeight"):
-		if currentHeight == Heights.Ship:
-			currentHeight = Heights.Stow
+		if stateMachine.currentState is MadtownStates.CargoShipHeight:
+			stateMachine.requestState(MadtownStates.StoreState.new(self))
 		else:
-			currentHeight = Heights.Ship
+			stateMachine.requestState(MadtownStates.CargoShipHeight.new(self))
 	elif Input.is_action_just_pressed("RocketLow"):
-		if currentHeight == Heights.RocketLow:
-			currentHeight = Heights.Stow
+		if stateMachine.currentState is MadtownStates.CargoRocketLow:
+			stateMachine.requestState(MadtownStates.StoreState.new(self))
 		else:
-			currentHeight = Heights.RocketLow
+			stateMachine.requestState(MadtownStates.CargoRocketLow.new(self))
 	elif Input.is_action_just_pressed("RocketMid"):
-		if currentHeight == Heights.RocketMid:
-			currentHeight = Heights.Stow
+		if stateMachine.currentState is MadtownStates.CargoRocketMid:
+			stateMachine.requestState(MadtownStates.StoreState.new(self))
 		else:
-			currentHeight = Heights.RocketMid
+			stateMachine.requestState(MadtownStates.CargoRocketMid.new(self))
 	elif Input.is_action_just_pressed("RocketHigh"):
-		if currentHeight == Heights.RocketHigh:
-			currentHeight = Heights.Stow
+		if stateMachine.currentState is MadtownStates.CargoRocketHigh:
+			stateMachine.requestState(MadtownStates.StoreState.new(self))
 		else:
-			currentHeight = Heights.RocketHigh
+			stateMachine.requestState(MadtownStates.CargoRocketHigh.new(self))
 
 func _on_intaking_collider_body_entered(body: Node3D) -> void:
 	if body is Cargo:
-		cargoIntake.targetAngle = 45
-		print("setAngle")
+		stateMachine.requestState(MadtownStates.IntakeCargoMid.new(self))
+
 
 func _on_intaking_collider_body_exited(body: Node3D) -> void:
 	if body is Cargo:
-		cargoIntake.targetAngle = cargoIntakeStore
+		stateMachine.requestState(MadtownStates.StoreState.new(self))
+
+
+func _on_carrage_cargo_intake_body_entered(body: Node3D) -> void:
+	if body is Cargo:
+		hasCargo = true
+
+
+func _on_carrage_cargo_intake_body_exited(body: Node3D) -> void:
+	if body is Cargo:
+		hasCargo = false
