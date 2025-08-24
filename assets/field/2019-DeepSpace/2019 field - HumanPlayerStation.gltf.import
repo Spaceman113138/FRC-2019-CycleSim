@@ -67,17 +67,17 @@ _subresources={
 "PATH:brush": {
 "generate/physics": true,
 "physics/layer": 8,
-"physics/mask": 8
+"physics/mask": 0
 },
 "PATH:brush2": {
 "generate/physics": true,
 "physics/layer": 8,
-"physics/mask": 8
+"physics/mask": 0
 },
 "PATH:brush3": {
 "generate/physics": true,
 "physics/layer": 8,
-"physics/mask": 8
+"physics/mask": 0
 }
 }
 }

@@ -1,12 +1,13 @@
 class_name MadtownStates extends Node
 
-enum Heights {Stow, Ship, RocketLow, RocketMid, RocketHigh}
+enum Heights {Stow, Ship, RocketLow, RocketMid, RocketHigh, HatchGrab}
 const heightValues = {
 	Heights.Stow : 0.0,
 	Heights.Ship : 0.5,
 	Heights.RocketLow : 0.15,
 	Heights.RocketMid : 0.85,
 	Heights.RocketHigh : 1.6,
+	Heights.HatchGrab : 0.2
 }
 
 enum CargoInakeAngles {Stow, Intaking, IntakeMid}
@@ -33,6 +34,26 @@ class StoreState extends BaseState:
 		MadtownNode.cargoIntake.targetAngle = intakeAngles[CargoInakeAngles.Stow]
 		MadtownNode.cargoIntakeRollers.active = false
 		MadtownNode.CargoManipulator.active = true
+		if MadtownNode.hasHatchPannel:
+			MadtownNode.Latervator.targetHeight = 0.05
+			MadtownNode.elevator.targetHeight = heightValues[Heights.HatchGrab]
+		else:
+			MadtownNode.Latervator.targetHeight = 0.0
+
+
+class IntakeHatch extends BaseState:
+	func _init(madtown: Madtown) -> void:
+		super("Intake Hatch", madtown)
+	
+	func initFunc():
+		MadtownNode.elevator.targetHeight = heightValues[Heights.HatchGrab]
+		MadtownNode.cargoIntake.targetAngle = intakeAngles[CargoInakeAngles.Stow]
+		MadtownNode.cargoIntakeRollers.active = false
+		MadtownNode.CargoManipulator.active = false
+		MadtownNode.Latervator.targetHeight = 0.25
+	
+	func requirements():
+		return not (MadtownNode.hasCargo or MadtownNode.hasHatchPannel)
 
 
 class IntakeCargo extends BaseState:
