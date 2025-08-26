@@ -20,8 +20,8 @@ const intakeAngles = {
 class BaseState extends State:
 	var MadtownNode: Madtown
 
-	func _init(stateName: String, madtownNode: Madtown) -> void:
-		super(stateName)
+	func _init(StateName: String, madtownNode: Madtown) -> void:
+		super(StateName)
 		MadtownNode = madtownNode
 
 

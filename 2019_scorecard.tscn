@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyfn6u1axn30"]
+
+[ext_resource type="Script" uid="uid://dsxwgeq58qe2v" path="res://2019_scorecard.gd" id="1_1pxum"]
+
+[node name="2019Scorecard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1pxum")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="score" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Total Score: 0"
+
+[node name="hatches" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Hatches Scored: 0"
+
+[node name="cargo" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cargo Scored: 0"

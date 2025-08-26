@@ -15,6 +15,10 @@ run/main_scene="res://node_3d.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [editor]
 
 movie_writer/movie_file="D:/games/frc/exportVideo.avi"
