@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dogg66akcwa5j"]
+[gd_scene load_steps=6 format=3 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://cbbikudim1ajr" path="res://1323.tscn" id="2_a0tk4"]
 [ext_resource type="PackedScene" uid="uid://dgavxffs1bt07" path="res://2019_field.tscn" id="2_noarx"]
-[ext_resource type="PackedScene" uid="uid://bx74pnqexbib3" path="res://assets/field/2019-DeepSpace/cargo.tscn" id="3_a0tk4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -30,30 +29,3 @@ shadow_enabled = true
 
 [node name="1323" parent="." instance=ExtResource("2_a0tk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179889, 0, 4.43157)
-
-[node name="Cargo" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01871, 0.165, 1.97412)
-
-[node name="Cargo2" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32539, 0.165, 5.50318)
-
-[node name="Cargo3" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34236, 0.165, 4.94543)
-
-[node name="Cargo4" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01871, 0.165, 1.97412)
-
-[node name="Cargo5" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32539, 0.165, 5.50318)
-
-[node name="Cargo6" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34236, 0.165, 4.94543)
-
-[node name="Cargo7" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01871, 1.36092, -3.66235)
-
-[node name="Cargo8" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32539, 1.36092, -0.133286)
-
-[node name="Cargo9" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34236, 1.36092, -0.69104)

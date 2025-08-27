@@ -64,6 +64,7 @@ class IntakeCargo extends BaseState:
 		MadtownNode.elevator.targetHeight = heightValues[Heights.Stow]
 		MadtownNode.cargoIntake.targetAngle = intakeAngles[CargoInakeAngles.Intaking]
 		MadtownNode.cargoIntakeRollers.active = true
+		MadtownNode.cargoIntakeRollers.reversed = false
 		MadtownNode.CargoManipulator.active = true
 	
 	func requirements():
@@ -78,6 +79,7 @@ class IntakeCargoMid extends BaseState:
 		MadtownNode.elevator.targetHeight = heightValues[Heights.Stow]
 		MadtownNode.cargoIntake.targetAngle = intakeAngles[CargoInakeAngles.IntakeMid]
 		MadtownNode.cargoIntakeRollers.active = true
+		MadtownNode.cargoIntakeRollers.active = false
 		MadtownNode.CargoManipulator.active = true
 
 

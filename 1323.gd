@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			hatchPanel.freeze = false
 			hatchPanel.reparent(get_tree().root.get_node("Node3D/2019-Field"))
 			hasHatchPannel = false
-			var force = Vector3(0,0,1).rotated(Vector3.UP, hatchPanel.global_rotation.y)
+			var force = Vector3(0,0,0.5).rotated(Vector3.UP, hatchPanel.global_rotation.y)
 			hatchPanel.apply_central_impulse(force)
 	elif Input.is_action_just_released("Eject"):
 		CargoManipulator.collidersActive = true
@@ -76,7 +76,8 @@ func _physics_process(delta: float) -> void:
 		hatchPanel.rotation = Vector3(0,0,0)
 
 func _on_intaking_collider_body_entered(body: Node3D) -> void:
-	if body is Cargo and not hasHatchPannel:
+	if body is Cargo and not hasHatchPannel and not hasCargo:
+		cargoIntakeRollers.active = false
 		stateMachine.requestState(MadtownStates.IntakeCargoMid.new(self))
 
 
