@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5ef45fx7bdv"]
+
+[ext_resource type="PackedScene" uid="uid://dobyf4s382jgv" path="res://assets/field/2019-DeepSpace/gltf/2019 field - HabComponents.gltf" id="1_dl2rv"]
+[ext_resource type="Script" uid="uid://c0sh0whpbdkl3" path="res://hab.gd" id="2_05u42"]
+[ext_resource type="Material" uid="uid://c7vu4bgfio4v1" path="res://assets/field/2019-DeepSpace/materials/darkerRed.tres" id="3_05u42"]
+[ext_resource type="Material" uid="uid://c5e3yg1ubhyba" path="res://assets/field/2019-DeepSpace/materials/darkerBlue.tres" id="3_dl2rv"]
+
+[node name="Hab" instance=ExtResource("1_dl2rv")]
+script = ExtResource("2_05u42")
+
+[node name="habFloor" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_05u42")
+surface_material_override/1 = ExtResource("3_dl2rv")
+surface_material_override/3 = ExtResource("3_dl2rv")
+surface_material_override/4 = ExtResource("3_dl2rv")

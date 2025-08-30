@@ -73,7 +73,8 @@ func _physics_process(delta: float) -> void:
 	
 	if hasHatchPannel:
 		hatchPanel.global_position = $Latervator/Latervator2/HatchIntake.global_position
-		hatchPanel.rotation = Vector3(0,0,0)
+		hatchPanel.rotation.x = 0
+		hatchPanel.rotation.y = 0
 
 func _on_intaking_collider_body_entered(body: Node3D) -> void:
 	if body is Cargo and not hasHatchPannel and not hasCargo:

@@ -38,35 +38,35 @@ _subresources={
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
-"physics/mask": 7,
+"physics/mask": 23,
 "physics/shape_type": 1
 },
 "PATH:Part 3": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
-"physics/mask": 7,
+"physics/mask": 23,
 "physics/shape_type": 1
 },
 "PATH:Part 4": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
-"physics/mask": 7,
+"physics/mask": 23,
 "physics/shape_type": 1
 },
 "PATH:Part 5": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
-"physics/mask": 7,
+"physics/mask": 23,
 "physics/shape_type": 1
 },
 "PATH:Part 6": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 2,
-"physics/mask": 7,
+"physics/mask": 23,
 "physics/shape_type": 1
 }
 }

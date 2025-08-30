@@ -28,4 +28,4 @@ shadow_enabled = true
 [node name="2019-Field" parent="." instance=ExtResource("2_noarx")]
 
 [node name="1323" parent="." instance=ExtResource("2_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179889, 0, 4.43157)
+transform = Transform3D(0.998228, 0, 0.059498, 0, 1, 0, -0.059498, 0, 0.998228, -2.94123, 0.373901, -3.49692)

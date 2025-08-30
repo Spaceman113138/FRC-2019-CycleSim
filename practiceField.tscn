@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cloko8fexs20p" path="res://assets/field/testField/small_driver_station.scn" id="2_kwqey"]
 [ext_resource type="PackedScene" uid="uid://dndc21ax8p6x3" path="res://assets/field/testField/driver_station.scn" id="3_com85"]
 [ext_resource type="PackedScene" uid="uid://ca70r00mynk4n" path="res://assets/field/testField/field_wall.scn" id="4_opt5f"]
-[ext_resource type="Material" uid="uid://d3d8eg7ce3tv2" path="res://assets/field/carpet.tres" id="5_gf6ow"]
+[ext_resource type="Material" uid="uid://d3d8eg7ce3tv2" path="res://assets/field/commonMaterials/carpet.tres" id="5_gf6ow"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ng62"]
 _surfaces = [{

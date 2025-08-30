@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=4 uid="uid://cbbikudim1ajr"]
+[gd_scene load_steps=145 format=4 uid="uid://cbbikudim1ajr"]
 
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://assets/robots/testSwerve/swerve_base.gd" id="1_gm32w"]
 [ext_resource type="Script" uid="uid://bvxg1kt6bj70e" path="res://1323.gd" id="1_nv782"]
@@ -3337,14 +3337,6 @@ absorbent = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mbcw"]
 size = Vector3(0.47382, 0.0366211, 0.202824)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aka4p"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_meidc"]
-material = SubResource("StandardMaterial3D_aka4p")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mdxh"]
 resource_name = "0.647059_0.647059_0.647059_0.000000_0.000000"
@@ -7167,6 +7159,7 @@ size = Vector3(0.158752, 0.147095, 0.117788)
 script = ExtResource("1_nv782")
 
 [node name="SwerveBase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
+collision_mask = 17
 mass = 50.0
 center_of_mass_mode = 1
 linear_damp = 2.5
@@ -7436,12 +7429,6 @@ forceAmount = 10.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CargoIntake/groundIntake/Area3D3"]
 transform = Transform3D(1, 0, 0, 0, 0.983188, -0.182596, 0, 0.182596, 0.983188, 0, 0, 0)
 shape = SubResource("BoxShape3D_5mbcw")
-
-[node name="start" type="MeshInstance3D" parent="CargoIntake/groundIntake/Area3D3"]
-mesh = SubResource("SphereMesh_meidc")
-
-[node name="end" type="MeshInstance3D" parent="CargoIntake/groundIntake/Area3D3"]
-mesh = SubResource("SphereMesh_meidc")
 
 [node name="CollisionHolder" type="Node3D" parent="CargoIntake/groundIntake" node_paths=PackedStringArray("TargetParent")]
 script = ExtResource("3_ls8si")

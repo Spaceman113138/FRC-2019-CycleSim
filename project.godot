@@ -30,6 +30,15 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[importer_defaults]
+
+3d_texture={
+&"compress/mode": 4
+}
+texture={
+&"compress/mode": 4
+}
+
 [input]
 
 forward={
