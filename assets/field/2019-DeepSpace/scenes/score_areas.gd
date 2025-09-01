@@ -5,20 +5,31 @@ class_name ScoreAreas extends Area3D
 var scorecard: DeepSpaceScorecard
 signal cargoScored
 
+var color: String
+var location: String
+
 var time: float = 0.0
 var scored := false:
 	set(val):
 		if val != scored and val:
-			scorecard.addCargo(pointValue)
-			cargoScored.emit()
+			if scorecard.currentGameState != scorecard.gameStates.AfterMatch:
+				scorecard.addCargo(pointValue, color, location)
+				cargoScored.emit()
 		elif val != scored:
-			scorecard.removeCargo(pointValue)
+			scorecard.removeCargo(pointValue, color, location)
 		scored = val
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scorecard = get_tree().root.get_node("Node3D/2019-Field/2019Scorecard")
+	color = "Blue" if global_position.z < 0 else "Red"
+	if global_position.x < -3.5:
+		location = "Left"
+	elif global_position.x > 3.5:
+		location = "Right"
+	else:
+		location = "Middle"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

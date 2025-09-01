@@ -30,6 +30,10 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://bf2172jwf51l1"
+
 [importer_defaults]
 
 3d_texture={

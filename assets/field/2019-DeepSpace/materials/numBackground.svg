@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="44.157928"
+   height="18.250002"
+   viewBox="0 0 44.157928 18.250003"
+   sodipodi:docname="scorecard.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="..\..\..\games\frc\assets\field\2019-DeepSpace\materials\scorecard.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="401.99019"
+     inkscape:cy="126.21856"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="timerNumBack"
+     transform="translate(-377.84811,-34.993644)">
+    <path
+       style="display:inline;fill:#b1b1b1;fill-opacity:0.4;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m 399,35 h -13.3 c -3.97256,0 -7.725,3.5 -7.85,9 -0.125,5.5 4.72348,9.25 7.85,9.25 h 13.3 14.5 c 4.50174,0 8.67921,-4.585252 8.5,-9.25 -0.17921,-4.664748 -4.24816,-9 -8.5,-9 z"
+       id="path19"
+       sodipodi:nodetypes="cszscszsc"
+       inkscape:label="timerNumsBackground"
+       transform="translate(4.8202276e-4,-0.00635709)" />
+  </g>
+</svg>

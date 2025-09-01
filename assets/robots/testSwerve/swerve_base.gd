@@ -12,6 +12,7 @@ class_name SwerveBase extends RigidBody3D
 @export var BL: SwerveModule
 @export var BR: SwerveModule
 var modules: Array[SwerveModule] = []
+var enabled: bool = false
 
 #@onready var parentRobot: RigidBody3D = get_parent()
 
@@ -28,6 +29,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not enabled:
+		return
 	var joysticVector: Vector2 = Input.get_vector("right", "left", "backward", "forward")
 	var translateVector := Vector3(joysticVector.x, 0, joysticVector.y) * TRANSLATION_MULTIPLIER
 	translateVector = translateVector.rotated(Vector3.UP, rotation.y)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgyfn6u1axn30"]
+[gd_scene load_steps=6 format=3 uid="uid://cgyfn6u1axn30"]
 
 [ext_resource type="Script" uid="uid://dsxwgeq58qe2v" path="res://2019_scorecard.gd" id="1_1pxum"]
+[ext_resource type="Texture2D" uid="uid://cu2me7dpq5yuf" path="res://assets/field/2019-DeepSpace/materials/scorecard.svg" id="2_u60vx"]
+[ext_resource type="Texture2D" uid="uid://divl144wuihmw" path="res://assets/field/2019-DeepSpace/materials/barBackground.svg" id="3_cjdf4"]
+[ext_resource type="Texture2D" uid="uid://dshd3xkocprbb" path="res://assets/field/2019-DeepSpace/materials/numBackground.svg" id="3_y5k6w"]
+[ext_resource type="Texture2D" uid="uid://dlfe77sxlbu7h" path="res://assets/field/2019-DeepSpace/materials/barMain.svg" id="4_d00qu"]
 
 [node name="2019Scorecard" type="Control"]
 layout_mode = 3
@@ -11,22 +15,205 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1pxum")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_u60vx")
+
+[node name="Red" type="Control" parent="TextureRect"]
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="score" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Total Score: 0"
+[node name="cargoLeft" type="Label" parent="TextureRect/Red"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 52.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
 
-[node name="hatches" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Hatches Scored: 0"
+[node name="hatchLeft" type="Label" parent="TextureRect/Red"]
+offset_left = 36.0
+offset_top = 66.0
+offset_right = 52.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
 
-[node name="cargo" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Cargo Scored: 0"
+[node name="cargoRight" type="Label" parent="TextureRect/Red"]
+offset_left = 102.0
+offset_top = 36.0
+offset_right = 118.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="hatchRight" type="Label" parent="TextureRect/Red"]
+offset_left = 102.0
+offset_top = 66.0
+offset_right = 118.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="cargoMiddle" type="Label" parent="TextureRect/Red"]
+offset_left = 225.0
+offset_top = 37.0
+offset_right = 241.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="hatchMiddle" type="Label" parent="TextureRect/Red"]
+offset_left = 225.0
+offset_top = 67.0
+offset_right = 241.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Blue" type="Control" parent="TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cargoLeft" type="Label" parent="TextureRect/Blue"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 36.0
+offset_right = 696.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="hatchLeft" type="Label" parent="TextureRect/Blue"]
+offset_left = 680.0
+offset_top = 66.0
+offset_right = 696.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="cargoRight" type="Label" parent="TextureRect/Blue"]
+offset_left = 746.0
+offset_top = 36.0
+offset_right = 762.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="hatchRight" type="Label" parent="TextureRect/Blue"]
+offset_left = 746.0
+offset_top = 66.0
+offset_right = 762.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="cargoMiddle" type="Label" parent="TextureRect/Blue"]
+offset_left = 558.0
+offset_top = 37.0
+offset_right = 574.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="hatchMiddle" type="Label" parent="TextureRect/Blue"]
+offset_left = 558.0
+offset_top = 67.0
+offset_right = 574.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="redScore" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 56.0
+offset_right = 380.0
+offset_bottom = 117.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="blueScore" type="Label" parent="TextureRect"]
+offset_left = 420.0
+offset_top = 56.0
+offset_right = 460.0
+offset_bottom = 117.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="MatchName" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 490.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Practice Match"
+
+[node name="TimeElapsedBar" type="TextureProgressBar" parent="TextureRect"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 31.0
+offset_right = 478.0
+offset_bottom = 71.0
+value = 100.0
+texture_under = ExtResource("3_cjdf4")
+texture_progress = ExtResource("4_d00qu")
+texture_progress_offset = Vector2(-1, 0)
+tint_progress = Color(0.0823529, 0.368627, 0.0901961, 1)
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 23.0
+offset_right = 448.778
+offset_bottom = 63.0
+texture = ExtResource("3_y5k6w")
+stretch_mode = 3
+
+[node name="timeLabel" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 33.0
+offset_right = 420.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "135"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

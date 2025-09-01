@@ -8,16 +8,25 @@ const cargoIntakeStore := 70.0
 @onready var CargoManipulator: Intake = $ContinuousElevator/Carrage
 @onready var Latervator: ContinuousElevator = $Latervator
 @onready var hatchIntake: Intake = $Latervator/Latervator2
+@onready var hatchCollider: CollisionShape3D = $Latervator/Latervator2/FakeHatchCollider
+@onready var swerveDrive: SwerveBase = $SwerveBase
+
+var scoreboard: DeepSpaceScorecard
 
 var hasCargo := false
-var hasHatchPannel := false
+var hasHatchPannel := false:
+	set(val):
+		hasHatchPannel = val
+		hatchCollider.disabled = not val
 var hatchPanel: HatchPanel
 
 @onready var stateMachine: StateMachine = StateMachine.new(MadtownStates.StoreState.new(self))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	scoreboard = get_tree().root.get_node("Node3D/2019-Field/2019Scorecard")
+	scoreboard.Enable.connect(func(): swerveDrive.enabled = true)
+	scoreboard.Disable.connect(func(): swerveDrive.enabled = false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,8 +35,16 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	#print(Engine.get_frames_per_second())
-	#print(stateMachine.currentState.stateName)
+	if scoreboard.currentEnableState == scoreboard.enableStates.Enabled:
+		enableRequireProcess()
+	
+	if hasHatchPannel:
+		hatchPanel.global_position = $Latervator/Latervator2/HatchIntake.global_position
+		hatchPanel.rotation.x = 0
+		hatchPanel.rotation.y = 0
+
+
+func enableRequireProcess():
 	if Input.is_action_just_pressed("cargoIntake"):
 		stateMachine.requestState(MadtownStates.IntakeCargo.new(self))
 	elif Input.is_action_just_released("cargoIntake"):
@@ -70,11 +87,6 @@ func _physics_process(delta: float) -> void:
 			stateMachine.requestState(MadtownStates.StoreState.new(self))
 		else:
 			stateMachine.requestState(MadtownStates.CargoRocketHigh.new(self))
-	
-	if hasHatchPannel:
-		hatchPanel.global_position = $Latervator/Latervator2/HatchIntake.global_position
-		hatchPanel.rotation.x = 0
-		hatchPanel.rotation.y = 0
 
 func _on_intaking_collider_body_entered(body: Node3D) -> void:
 	if body is Cargo and not hasHatchPannel and not hasCargo:

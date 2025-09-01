@@ -249,6 +249,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.25)
 
 [node name="RedCargoShip" parent="." instance=ExtResource("7_parwe")]
+bay1StartsHatch = false
+bay2StartsHatch = false
+bay3StartsHatch = false
 
 [node name="BlueCargoShip" parent="." instance=ExtResource("7_parwe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.001)
