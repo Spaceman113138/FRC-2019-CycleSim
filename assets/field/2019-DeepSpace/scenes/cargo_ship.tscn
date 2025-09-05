@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5sj63hfcnuu"]
+[gd_scene load_steps=16 format=3 uid="uid://c5sj63hfcnuu"]
 
 [ext_resource type="PackedScene" uid="uid://hdo0x3lbpndx" path="res://assets/field/2019-DeepSpace/gltf/2019 field - CargoShip.gltf" id="1_ve2pj"]
 [ext_resource type="Script" uid="uid://cr7meb3vllwh2" path="res://assets/field/2019-DeepSpace/scenes/cargo_ship.gd" id="2_kr3v0"]
@@ -19,10 +19,13 @@ size = Vector3(1.15125, 0.334473, 2.47455)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p804u"]
 height = 0.055542
-radius = 0.0302734
+radius = 0.0078125
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p804u"]
 size = Vector3(0.0964661, 0.048584, 0.0210571)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_seigu"]
+size = Vector2(0.06, 0.8)
 
 [node name="CargoShip" instance=ExtResource("1_ve2pj")]
 script = ExtResource("2_kr3v0")
@@ -272,3 +275,35 @@ script = ExtResource("3_twy33")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas8" index="0"]
 shape = SubResource("BoxShape3D_p804u")
 debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="line" type="MeshInstance3D" parent="." index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283235, 0, 2.87905)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line2" type="MeshInstance3D" parent="." index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284752, 0, 2.87905)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line3" type="MeshInstance3D" parent="." index="21"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.979263, 0, 1.62428)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line4" type="MeshInstance3D" parent="." index="22"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.979263, 0, 1.06581)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line5" type="MeshInstance3D" parent="." index="23"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.979263, 0, 0.498548)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line6" type="MeshInstance3D" parent="." index="24"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.969948, 0, 1.62428)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line7" type="MeshInstance3D" parent="." index="25"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.969948, 0, 1.06581)
+mesh = SubResource("PlaneMesh_seigu")
+
+[node name="line8" type="MeshInstance3D" parent="." index="26"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.969948, 0, 0.498548)
+mesh = SubResource("PlaneMesh_seigu")

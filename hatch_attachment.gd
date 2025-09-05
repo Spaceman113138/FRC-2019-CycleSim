@@ -12,8 +12,8 @@ var field: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scorecard = get_tree().root.get_node("Node3D/2019-Field/2019Scorecard")
-	field = get_tree().root.get_node("Node3D/2019-Field")
+	scorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
+	field = get_tree().root.get_node("GameWorld/2019-Field")
 	
 	color = "Blue" if global_position.z < 0 else "Red"
 	if global_position.x < -3.5:

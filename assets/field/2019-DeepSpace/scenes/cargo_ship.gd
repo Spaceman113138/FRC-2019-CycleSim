@@ -1,4 +1,4 @@
-extends Node3D
+class_name CargoShip extends Node3D
 
 @export var bay1StartsHatch: bool = true
 @export var bay2StartsHatch: bool = true
@@ -39,7 +39,7 @@ var createdCargo: Array[Cargo] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scorecard = get_tree().root.get_node("Node3D/2019-Field/2019Scorecard")
+	scorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
 	scorecard.TeleopStart.connect(disableAutoCollsiion)
 	
 	if global_position.z < 0:

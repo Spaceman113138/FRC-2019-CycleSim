@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl5ef45fx7bdv"]
+[gd_scene load_steps=8 format=3 uid="uid://cl5ef45fx7bdv"]
 
 [ext_resource type="PackedScene" uid="uid://dobyf4s382jgv" path="res://assets/field/2019-DeepSpace/gltf/2019 field - HabComponents.gltf" id="1_dl2rv"]
 [ext_resource type="Script" uid="uid://c0sh0whpbdkl3" path="res://hab.gd" id="2_05u42"]
 [ext_resource type="Material" uid="uid://c7vu4bgfio4v1" path="res://assets/field/2019-DeepSpace/materials/darkerRed.tres" id="3_05u42"]
 [ext_resource type="Material" uid="uid://c5e3yg1ubhyba" path="res://assets/field/2019-DeepSpace/materials/darkerBlue.tres" id="3_dl2rv"]
+[ext_resource type="Material" uid="uid://cpomg36bgbc0y" path="res://assets/field/2019-DeepSpace/materials/blue.tres" id="5_x7w28"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_05u42"]
+size = Vector2(2.15, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x7w28"]
+size = Vector3(8.50204, 2.25305, 2.41568)
 
 [node name="Hab" instance=ExtResource("1_dl2rv")]
 script = ExtResource("2_05u42")
@@ -13,3 +20,24 @@ surface_material_override/0 = ExtResource("3_05u42")
 surface_material_override/1 = ExtResource("3_dl2rv")
 surface_material_override/3 = ExtResource("3_dl2rv")
 surface_material_override/4 = ExtResource("3_dl2rv")
+
+[node name="HabLine" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.987, 0, 2.39)
+mesh = SubResource("PlaneMesh_05u42")
+surface_material_override/0 = ExtResource("5_x7w28")
+
+[node name="HabLine2" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.987, 0, 2.39)
+mesh = SubResource("PlaneMesh_05u42")
+surface_material_override/0 = ExtResource("5_x7w28")
+
+[node name="inHabZone" type="Area3D" parent="." index="6"]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="inHabZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044, 1.213)
+shape = SubResource("BoxShape3D_x7w28")
+
+[connection signal="body_exited" from="inHabZone" to="." method="_on_in_hab_zone_body_exited"]

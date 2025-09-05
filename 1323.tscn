@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=4 uid="uid://cbbikudim1ajr"]
+[gd_scene load_steps=148 format=4 uid="uid://cbbikudim1ajr"]
 
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://assets/robots/testSwerve/swerve_base.gd" id="1_gm32w"]
 [ext_resource type="Script" uid="uid://bvxg1kt6bj70e" path="res://1323.gd" id="1_nv782"]
@@ -6903,7 +6903,13 @@ shadow_mesh = SubResource("ArrayMesh_qc41m")
 points = PackedVector3Array(0.15875, 0.6985, -0.10161, 0.15875, 0.699044, -0.106889, 0.1651, 0.6985, -0.10161, 0.15875, 0.6985, 0.304782, 0.1651, 0.699044, -0.106889, 0.15875, 0.700663, -0.1119, 0.1651, 0.6985, 0.304782, 0.15875, 0.699022, 0.309927, 0.1651, 0.700663, -0.1119, 0.15875, 0.703289, -0.116463, 0.1651, 0.699022, 0.309927, 0.15875, 0.700588, 0.314893, 0.1651, 0.703289, -0.116463, 0.15875, 0.706802, -0.1204, 0.1651, 0.700588, 0.314893, 0.15875, 0.703124, 0.319411, 0.1651, 0.706802, -0.1204, 0.15875, 0.711061, -0.123531, 0.1651, 0.703124, 0.319411, 0.15875, 0.704049, 0.320485, 0.1651, 0.711061, -0.123531, 0.15875, 0.715864, -0.125723, 0.1651, 0.704049, 0.320485, 0.15875, 0.706518, 0.323303, 0.1651, 0.715864, -0.125723, 0.15875, 0.721018, -0.126842, 0.1651, 0.706518, 0.323303, 0.15875, 0.710636, 0.326435, 0.1651, 0.721018, -0.126842, 0.15875, 0.726292, -0.126886, 0.1651, 0.710636, 0.326435, 0.15875, 0.715312, 0.328672, 0.1651, 0.726292, -0.126886, 0.15875, 0.731468, -0.125857, 0.1651, 0.715312, 0.328672, 0.15875, 0.72034, 0.329924, 0.1651, 0.731468, -0.125857, 0.15875, 0.736317, -0.1238, 0.1651, 0.72034, 0.329924, 0.15875, 0.725516, 0.330148, 0.1651, 0.736317, -0.1238, 0.15875, 0.740628, -0.120713, 0.1651, 0.725516, 0.330148, 0.15875, 0.730625, 0.329253, 0.1651, 0.740628, -0.120713, 0.15875, 0.744215, -0.116865, 0.1651, 0.730625, 0.329253, 0.15875, 0.735459, 0.327374, 0.1651, 0.744215, -0.116865, 0.15875, 0.7747, -0.076244, 0.1651, 0.735459, 0.327374, 0.15875, 0.739807, 0.324556, 0.1651, 0.7747, -0.076244, 0.15875, 0.7747, -0.0254226, 0.1651, 0.739807, 0.324556, 0.15875, 0.743492, 0.320932, 0.1651, 0.7747, -0.0254226, 0.15875, 0.74922, 0.306706, 0.1651, 0.743492, 0.320932, 0.15875, 0.746364, 0.316638, 0.1651, 0.74922, 0.306706, 0.15875, 0.748303, 0.311806, 0.1651, 0.746364, 0.316638, 0.1651, 0.748303, 0.311806)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tl4kf"]
-size = Vector3(0.310105, 0.0366211, 0.377083)
+size = Vector3(0.310105, 0.0366211, 0.10944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jr28"]
+size = Vector3(0.150146, 0.11438, 0.0939941)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ro2i7"]
+size = Vector3(0.310105, 0.0366211, 0.134342)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpiq4"]
 resource_name = "0.615686_0.811765_0.929412_0.000000_0.000000"
@@ -7162,12 +7168,14 @@ size = Vector3(0.158752, 0.147095, 0.117788)
 script = ExtResource("1_nv782")
 
 [node name="SwerveBase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
+collision_priority = 100.0
 mass = 50.0
 center_of_mass_mode = 1
-linear_damp = 2.5
-angular_damp = 2.0
+linear_damp = 3.5
+angular_damp = 2.5
 script = ExtResource("1_gm32w")
 STATIC_ROT_MULTIPLIER = 250.0
+FIELD_ORIENT = true
 FL = NodePath("FLmodule")
 FR = NodePath("FRmodule")
 BL = NodePath("BLmodule")
@@ -7339,8 +7347,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SwerveBase/Uprights"]
 shape = SubResource("ConvexPolygonShape3D_8pyup")
 
-[node name="Camera3D" type="Camera3D" parent="SwerveBase"]
-transform = Transform3D(-0.999889, 0.00194428, -0.0147729, -0.00359697, 0.930632, 0.365939, 0.0144596, 0.365952, -0.930521, 0.0538521, 1.71085, -2.31834)
+[node name="1stPersonCam" type="Camera3D" parent="SwerveBase"]
+transform = Transform3D(-0.999994, -0.00349062, -8.13396e-08, -0.00324776, 0.930412, 0.366501, -0.00127924, 0.366499, -0.930417, 0.0538521, 1.71085, -2.31834)
 
 [node name="lowerAlgeaRollers" type="Node3D" parent="SwerveBase" node_paths=PackedStringArray("TargetParent")]
 script = ExtResource("3_ls8si")
@@ -7394,9 +7402,10 @@ solver_position_iterations = 50
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.258532, -0.307707)
 
 [node name="CargoIntake" type="Node3D" parent="." node_paths=PackedStringArray("armJoint", "armBody")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25815, -0.30789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147496, -0.671706)
 script = ExtResource("5_meidc")
 armJoint = NodePath("../GroundIntakeHinge")
+angleOffset = -67.0
 tolorence = 2.0
 targetAngle = 3.0
 P = -0.1
@@ -7404,7 +7413,7 @@ armBody = NodePath("groundIntake")
 metadata/_custom_type_script = "uid://dpnmvnyt2merd"
 
 [node name="groundIntake" type="RigidBody3D" parent="CargoIntake" node_paths=PackedStringArray("intakeColliders")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.229618, 0.275105)
+transform = Transform3D(1, 0, 0, 0, 0.390731, -0.920505, 0, 0.920505, 0.390731, 0, -0.229618, 0.275105)
 collision_layer = 2
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_nv782")
@@ -7492,10 +7501,10 @@ node_a = NodePath("../CargoIntake/groundIntake")
 node_b = NodePath("../algea intake roller")
 solver_velocity_iterations = 50
 solver_position_iterations = 50
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.370046, -0.709623)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.653866, -0.336927)
 
 [node name="algea intake roller" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0285318, -0.0537071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.312352, 0.319574)
 collision_layer = 2
 collision_mask = 4
 mass = 0.125
@@ -7521,7 +7530,7 @@ physics_material_override = SubResource("PhysicsMaterial_5mbcw")
 center_of_mass_mode = 1
 continuous_cd = true
 script = ExtResource("6_tl4kf")
-intakeColliders = [NodePath("carrageCargoIntake")]
+intakeColliders = [NodePath("carrageCargoIntake2")]
 colliders = [NodePath("AlgeaStop")]
 metadata/_custom_type_script = "uid://3foqq3qa6ssn"
 
@@ -7643,7 +7652,29 @@ script = ExtResource("5_aka4p")
 forceAmount = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ContinuousElevator/Carrage/carrageCargoIntake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.133822)
 shape = SubResource("BoxShape3D_tl4kf")
+
+[node name="cargoDetector" type="Area3D" parent="ContinuousElevator/Carrage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.529668, 0.276753)
+collision_layer = 0
+collision_mask = 100
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContinuousElevator/Carrage/cargoDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0581492)
+shape = SubResource("BoxShape3D_7jr28")
+
+[node name="carrageCargoIntake2" type="Area3D" parent="ContinuousElevator/Carrage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562804, 0.0780488)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_aka4p")
+forceAmount = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContinuousElevator/Carrage/carrageCargoIntake2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12137)
+shape = SubResource("BoxShape3D_ro2i7")
 
 [node name="Latervator" type="Node3D" parent="." node_paths=PackedStringArray("components")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.0503408)
@@ -7700,16 +7731,22 @@ enabled = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Latervator/Latervator2/HatchIntake"]
 shape = SubResource("BoxShape3D_ch4cl")
 
+[node name="3rdPersonCam" type="Camera3D" parent="."]
+transform = Transform3D(-2.91142e-08, 0.553232, -0.833027, 4.8365e-08, 0.833027, 0.553232, 1, -2.41825e-08, -5.101e-08, -2.78323, 3.5412, 0.309092)
+current = true
+
 [connection signal="body_entered" from="SwerveBase/intakingCollider" to="." method="_on_intaking_collider_body_entered"]
 [connection signal="body_exited" from="SwerveBase/intakingCollider" to="." method="_on_intaking_collider_body_exited"]
 [connection signal="body_entered" from="CargoIntake/groundIntake/Area3D2" to="CargoIntake/groundIntake/Area3D2" method="_on_body_entered"]
 [connection signal="body_exited" from="CargoIntake/groundIntake/Area3D2" to="CargoIntake/groundIntake/Area3D2" method="_on_body_exited"]
 [connection signal="body_entered" from="CargoIntake/groundIntake/Area3D3" to="CargoIntake/groundIntake/Area3D3" method="_on_body_entered"]
 [connection signal="body_exited" from="CargoIntake/groundIntake/Area3D3" to="CargoIntake/groundIntake/Area3D3" method="_on_body_exited"]
-[connection signal="body_entered" from="ContinuousElevator/Carrage/carrageCargoIntake" to="." method="_on_carrage_cargo_intake_body_entered"]
 [connection signal="body_entered" from="ContinuousElevator/Carrage/carrageCargoIntake" to="ContinuousElevator/Carrage/carrageCargoIntake" method="_on_body_entered"]
-[connection signal="body_exited" from="ContinuousElevator/Carrage/carrageCargoIntake" to="." method="_on_carrage_cargo_intake_body_exited"]
 [connection signal="body_exited" from="ContinuousElevator/Carrage/carrageCargoIntake" to="ContinuousElevator/Carrage/carrageCargoIntake" method="_on_body_exited"]
+[connection signal="body_entered" from="ContinuousElevator/Carrage/cargoDetector" to="." method="_on_cargo_detector_body_entered"]
+[connection signal="body_exited" from="ContinuousElevator/Carrage/cargoDetector" to="." method="_on_cargo_detector_body_exited"]
+[connection signal="body_entered" from="ContinuousElevator/Carrage/carrageCargoIntake2" to="ContinuousElevator/Carrage/carrageCargoIntake2" method="_on_body_entered"]
+[connection signal="body_exited" from="ContinuousElevator/Carrage/carrageCargoIntake2" to="ContinuousElevator/Carrage/carrageCargoIntake2" method="_on_body_exited"]
 [connection signal="body_entered" from="Latervator/Latervator2/HatchIntake" to="." method="_on_hatch_intake_body_entered"]
 [connection signal="body_entered" from="Latervator/Latervator2/HatchIntake" to="Latervator/Latervator2/HatchIntake" method="_on_body_entered"]
 [connection signal="body_exited" from="Latervator/Latervator2/HatchIntake" to="." method="_on_hatch_intake_body_exited"]

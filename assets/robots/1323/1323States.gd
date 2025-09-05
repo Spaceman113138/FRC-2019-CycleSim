@@ -5,16 +5,16 @@ const heightValues = {
 	Heights.Stow : 0.0,
 	Heights.Ship : 0.5,
 	Heights.RocketLow : 0.15,
-	Heights.RocketMid : 0.85,
-	Heights.RocketHigh : 1.6,
+	Heights.RocketMid : 0.90,
+	Heights.RocketHigh : 1.65,
 	Heights.HatchGrab : 0.2
 }
 
 enum CargoInakeAngles {Stow, Intaking, IntakeMid}
 const intakeAngles = {
-	CargoInakeAngles.Stow : 75,
-	CargoInakeAngles.Intaking : 0,
-	CargoInakeAngles.IntakeMid : 45
+	CargoInakeAngles.Stow : -5.0,
+	CargoInakeAngles.Intaking : -67,
+	CargoInakeAngles.IntakeMid : -40
 }
 
 class BaseState extends State:
@@ -26,14 +26,14 @@ class BaseState extends State:
 
 
 class StoreState extends BaseState:
-	func _init(madtown: Madtown) -> void:
+	func _init(madtown: Madtown) -> void:	
 		super("Store", madtown)
 
 	func initFunc():
 		MadtownNode.elevator.targetHeight = heightValues[Heights.Stow]
 		MadtownNode.cargoIntake.targetAngle = intakeAngles[CargoInakeAngles.Stow]
 		MadtownNode.cargoIntakeRollers.active = false
-		MadtownNode.CargoManipulator.active = true
+		MadtownNode.CargoManipulator.active = false
 		if MadtownNode.hasHatchPannel:
 			MadtownNode.Latervator.targetHeight = 0.05
 			MadtownNode.elevator.targetHeight = heightValues[Heights.HatchGrab]

@@ -9,7 +9,7 @@ var timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	robotNode = get_tree().root.get_node("Node3D/1323/SwerveBase")
+	robotNode = get_tree().root.get_node("GameWorld/1323/SwerveBase")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		var newHatch: HatchPanel = hatchScene.instantiate()
 		add_child(newHatch)
 		newHatch.position = Vector3(0.301, 1.675, 0.019)
-		newHatch.reparent(get_tree().root.get_node("Node3D/2019-Field"))
+		newHatch.reparent(get_tree().root.get_node("GameWorld/2019-Field"))
 		timer = 1.0
 	
 	if Input.is_action_just_pressed("CargoDrop") and timer > 2.0:
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			var newCargo: Cargo = cargoScene.instantiate()
 			add_child(newCargo)
 			newCargo.position = Vector3(0.021, 1.165, -0.177)
-			newCargo.reparent(get_tree().root.get_node("Node3D/2019-Field"))
+			newCargo.reparent(get_tree().root.get_node("GameWorld/2019-Field"))
 			timer = 0.0
 	
 	timer += delta

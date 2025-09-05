@@ -147,3 +147,9 @@ func removeCargo(points: int, color: String, location: String):
 		redCargoPlacements[location] -= 1
 		redScore -= points
 		get_node("TextureRect/Red/cargo" + location).text = str(redCargoPlacements[location])
+
+func addSandstorm(points: int, color: String):
+	if color == "Blue":
+		blueScore += points
+	else:
+		redScore += points

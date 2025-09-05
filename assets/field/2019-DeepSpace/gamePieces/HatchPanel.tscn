@@ -272,11 +272,12 @@ radius = 0.0825
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lbc1w"]
 height = 0.00546265
-radius = 0.0810547
+radius = 0.0249023
 
 [node name="HatchPanel" type="RigidBody3D"]
 collision_layer = 20
 collision_mask = 31
+collision_priority = 100.0
 mass = 0.25
 gravity_scale = 1.5
 center_of_mass_mode = 1

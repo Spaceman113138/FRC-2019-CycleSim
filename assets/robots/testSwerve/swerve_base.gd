@@ -13,6 +13,7 @@ class_name SwerveBase extends RigidBody3D
 @export var BR: SwerveModule
 var modules: Array[SwerveModule] = []
 var enabled: bool = false
+var fieldOrientOffset: float = 0.0
 
 #@onready var parentRobot: RigidBody3D = get_parent()
 
@@ -33,7 +34,10 @@ func _physics_process(delta: float) -> void:
 		return
 	var joysticVector: Vector2 = Input.get_vector("right", "left", "backward", "forward")
 	var translateVector := Vector3(joysticVector.x, 0, joysticVector.y) * TRANSLATION_MULTIPLIER
-	translateVector = translateVector.rotated(Vector3.UP, rotation.y)
+	if FIELD_ORIENT:
+		translateVector = translateVector.rotated(Vector3.UP, fieldOrientOffset)
+	else:
+		translateVector = translateVector.rotated(Vector3.UP, global_rotation.y)
 	
 	var rotationAmount = Input.get_action_strength("Clockwise") - Input.get_action_strength("CounterClockwise")
 	rotationAmount *= -ROTATION_MULTIPLIER
@@ -41,8 +45,8 @@ func _physics_process(delta: float) -> void:
 	var highestForce = 0
 	for module in modules:
 		module.updateForceVector(translateVector, rotationAmount)
-		if FIELD_ORIENT:
-			module.fieldOrient(rotation.y)
+		#if FIELD_ORIENT:
+			#module.fieldOrient(rotation.y)
 		if module.forceVector.length() > highestForce:
 			highestForce = module.forceVector.length()
 	

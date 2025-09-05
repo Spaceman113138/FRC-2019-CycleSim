@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctb5vvv6lhgfo"]
+[gd_scene load_steps=15 format=3 uid="uid://ctb5vvv6lhgfo"]
 
 [ext_resource type="PackedScene" uid="uid://cy7o3fl3wy3f" path="res://assets/field/2019-DeepSpace/gltf/2019 field - Rocket.gltf" id="1_rsrmk"]
 [ext_resource type="Script" uid="uid://xgik48qsctqc" path="res://assets/field/2019-DeepSpace/scenes/rocket.gd" id="2_6jvd6"]
@@ -18,10 +18,13 @@ size = Vector3(0.565262, 2.53703, 0.705078)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ddf5g"]
 height = 0.055542
-radius = 0.0302734
+radius = 0.0131836
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7tfj"]
 size = Vector3(0.0964661, 0.048584, 0.0210571)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6jvd6"]
+size = Vector2(0.06, 0.5)
 
 [node name="Rocket" instance=ExtResource("1_rsrmk")]
 script = ExtResource("2_6jvd6")
@@ -94,7 +97,7 @@ monitorable = false
 script = ExtResource("2_o38ff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment" index="0"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1.77636e-15, -5.96046e-08, -0.999999, -1, -4.37114e-08, 0, -4.37114e-08, 0.999999, -5.96046e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_ddf5g")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
@@ -217,3 +220,15 @@ script = ExtResource("3_n40d4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas6" index="0"]
 shape = SubResource("BoxShape3D_j7tfj")
 debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.953375)
+mesh = SubResource("PlaneMesh_6jvd6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="17"]
+transform = Transform3D(0.466201, 0, -0.884679, 0, 1, 0, 0.884679, 0, 0.466201, -0.586137, 0, 0.582177)
+mesh = SubResource("PlaneMesh_6jvd6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="18"]
+transform = Transform3D(0.466387, 0, 0.884581, 0, 1, 0, -0.884581, 0, 0.466387, 0.586, 0, 0.582)
+mesh = SubResource("PlaneMesh_6jvd6")
