@@ -10,16 +10,7 @@ const cargoIntakeStore := 70.0
 @onready var hatchIntake: Intake = $Latervator/Latervator2
 @onready var hatchCollider: CollisionShape3D = $Latervator/Latervator2/FakeHatchCollider
 @onready var swerveDrive: SwerveBase = $SwerveBase
-@onready var thirdPersonCam := $"3rdPersonCam"
-@onready var firstPersonCam := $"SwerveBase/1stPersonCam"
 
-@onready var cameraTransform: Vector3 = Vector3.ZERO:
-	set(val):
-		cameraTransform = val
-		swerveDrive.fieldOrientOffset = -thirdPersonCam.rotation.y
-
-var scoreboard: DeepSpaceScorecard
-var fieldNode: Node3D
 
 var hasCargo := false
 var hasHatchPannel := false:
@@ -30,24 +21,20 @@ var hatchPanel: HatchPanel
 
 @onready var stateMachine: StateMachine = StateMachine.new(MadtownStates.StoreState.new(self))
 
-var isBlue := true
-var startingIndex: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scoreboard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
-	fieldNode = get_tree().root.get_node("GameWorld/2019-Field")
-	scoreboard.Enable.connect(func(): swerveDrive.enabled = true)
-	scoreboard.Disable.connect(func(): swerveDrive.enabled = false)
-	cameraTransform = thirdPersonCam.position
+	super._ready()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	super._process(delta)
 	thirdPersonCam.global_position = swerveDrive.global_position + cameraTransform
 
 
 func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
 	if scoreboard.currentEnableState == scoreboard.enableStates.Enabled:
 		enableRequireProcess()
 	
@@ -55,18 +42,7 @@ func _physics_process(delta: float) -> void:
 		hatchPanel.global_position = $Latervator/Latervator2/HatchIntake.global_position
 		hatchPanel.rotation.x = 0
 		hatchPanel.rotation.y = 0
-	
-	if Input.is_action_just_pressed("swapCameraDirection"):
-		thirdPersonCam.rotation.y *= -1.0
-		cameraTransform.x *= -1.0
-		thirdPersonCam.position = cameraTransform
-		
-		firstPersonCam.rotation.y += PI
-		firstPersonCam.position.z *= -1.0
-	
-	if Input.is_action_just_pressed("swapCameraView"):
-		thirdPersonCam.current = !thirdPersonCam.current
-		swerveDrive.FIELD_ORIENT = !swerveDrive.FIELD_ORIENT
+
 
 
 func enableRequireProcess():

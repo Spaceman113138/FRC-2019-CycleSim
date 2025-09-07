@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bx74pnqexbib3" path="res://assets/field/2019-DeepSpace/gamePieces/cargo.tscn" id="14_6vn5c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5nk7"]
-friction = 2.0
 rough = true
+bounce = 0.1
+absorbent = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cdfkh"]
 points = PackedVector3Array(4.572, 0, 11.1738, -4.572, 0, 11.1738, 4.572, -0.0254, 11.1738, 4.572, 0, -11.176, -4.572, -0.0254, 11.1738, -4.572, 0, -11.176, 4.572, -0.0254, -11.176, -4.572, -0.0254, -11.176)

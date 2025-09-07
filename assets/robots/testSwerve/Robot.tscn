@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjywq8e2vq6ak" path="res://TestRobot.gd" id="1_tvi0a"]
 [ext_resource type="PackedScene" uid="uid://cgcobkyv6w0t1" path="res://assets/robots/testSwerve/swerve_base.tscn" id="2_yf6n0"]
-[ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://assets/robots/testSwerve/Elevator.gd" id="3_6tbaa"]
+[ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://assets/robots/testSwerve/ContinuousElevator.gd" id="3_6tbaa"]
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://assets/robots/testSwerve/Arm.gd" id="4_qywqd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf6n0"]

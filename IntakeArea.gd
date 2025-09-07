@@ -9,10 +9,16 @@ var contacts: Array[RigidBody3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
+
+func containsPiece() -> bool:
+	return len(contacts) > 0
 
 
 func _physics_process(delta: float) -> void:
+	if not enabled:
+		return
 	var vector = Vector3(0,0,1)
 	if reversed:
 		vector *= -1

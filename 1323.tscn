@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dk0f1c6qppfnn" path="res://AlgeaIntake.gd" id="5_aka4p"]
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://assets/robots/testSwerve/Arm.gd" id="5_meidc"]
 [ext_resource type="Script" uid="uid://3foqq3qa6ssn" path="res://Intake.gd" id="6_tl4kf"]
-[ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://assets/robots/testSwerve/Elevator.gd" id="7_nv782"]
+[ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://assets/robots/testSwerve/ContinuousElevator.gd" id="7_nv782"]
 [ext_resource type="PackedScene" uid="uid://bv5yi0wka0u65" path="res://assets/robots/1323/baseGltf/1323 - Hatchwheel (1).gltf" id="10_3r5s5"]
 [ext_resource type="PackedScene" uid="uid://cp7o0jpbewsjs" path="res://assets/robots/1323/baseGltf/1323 - Hatchwheel.gltf" id="11_ch4cl"]
 [ext_resource type="Script" uid="uid://dt5h6j8ff54ho" path="res://hatch_intake.gd" id="12_ch4cl"]

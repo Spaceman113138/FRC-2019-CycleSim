@@ -6,6 +6,7 @@ class_name SwerveBase extends RigidBody3D
 @export var MAX_MODULE_FORCE: float = 400
 
 @export var FIELD_ORIENT: bool = false
+@export var invert: bool = false
 
 @export var FL: SwerveModule
 @export var FR: SwerveModule
@@ -34,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		return
 	var joysticVector: Vector2 = Input.get_vector("right", "left", "backward", "forward")
 	var translateVector := Vector3(joysticVector.x, 0, joysticVector.y) * TRANSLATION_MULTIPLIER
+	if invert:
+		translateVector *= -1.0
 	if FIELD_ORIENT:
 		translateVector = translateVector.rotated(Vector3.UP, fieldOrientOffset)
 	else:

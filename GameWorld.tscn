@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://dgavxffs1bt07" path="res://2019_field.tscn" id="1_5do2m"]
-[ext_resource type="PackedScene" uid="uid://cbbikudim1ajr" path="res://1323.tscn" id="2_8vx87"]
+[ext_resource type="PackedScene" uid="uid://cc6hha1vw8hpr" path="res://assets/robots/Wildstang111/wildstang_111.tscn" id="2_5do2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -27,10 +27,5 @@ shadow_enabled = true
 
 [node name="2019-Field" parent="." instance=ExtResource("1_5do2m")]
 
-[node name="1323" parent="." instance=ExtResource("2_8vx87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10502, 0.231479, -7.77941)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 6.795, 3.98)
-projection = 1
-size = 4.5
+[node name="Wildstang111" parent="." instance=ExtResource("2_5do2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342817, 0.013, -5.13409)

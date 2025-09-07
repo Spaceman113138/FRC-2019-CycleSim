@@ -7,12 +7,12 @@ var currentState:
 		currentState.initFunc()
 
 
+func _physics_process(delta: float) -> void:
+	currentState.executeFunc()
+
+
 func _init(startingState) -> void:
 	currentState = startingState
-
-
-func runExecuteFunc():
-	currentState.executeFunc()
 
 
 func requestState(newState):
