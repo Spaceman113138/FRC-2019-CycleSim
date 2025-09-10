@@ -35,7 +35,11 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	pass
+	if global_position.y < 0.005:
+		freeze = true
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
+		collision_mask = 0
 
 
 func _on_intake_detector_area_entered(area: Area3D) -> void:

@@ -10,7 +10,7 @@
 size = Vector2(2.15, 0.06)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x7w28"]
-size = Vector3(8.50204, 2.25305, 2.41568)
+size = Vector3(8.50204, 2.25305, 5.55794)
 
 [node name="Hab" instance=ExtResource("1_dl2rv")]
 script = ExtResource("2_05u42")
@@ -32,12 +32,11 @@ mesh = SubResource("PlaneMesh_05u42")
 surface_material_override/0 = ExtResource("5_x7w28")
 
 [node name="inHabZone" type="Area3D" parent="." index="6"]
-collision_layer = 0
+collision_layer = 256
 collision_mask = 3
-monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="inHabZone" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044, 1.213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044, -0.358129)
 shape = SubResource("BoxShape3D_x7w28")
 
 [connection signal="body_exited" from="inHabZone" to="." method="_on_in_hab_zone_body_exited"]

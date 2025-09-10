@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var joysticVector: Vector2 = Input.get_vector("right", "left", "backward", "forward")
 	var translateVector := Vector3(joysticVector.x, 0, joysticVector.y) * TRANSLATION_MULTIPLIER
-	if invert:
+	if invert and not FIELD_ORIENT:
 		translateVector *= -1.0
 	if FIELD_ORIENT:
 		translateVector = translateVector.rotated(Vector3.UP, fieldOrientOffset)

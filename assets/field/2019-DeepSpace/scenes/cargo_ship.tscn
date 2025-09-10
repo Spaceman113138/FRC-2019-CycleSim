@@ -18,7 +18,7 @@ size = Vector3(0.0216599, 0.306641, 1.36549)
 size = Vector3(1.15125, 0.334473, 2.47455)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p804u"]
-height = 0.055542
+height = 0.144989
 radius = 0.0078125
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p804u"]
@@ -35,6 +35,7 @@ surface_material_override/3 = ExtResource("3_seigu")
 
 [node name="StaticBody3D" parent="CargoShip" index="0"]
 visible = false
+collision_mask = 35
 
 [node name="wingRight" type="Sprite3D" parent="CargoShip" index="1"]
 transform = Transform3D(-3.79662e-09, 0, -0.0828659, 0, 0.0828659, 0, 0.0868566, 0, -3.62218e-09, -0.005, 1.346, 0.785)
@@ -67,6 +68,7 @@ pixel_size = 0.005
 texture = ExtResource("6_kr3v0")
 
 [node name="AutoCargoHold" type="StaticBody3D" parent="." index="1"]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
@@ -83,6 +85,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, -1, -4.37114e-08, 4.37114e-08, -4.3
 shape = SubResource("BoxShape3D_vishe")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+visible = false
 collision_layer = 16
 collision_mask = 16
 
@@ -192,7 +195,7 @@ monitorable = false
 script = ExtResource("2_twy33")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bay3Left" index="0"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0.0447235)
 shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 

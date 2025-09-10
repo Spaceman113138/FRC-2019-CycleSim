@@ -7164,8 +7164,11 @@ size = Vector3(0.204887, 0.0978394, 0.0189209)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ch4cl"]
 size = Vector3(0.158752, 0.147095, 0.117788)
 
-[node name="1323" type="Node3D"]
+[node name="1323" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam")]
 script = ExtResource("1_nv782")
+drivetrain = NodePath("SwerveBase")
+firstPersonCam = NodePath("SwerveBase/1stPersonCam")
+thirdPersonCam = NodePath("3rdPersonCam")
 
 [node name="SwerveBase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
 collision_priority = 100.0

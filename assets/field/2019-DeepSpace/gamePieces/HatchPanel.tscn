@@ -1,7 +1,10 @@
-[gd_scene load_steps=37 format=4 uid="uid://dskfvi8mfosp6"]
+[gd_scene load_steps=38 format=4 uid="uid://dskfvi8mfosp6"]
 
 [ext_resource type="Script" uid="uid://crt5v58ptjrpc" path="res://assets/field/2019-DeepSpace/gamePieces/hatch_panel.gd" id="1_ma575"]
 [ext_resource type="Texture2D" uid="uid://dcvu1eebqppnt" path="res://assets/field/2019-DeepSpace/materials/hatchPannel.png" id="2_el837"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_el837"]
+friction = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_turaw"]
 resource_name = "1.000000_0.756863_0.054902_0.000000_0.000000"
@@ -277,9 +280,8 @@ radius = 0.0249023
 [node name="HatchPanel" type="RigidBody3D"]
 collision_layer = 20
 collision_mask = 31
-collision_priority = 100.0
 mass = 0.25
-gravity_scale = 1.5
+physics_material_override = SubResource("PhysicsMaterial_el837")
 center_of_mass_mode = 1
 can_sleep = false
 continuous_cd = true

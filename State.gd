@@ -12,7 +12,7 @@ func initFunc() -> void:
 	pass
 
 
-func executeFunc() -> void:
+func executeFunc(delta: float) -> void:
 	pass
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctb5vvv6lhgfo"]
+[gd_scene load_steps=13 format=3 uid="uid://ctb5vvv6lhgfo"]
 
 [ext_resource type="PackedScene" uid="uid://cy7o3fl3wy3f" path="res://assets/field/2019-DeepSpace/gltf/2019 field - Rocket.gltf" id="1_rsrmk"]
 [ext_resource type="Script" uid="uid://xgik48qsctqc" path="res://assets/field/2019-DeepSpace/scenes/rocket.gd" id="2_6jvd6"]
@@ -9,12 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://br0hbgua6jm" path="res://assets/field/2019-DeepSpace/materials/ge-19209-red.png" id="4_0kmfm"]
 [ext_resource type="Texture2D" uid="uid://flfytkdvjmqt" path="res://assets/field/2019-DeepSpace/materials/redLeftWing.png" id="6_6jvd6"]
 [ext_resource type="Texture2D" uid="uid://dil2h51utsdvi" path="res://assets/field/2019-DeepSpace/materials/ge-19117-red.png" id="7_6jvd6"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6jvd6"]
-size = Vector3(0.495461, 2.53703, 0.705078)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0kmfm"]
-size = Vector3(0.565262, 2.53703, 0.705078)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ddf5g"]
 height = 0.055542
@@ -36,17 +30,10 @@ collision_mask = 35
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RocketBody/hatchKeepout" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000667572, 1.20412, 0.351137)
-shape = SubResource("BoxShape3D_6jvd6")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="RocketBody/hatchKeepout" index="1"]
-transform = Transform3D(0.476453, 0, 0.8792, 0, 1, 0, -0.8792, 0, 0.476453, 0.0715704, 1.20412, 0.282815)
-shape = SubResource("BoxShape3D_0kmfm")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="RocketBody/hatchKeepout" index="2"]
-transform = Transform3D(0.477159, 0, -0.878817, 0, 1, 0, 0.878817, 0, 0.477159, -0.072, 1.204, 0.283)
-shape = SubResource("BoxShape3D_0kmfm")
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="RocketBody/hatchKeepout" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.58729, 0)
+depth = 4.0
+polygon = PackedVector2Array(-0.525, 0.2, 0.525, 0.2, 0.25, 0.7, -0.25, 0.7)
 
 [node name="front" type="Decal" parent="RocketBody" index="2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.000402451, 2.82414, 0.513161)

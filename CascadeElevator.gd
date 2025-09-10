@@ -9,14 +9,7 @@ var initalRotations: Array[Vector3] = []
 var initalBasis: Array[Basis] = []
 var initialOffsets: Array[Vector3] = []
 var atPosition := false
-var atPositionArray: Array[bool] = []:
-	set(val):
-		atPositionArray = val
-		for value in atPositionArray:
-			if value == false:
-				atPosition = false
-				return
-		atPosition = true
+var atPositionArray: Array[bool] = []
 
 @export var targetHeight: float = 0.0
 @export var tolorence: float = 0.01
@@ -29,7 +22,7 @@ func _ready() -> void:
 	
 	for i in range(len(components) - 1):
 		var jointNode = getConfiguredJoint()
-		jointNode.node_a = components[i].get_path()
+		jointNode.node_a = components[0].get_path()
 		jointNode.node_b = components[i+1].get_path()
 		jointNode.position = components[i+1].position
 		jointArray.append(jointNode)
@@ -44,13 +37,14 @@ func getConfiguredJoint() -> JoltSliderJoint3D:
 	var joint := JoltSliderJoint3D.new()
 	add_child(joint)
 	joint.rotation_degrees = Vector3(Vector3(0, 0, 90))
-	joint.solver_position_iterations = 500
-	joint.solver_velocity_iterations = 500
+	joint.solver_position_iterations = 10000
+	joint.solver_velocity_iterations = 10000
 	joint.limit_enabled = true
 	joint.limit_lower = 0.0
 	joint.limit_upper = maxHeight
 	joint.motor_enabled = true
 	joint.motor_max_force = maxForce
+	joint.exclude_nodes_from_collision = true
 	return joint
 
 
@@ -71,11 +65,21 @@ func _physics_process(delta: float) -> void:
 		
 		var error := targetHeight - currentHeight
 		if abs(error) >= tolorence:
-			jointArray[i].motor_target_velocity = error * P
-			atPositionArray[1] = false
+			jointArray[i].motor_target_velocity = error * P * (i+1)
+			atPositionArray[i] = false
 		else:
 			jointArray[i].motor_target_velocity = 0
 			atPositionArray[i] = true
+	
+	updateAtPosition()
+
+
+func updateAtPosition():
+	for value in atPositionArray:
+		if value == false:
+			atPosition = false
+			return
+	atPosition = true
 
 
 func rotateThing(thing, rotationVector):

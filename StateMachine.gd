@@ -8,7 +8,8 @@ var currentState:
 
 
 func _physics_process(delta: float) -> void:
-	currentState.executeFunc()
+	#print(delta)
+	currentState.executeFunc(delta)
 
 
 func _init(startingState) -> void:
