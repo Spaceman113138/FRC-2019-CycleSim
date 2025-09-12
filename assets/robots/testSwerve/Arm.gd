@@ -22,6 +22,9 @@ func _physics_process(delta: float) -> void:
 	var error = targetAngle - currentAngle
 	#print(currentAngle)
 	#print(error)
+	#if name == "climberHinge":
+		#print(armBody.rotation_degrees)
+		#print(currentAngle, "   ,   ", error)
 	
 	if abs(error) > tolorence:
 		atTargetAngle = false

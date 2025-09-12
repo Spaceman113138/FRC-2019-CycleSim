@@ -10,6 +10,7 @@ class_name Wildstang extends Robot
 @onready var mainpCargoDetector: IntakeArea = $CascadeElevator/manipulator/ManipCargoDetector
 @onready var elevator: CascadeElevator = $CascadeElevator
 @onready var latervator: CascadeElevator = $hatchLatervator
+@onready var climber: Arm = $climberHinge
 
 
 @onready var statemachine: StateMachine = StateMachine.new(WildstangStates.StoreState.new(self))
@@ -23,6 +24,7 @@ var hasCargo := false
 func _ready() -> void:
 	super._ready()
 	add_child(statemachine)
+	scoreboard.TeleopStart.connect(scoreClimb)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -81,6 +83,13 @@ func processEnabled():
 	
 	if Input.is_action_just_pressed("RocketLow"):
 		statemachine.requestState(WildstangStates.StoreState.new(self))
+	
+	if Input.is_action_just_pressed("climb"):
+		if statemachine.currentState is WildstangStates.StoreState:
+			statemachine.requestState(WildstangStates.ClimbState.new(self))
+			print("climb")
+		else:
+			statemachine.requestState(WildstangStates.StoreState.new(self))
 
 
 func _on_hatch_intake_area_entered(area: Area3D) -> void:
@@ -93,6 +102,29 @@ func _on_hatch_intake_area_entered(area: Area3D) -> void:
 		hatch.rotation.x = 0
 		hatch.collision_layer = 0
 		hatch.collision_mask = 0
+
+
+func scoreClimb() -> void:
+	for body in drivetrain.get_colliding_bodies():
+		if body.name == "carpetCollide":
+			return
+	
+	for body in drivetrain.get_colliding_bodies():
+		if body.get_parent().name == "habFloor":
+			scoreboard.scoreClimb(1, "Blue")
+			return
+	
+	for body in drivetrain.get_colliding_bodies():
+		if body.name == "l2Climb":
+			scoreboard.scoreClimb(2, "Blue")
+			return
+	
+	for body in drivetrain.get_colliding_bodies():
+		if body.name == "l3Climb":
+			scoreboard.scoreClimb(3, "Blue")
+			return
+	
+	print(drivetrain.get_colliding_bodies())
 
 
 func _on_manip_cargo_detector_body_entered(body: Node3D) -> void:

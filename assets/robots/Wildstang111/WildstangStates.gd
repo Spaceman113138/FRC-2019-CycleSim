@@ -21,6 +21,11 @@ const latervatorHeights: Dictionary = {
 	"HatchScore" : 0.1
 }
 
+const climberAngles: Dictionary = {
+	"Store" : 80,
+	"Climb" : -40
+}
+
 
 class BaseState extends State:
 	var robotNode: Wildstang
@@ -38,6 +43,7 @@ class StoreState extends BaseState:
 		robotNode.elevator.targetHeight = elevatorHeights["Store"]
 		robotNode.groundIntake.targetAngle = intakeAngles["Store"]
 		robotNode.latervator.targetHeight = latervatorHeights["Store"]
+		robotNode.climber.targetAngle = climberAngles["Store"]
 		robotNode.groundIntakeArea.enabled = false
 		robotNode.manipulatorCargoIntake.enabled = true
 	
@@ -139,3 +145,14 @@ class RocketHighState extends BaseState:
 		robotNode.elevator.targetHeight = elevatorHeights["RocketHigh"]
 		robotNode.groundIntake.targetAngle = intakeAngles["Store"]
 		robotNode.latervator.targetHeight = latervatorHeights["Store"]
+
+
+class ClimbState extends BaseState:
+	func _init(wildstangNode: Wildstang) -> void:
+		super("ClimbState", wildstangNode)
+	
+	func initFunc():
+		robotNode.elevator.targetHeight = elevatorHeights["Store"]
+		robotNode.groundIntake.targetAngle = intakeAngles["Store"]
+		robotNode.latervator.targetHeight = latervatorHeights["Store"]
+		robotNode.climber.targetAngle = climberAngles["Climb"]

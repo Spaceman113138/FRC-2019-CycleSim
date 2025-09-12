@@ -168,12 +168,12 @@ shadow_mesh = SubResource("ArrayMesh_n3kdu")
 
 [node name="Carpet" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Carpet"]
+[node name="carpetCollide" type="StaticBody3D" parent="Carpet"]
 collision_layer = 49
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_k5nk7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carpet/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carpet/carpetCollide"]
 shape = SubResource("ConvexPolygonShape3D_cdfkh")
 
 [node name="carpet" type="MeshInstance3D" parent="Carpet"]

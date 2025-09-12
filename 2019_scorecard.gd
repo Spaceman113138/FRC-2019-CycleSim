@@ -153,3 +153,22 @@ func addSandstorm(points: int, color: String):
 		blueScore += points
 	else:
 		redScore += points
+
+
+func scoreClimb(level: int, color: String):
+	if color == "Blue":
+		match level:
+			1:
+				blueScore += 3
+			2:
+				blueScore += 6
+			3:
+				blueScore += 12
+	else:
+		match level:
+			1: 
+				redScore += 3
+			2:
+				redScore += 6
+			3:
+				redScore += 12
