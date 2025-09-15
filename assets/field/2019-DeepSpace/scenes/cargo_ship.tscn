@@ -140,7 +140,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="BayFrontRight" type="Area3D" parent="." index="6"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.284036, 0.48534, 2.68373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284036, 0.48534, 2.68373)
 collision_layer = 0
 collision_mask = 192
 monitorable = false
@@ -152,7 +152,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="BayFrontLeft" type="Area3D" parent="." index="7"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.282917, 0.48534, 2.68373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282917, 0.48534, 2.68373)
 collision_layer = 0
 collision_mask = 192
 monitorable = false
@@ -164,7 +164,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="Bay1Left" type="Area3D" parent="." index="8"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.72, 0.48534, 1.62338)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.72, 0.48534, 1.62338)
 collision_layer = 0
 collision_mask = 192
 monitorable = false
@@ -176,7 +176,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="Bay2Left" type="Area3D" parent="." index="9"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.72, 0.48534, 1.05399)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.72, 0.48534, 1.05399)
 collision_layer = 0
 collision_mask = 192
 monitorable = false
@@ -188,7 +188,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="Bay3Left" type="Area3D" parent="." index="10"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.72, 0.48534, 0.499251)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.72, 0.48534, 0.499251)
 collision_layer = 0
 collision_mask = 192
 monitorable = false

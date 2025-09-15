@@ -14,6 +14,9 @@ var fieldNode: Node3D
 var isBlue := true
 var startingIndex: int = 0
 
+var logo := preload("res://icon.svg")
+var logoScaleFactor: Vector2 = Vector2(1.0, 1.0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scoreboard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
@@ -42,3 +45,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("swapCameraView"):
 		thirdPersonCam.current = !thirdPersonCam.current
 		drivetrain.FIELD_ORIENT = !drivetrain.FIELD_ORIENT
+
+
+func updateStart(location: int, startingGP: String, ISBLUE: bool):
+	return

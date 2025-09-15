@@ -52,28 +52,65 @@ func _ready() -> void:
 		mesh.set_surface_override_material(1, blueMaterial)
 		mesh.set_surface_override_material(3, blueMaterial)
 	
-	var cargoLocations = [cargoStartSpots["bayFrontLeft"],cargoStartSpots["bayFrontRight"]]
+	get_node("BayFrontLeft").addStartingCargo()
+	get_node("BayFrontRight").addStartingCargo()
 	if not bay1StartsHatch:
-		cargoLocations.append_array([cargoStartSpots["bay1Left"],cargoStartSpots["bay1Right"]])
+		get_node("Bay1Left").addStartingCargo()
+		get_node("Bay1Right").addStartingCargo()
 	else:
 		get_node("Bay1Left").addStartingHatch()
 		get_node("Bay1Right").addStartingHatch()
 	if not bay2StartsHatch:
-		cargoLocations.append_array([cargoStartSpots["bay2Left"],cargoStartSpots["bay2Right"]])
+		get_node("Bay2Left").addStartingCargo()
+		get_node("Bay2Right").addStartingCargo()
 	else:
 		get_node("Bay2Left").addStartingHatch()
 		get_node("Bay2Right").addStartingHatch()
 	if not bay3StartsHatch:
-		cargoLocations.append_array([cargoStartSpots["bay3Left"],cargoStartSpots["bay3Right"]])
+		get_node("Bay3Left").addStartingCargo()
+		get_node("Bay3Right").addStartingCargo()
 	else:
 		get_node("Bay3Left").addStartingHatch()
 		get_node("Bay3Right").addStartingHatch()
-	
-	for location in cargoLocations:
-		var newCargo: Cargo = cargoScene.instantiate()
-		add_child(newCargo)
-		newCargo.position = location
-		createdCargo.append(newCargo)
+
+
+func setBay1(startingPiece: String):
+	if startingPiece == "Hatch":
+		get_node("Bay1Left").removeStartingCargo()
+		get_node("Bay1Right").removeStartingCargo()
+		get_node("Bay1Left").addStartingHatch()
+		get_node("Bay1Right").addStartingHatch()
+	else:
+		get_node("Bay1Left").removeStartingHatch()
+		get_node("Bay1Right").removeStartingHatch()
+		get_node("Bay1Left").addStartingCargo()
+		get_node("Bay1Right").addStartingCargo()
+
+
+func setBay2(startingPiece: String):
+	if startingPiece == "Hatch":
+		get_node("Bay2Left").removeStartingCargo()
+		get_node("Bay2Right").removeStartingCargo()
+		get_node("Bay2Left").addStartingHatch()
+		get_node("Bay2Right").addStartingHatch()
+	else:
+		get_node("Bay2Left").removeStartingHatch()
+		get_node("Bay2Right").removeStartingHatch()
+		get_node("Bay2Left").addStartingCargo()
+		get_node("Bay2Right").addStartingCargo()
+
+
+func setBay3(startingPiece: String):
+	if startingPiece == "Hatch":
+		get_node("Bay3Left").removeStartingCargo()
+		get_node("Bay3Right").removeStartingCargo()
+		get_node("Bay3Left").addStartingHatch()
+		get_node("Bay3Right").addStartingHatch()
+	else:
+		get_node("Bay3Left").removeStartingHatch()
+		get_node("Bay3Right").removeStartingHatch()
+		get_node("Bay3Left").addStartingCargo()
+		get_node("Bay3Right").addStartingCargo()
 
 
 func disableAutoCollsiion():

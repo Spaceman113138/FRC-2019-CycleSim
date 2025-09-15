@@ -12,19 +12,22 @@ class_name Wildstang extends Robot
 @onready var latervator: CascadeElevator = $hatchLatervator
 @onready var climber: Arm = $climberHinge
 
-
 @onready var statemachine: StateMachine = StateMachine.new(WildstangStates.StoreState.new(self))
+
 
 var hasHatch := false
 var hatch: HatchPanel
-
 var hasCargo := false
+var cargo: Cargo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	add_child(statemachine)
-	scoreboard.TeleopStart.connect(scoreClimb)
+	scoreboard.AftermatchStart.connect(scoreClimb)
+	
+	logo = preload("res://assets/robots/Wildstang111/materials/WSRlogo.png")
+	logoScaleFactor = Vector2(0.2, 0.2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -125,6 +128,52 @@ func scoreClimb() -> void:
 			return
 	
 	print(drivetrain.get_colliding_bodies())
+
+
+func updateStart(location: int, startingGP: String, ISBLUE: bool):
+	isBlue = ISBLUE
+	startingIndex = location
+	match location:
+		0:
+			global_position = Vector3(1.105, 0.114, -6.5) 
+		1:
+			global_position = Vector3(0.0, 0.114, -6.5)
+		2:
+			global_position = Vector3(-1.105, 0.114, -6.5)
+		3:
+			global_position = Vector3(1.105, 0.231, -7.779)
+		4:
+			global_position = Vector3(-1.105, 0.231, -7.779)
+	rotation_degrees.y = 0
+	
+	if not isBlue:
+		global_position.z *= -1.0
+		rotation_degrees.y = 180.0
+	
+	if not cargo == null:
+		cargo.queue_free()
+		hasCargo = false
+	if not hatch == null:
+		hatch.queue_free() 
+		hasHatch = false
+	
+	if startingGP == "Cargo":
+		cargo = preload("res://assets/field/2019-DeepSpace/gamePieces/cargo.tscn").instantiate()
+		add_child(cargo)
+		cargo.position = Vector3(0.0, 0.71, 0.177)
+		cargo.reparent(fieldNode)
+	else:
+		hatch = preload("res://assets/field/2019-DeepSpace/gamePieces/HatchPanel.tscn").instantiate()
+		hasHatch = true
+		$hatchLatervator/latervator.add_child(hatch)
+		hatch.freeze = true
+		hatch.global_position = $hatchLatervator/latervator/HatchIntake.global_position
+		hatch.rotation.x = 0
+		hatch.collision_layer = 0
+		hatch.collision_mask = 0
+	
+	statemachine.requestState(WildstangStates.StoreState.new(self))
+	
 
 
 func _on_manip_cargo_detector_body_entered(body: Node3D) -> void:

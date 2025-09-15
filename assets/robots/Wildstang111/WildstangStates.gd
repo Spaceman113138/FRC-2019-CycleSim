@@ -109,7 +109,6 @@ class ScoreHatchPannel extends BaseState:
 		robotNode.latervator.targetHeight = latervatorHeights["HatchScore"]
 	
 	func executeFunc(delta: float):
-		print(delta)
 		time += delta
 		#print(time)
 		if time > 0.5:

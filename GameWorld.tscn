@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dogg66akcwa5j"]
+[gd_scene load_steps=5 format=3 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://dgavxffs1bt07" path="res://2019_field.tscn" id="1_5do2m"]
-[ext_resource type="PackedScene" uid="uid://cc6hha1vw8hpr" path="res://assets/robots/Wildstang111/wildstang_111.tscn" id="2_5do2m"]
-[ext_resource type="PackedScene" uid="uid://dskfvi8mfosp6" path="res://assets/field/2019-DeepSpace/gamePieces/HatchPanel.tscn" id="3_8vx87"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,8 +26,6 @@ shadow_enabled = true
 
 [node name="2019-Field" parent="." instance=ExtResource("1_5do2m")]
 
-[node name="HatchPanel" parent="." instance=ExtResource("3_8vx87")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.78056, -0.0052878, -5.18334)
-
-[node name="Wildstang111" parent="." instance=ExtResource("2_5do2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187295, 0.013, -4.68572)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.882127, 0.141636, -0.449212, 0, 0.953717, 0.300706, 0.471012, -0.265261, 0.841299, -3.3, 2.3, -0.1)
+current = true

@@ -80,6 +80,8 @@ var blueScore: int = 0.0:
 		blueScore = val
 		blueScoreLabel.text = str(blueScore)
 
+@export var waitToStart := true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timeBar.max_value = totalTime
@@ -91,6 +93,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if waitToStart:
+		return
 	currentTime = min(currentTime + delta, totalTime)
 	timeLabel.text = str(ceili(totalTime - currentTime))
 	if currentTime == totalTime: #GameEnd

@@ -1,0 +1,260 @@
+[gd_scene load_steps=8 format=3 uid="uid://dukgxpuw3y4w7"]
+
+[ext_resource type="Script" uid="uid://dfhg0hdmicudd" path="res://assets/field/2019-DeepSpace/guiStuff/auto_selection_screen.gd" id="1_6cje1"]
+[ext_resource type="ButtonGroup" uid="uid://ujct6iewc56g" path="res://assets/field/2019-DeepSpace/guiStuff/aliianceButton.tres" id="2_ltyyx"]
+[ext_resource type="ButtonGroup" uid="uid://bul4ni0t1864j" path="res://assets/field/2019-DeepSpace/guiStuff/preloadGroup.tres" id="3_387ge"]
+[ext_resource type="ButtonGroup" uid="uid://biqu4p2wgfatl" path="res://assets/field/2019-DeepSpace/guiStuff/bay1button.tres" id="4_ogo5t"]
+[ext_resource type="ButtonGroup" uid="uid://cp7c2rnwe7euh" path="res://assets/field/2019-DeepSpace/guiStuff/bay2button.tres" id="5_3xs8x"]
+[ext_resource type="ButtonGroup" uid="uid://c1ake41vwbiql" path="res://assets/field/2019-DeepSpace/guiStuff/bay3button.tres" id="6_eiboq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cje1"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 10
+
+[node name="AutoSelectionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6cje1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -384.0
+offset_right = 430.0
+offset_bottom = 384.0
+grow_vertical = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6cje1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Alliance Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Alliance Color"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Blue" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+button_group = ExtResource("2_ltyyx")
+text = "Blue"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Red" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_group = ExtResource("2_ltyyx")
+text = "Red"
+
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartingLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Starting Location"
+horizontal_alignment = 1
+
+[node name="StartingOptions" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+selected = 1
+item_count = 5
+popup/item_0/text = "Level 1 Left"
+popup/item_0/id = 0
+popup/item_1/text = "Level 1 Center"
+popup/item_1/id = 1
+popup/item_2/text = "Level 1 Right"
+popup/item_2/id = 2
+popup/item_3/text = "Level 2 Left (+3)"
+popup/item_3/id = 3
+popup/item_4/text = "Level 2 Right (+3)"
+popup/item_4/id = 4
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PreloadLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Preload"
+horizontal_alignment = 1
+
+[node name="PreloadButtons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Hatch" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+button_group = ExtResource("3_387ge")
+text = "Hatch Pannel"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons"]
+layout_mode = 2
+
+[node name="Cargo" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_group = ExtResource("3_387ge")
+text = "Cargo"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bay1Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Bay 1 Contents"
+horizontal_alignment = 1
+
+[node name="bay1Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="bay1Hatch" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay1Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+button_group = ExtResource("4_ogo5t")
+text = "Hatch Pannel"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay1Buttons"]
+layout_mode = 2
+
+[node name="bay1Cargo" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay1Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_group = ExtResource("4_ogo5t")
+text = "Cargo"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bay2Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Bay 2 Contents"
+horizontal_alignment = 1
+
+[node name="bay2Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="bay2Hatch" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay2Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+button_group = ExtResource("5_3xs8x")
+text = "Hatch Pannel"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay2Buttons"]
+layout_mode = 2
+
+[node name="bay2Cargo" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay2Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_group = ExtResource("5_3xs8x")
+text = "Cargo"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bay3Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Bay 3 Contents"
+horizontal_alignment = 1
+
+[node name="bay3Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="bay3Hatch" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay3Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+button_group = ExtResource("6_eiboq")
+text = "Hatch Pannel"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay3Buttons"]
+layout_mode = 2
+
+[node name="bay3Cargo" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay3Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_group = ExtResource("6_eiboq")
+text = "Cargo"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start Match"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartingOptions" to="." method="_on_starting_options_item_selected"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons/Hatch" to="." method="_on_hatch_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons/Cargo" to="." method="_on_cargo_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay1Buttons/bay1Hatch" to="." method="_on_bay_1_hatch_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay1Buttons/bay1Cargo" to="." method="_on_bay_1_cargo_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay2Buttons/bay2Hatch" to="." method="_on_bay_2_hatch_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay2Buttons/bay2Cargo" to="." method="_on_bay_2_cargo_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay3Buttons/bay3Hatch" to="." method="_on_bay_3_hatch_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/bay3Buttons/bay3Cargo" to="." method="_on_bay_3_cargo_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=319 format=4 uid="uid://cc6hha1vw8hpr"]
+[gd_scene load_steps=321 format=4 uid="uid://cc6hha1vw8hpr"]
 
 [ext_resource type="Script" uid="uid://cu67ycoxp12j7" path="res://assets/robots/Wildstang111/wildstang_111.gd" id="1_peche"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://assets/robots/testSwerve/swerve_base.gd" id="2_peche"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://1xr0kw7cfd4c" path="res://SwerveModule.gd" id="8_mfbnh"]
 [ext_resource type="Script" uid="uid://dk0f1c6qppfnn" path="res://AlgeaIntake.gd" id="9_1fxi8"]
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://assets/robots/testSwerve/Arm.gd" id="9_3xcnu"]
+[ext_resource type="Texture2D" uid="uid://n1cpyx6v7j3o" path="res://assets/robots/Wildstang111/materials/ws19-signageRight.png" id="10_mfbnh"]
+[ext_resource type="Texture2D" uid="uid://rw73gy7g5v46" path="res://assets/robots/Wildstang111/materials/ws19-signageLeft.png" id="11_ousvv"]
 [ext_resource type="Script" uid="uid://3foqq3qa6ssn" path="res://Intake.gd" id="12_gge0m"]
 [ext_resource type="Script" uid="uid://ppwvksa3qnmo" path="res://CascadeElevator.gd" id="12_wmshu"]
 [ext_resource type="Material" uid="uid://xwv7wwv1nrya" path="res://assets/robots/Wildstang111/materials/0.400000_0.400000_0.400000_0.000000_0.000000.tres" id="13_tfyl0"]
@@ -26298,7 +26300,6 @@ shape = SubResource("SphereShape3D_ousvv")
 
 [node name="1stPersonCam" type="Camera3D" parent="SwerveBase"]
 transform = Transform3D(1, 0, 0, 0, 0.916663, 0.399661, 0, -0.399661, 0.916663, 0, 2.27818, 2.48539)
-current = true
 
 [node name="passthroughArea" type="Area3D" parent="SwerveBase"]
 transform = Transform3D(1, -6.48963e-08, 2.88462e-08, 6.48962e-08, 0.670038, -0.742327, 2.88462e-08, 0.742327, 0.670038, -2.80293e-08, 0.286834, 0.320617)
@@ -26342,6 +26343,16 @@ shape = SubResource("BoxShape3D_wmshu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwerveBase"]
 transform = Transform3D(1, 1.39758e-08, 1.12433e-09, -1.39758e-08, 0.987139, 0.159864, 1.12434e-09, -0.159864, 0.987139, 0.00211335, 0.180929, -0.303199)
 shape = SubResource("BoxShape3D_2ja8m")
+
+[node name="Sprite3D" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(-1.54738e-07, 0, 3.54, 0, 3.54, 0, -3.54, 0, -1.54738e-07, 0.288, 0.458, 0.073)
+pixel_size = 0.0001
+texture = ExtResource("10_mfbnh")
+
+[node name="Sprite3D2" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(-1.54738e-07, 0, -3.54, 0, 3.54, 0, 3.54, 0, -1.54738e-07, -0.288, 0.458, 0.073)
+pixel_size = 0.0001
+texture = ExtResource("11_ousvv")
 
 [node name="intakeArmHinge" type="JoltHingeJoint3D" parent="."]
 limit_enabled = true
