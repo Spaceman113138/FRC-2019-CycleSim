@@ -4,6 +4,10 @@ class_name Robot extends Node3D
 @export var firstPersonCam: Camera3D
 @export var thirdPersonCam: Camera3D
 
+@export var bumperMesh: Array[MeshInstance3D]
+
+var bumperMaterial: StandardMaterial3D = StandardMaterial3D.new()
+
 @onready var cameraTransform: Vector3 = Vector3.ZERO:
 	set(val):
 		cameraTransform = val
@@ -11,7 +15,14 @@ class_name Robot extends Node3D
 
 var scoreboard: DeepSpaceScorecard
 var fieldNode: Node3D
-var isBlue := true
+var isBlue := true:
+	set(val):
+		isBlue = val
+		if isBlue:
+			bumperMaterial.albedo_color = Color.MEDIUM_BLUE
+		else:
+			bumperMaterial.albedo_color = Color.RED
+
 var startingIndex: int = 0
 
 var logo := preload("res://icon.svg")
@@ -24,6 +35,12 @@ func _ready() -> void:
 	scoreboard.Enable.connect(func(): drivetrain.enabled = true)
 	scoreboard.Disable.connect(func(): drivetrain.enabled = false)
 	cameraTransform = thirdPersonCam.position
+	
+	for mesh in bumperMesh:
+		for i in range(mesh.get_surface_override_material_count()):
+			mesh.set_surface_override_material(i, bumperMaterial)
+	
+	bumperMaterial.albedo_color = Color.PURPLE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,18 +50,25 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("swapCameraDirection"):
-		thirdPersonCam.rotation.y *= -1.0
-		cameraTransform.x *= -1.0
-		thirdPersonCam.position = cameraTransform
-		
-		firstPersonCam.rotation.y += PI
-		firstPersonCam.position.z *= -1.0
-		
-		drivetrain.invert = not drivetrain.invert
+		invertCam()
 	
 	if Input.is_action_just_pressed("swapCameraView"):
-		thirdPersonCam.current = !thirdPersonCam.current
-		drivetrain.FIELD_ORIENT = !drivetrain.FIELD_ORIENT
+		swapCam()
+
+func invertCam():
+	thirdPersonCam.rotation.y *= -1.0
+	cameraTransform.x *= -1.0
+	thirdPersonCam.position = cameraTransform
+	
+	firstPersonCam.rotation.y += PI
+	firstPersonCam.position.z *= -1.0
+	
+	drivetrain.invert = not drivetrain.invert
+
+func swapCam():
+	#print("ranThisThing")
+	thirdPersonCam.current = not thirdPersonCam.current
+	drivetrain.FIELD_ORIENT = not drivetrain.FIELD_ORIENT
 
 
 func updateStart(location: int, startingGP: String, ISBLUE: bool):

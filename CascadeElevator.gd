@@ -32,6 +32,13 @@ func _ready() -> void:
 		initalBasis.append(jointArray[i].global_basis)
 		atPositionArray.append(false)
 
+	var scoreboard: DeepSpaceScorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
+	scoreboard.Disable.connect(
+		func(): for joint in jointArray:
+			joint.motor_enabled = false)
+	scoreboard.Enable.connect(
+		func(): for joint in jointArray:
+			joint.motor_enabled = true)
 
 func getConfiguredJoint() -> JoltSliderJoint3D:
 	var joint := JoltSliderJoint3D.new()

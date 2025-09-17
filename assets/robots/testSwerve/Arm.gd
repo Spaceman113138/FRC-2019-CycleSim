@@ -15,17 +15,13 @@ var atTargetAngle: bool = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	armJoint.position = position
-
+	var scoreboard: DeepSpaceScorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
+	scoreboard.Disable.connect(func(): armJoint.motor_enabled = false)
+	scoreboard.Enable.connect(func(): armJoint.motor_enabled = true)
 
 func _physics_process(delta: float) -> void:
 	currentAngle = armBody.rotation_degrees.x + angleOffset
 	var error = targetAngle - currentAngle
-	#print(currentAngle)
-	#print(error)
-	#if name == "climberHinge":
-		#print(armBody.rotation_degrees)
-		#print(currentAngle, "   ,   ", error)
-	
 	if abs(error) > tolorence:
 		atTargetAngle = false
 		armJoint.motor_target_velocity = P * error

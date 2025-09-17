@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 func _on_in_hab_zone_body_exited(body: Node3D) -> void:
 	if scoreboard.currentGameState == scoreboard.gameStates.Sandstorm and body is SwerveBase:
 		var robotNode: Robot = body.get_parent() as Robot
-		print("here")
+		#print("here")
 		if robotNode != null and not autoPointsUsed.has(robotNode):
 			"there"
 			autoPointsUsed.append(robotNode)

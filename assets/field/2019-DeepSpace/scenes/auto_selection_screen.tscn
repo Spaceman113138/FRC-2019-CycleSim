@@ -16,6 +16,7 @@ corner_radius_bottom_left = 25
 corner_detail = 10
 
 [node name="AutoSelectionScreen" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,6 +92,26 @@ text = "Red"
 [node name="HSeparator6" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="cameraLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Camera View"
+horizontal_alignment = 1
+
+[node name="cameraOptions" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+selected = 1
+item_count = 4
+popup/item_0/text = "1st Person Front"
+popup/item_0/id = 0
+popup/item_1/text = "1st Person Back"
+popup/item_1/id = 1
+popup/item_2/text = "3rd Person Left"
+popup/item_2/id = 2
+popup/item_3/text = "3rd Person Right"
+popup/item_3/id = 3
+
 [node name="StartingLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -103,15 +124,15 @@ layout_mode = 2
 alignment = 1
 selected = 1
 item_count = 5
-popup/item_0/text = "Level 1 Left"
+popup/item_0/text = "Level 1 Left (+3)"
 popup/item_0/id = 0
-popup/item_1/text = "Level 1 Center"
+popup/item_1/text = "Level 1 Center (+3)"
 popup/item_1/id = 1
-popup/item_2/text = "Level 1 Right"
+popup/item_2/text = "Level 1 Right (+3)"
 popup/item_2/id = 2
-popup/item_3/text = "Level 2 Left (+3)"
+popup/item_3/text = "Level 2 Left (+6)"
 popup/item_3/id = 3
-popup/item_4/text = "Level 2 Right (+3)"
+popup/item_4/text = "Level 2 Right (+6)"
 popup/item_4/id = 4
 
 [node name="HSeparator5" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]

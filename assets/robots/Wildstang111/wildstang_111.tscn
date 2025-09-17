@@ -1,4 +1,4 @@
-[gd_scene load_steps=321 format=4 uid="uid://cc6hha1vw8hpr"]
+[gd_scene load_steps=322 format=4 uid="uid://cc6hha1vw8hpr"]
 
 [ext_resource type="Script" uid="uid://cu67ycoxp12j7" path="res://assets/robots/Wildstang111/wildstang_111.gd" id="1_peche"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://assets/robots/testSwerve/swerve_base.gd" id="2_peche"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://n1cpyx6v7j3o" path="res://assets/robots/Wildstang111/materials/ws19-signageRight.png" id="10_mfbnh"]
 [ext_resource type="Texture2D" uid="uid://rw73gy7g5v46" path="res://assets/robots/Wildstang111/materials/ws19-signageLeft.png" id="11_ousvv"]
 [ext_resource type="Script" uid="uid://3foqq3qa6ssn" path="res://Intake.gd" id="12_gge0m"]
+[ext_resource type="Texture2D" uid="uid://6qfx48vudtlm" path="res://assets/robots/Wildstang111/materials/111BumperNumbers.png" id="12_ousvv"]
 [ext_resource type="Script" uid="uid://ppwvksa3qnmo" path="res://CascadeElevator.gd" id="12_wmshu"]
 [ext_resource type="Material" uid="uid://xwv7wwv1nrya" path="res://assets/robots/Wildstang111/materials/0.400000_0.400000_0.400000_0.000000_0.000000.tres" id="13_tfyl0"]
 
@@ -25872,11 +25873,12 @@ shadow_mesh = SubResource("ArrayMesh_13dhf")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3menh"]
 points = PackedVector3Array(-0.26035, 0.229715, -0.175863, -0.28575, 0.229715, -0.175863, -0.26035, 0.224644, -0.175905, -0.26035, 0.447568, -0.181002, -0.28575, 0.224644, -0.175905, -0.28575, 0.447568, -0.181002, -0.26035, 0.219671, -0.176844, -0.26035, 0.44882, -0.18113, -0.28575, 0.219671, -0.176844, -0.28575, 0.44882, -0.18113, -0.26035, 0.214928, -0.178656, -0.26035, 0.450038, -0.181513, -0.28575, 0.214928, -0.178656, -0.28575, 0.450038, -0.181513, -0.26035, 0.210581, -0.181258, -0.26035, 0.451158, -0.182132, -0.28575, 0.210581, -0.181258, -0.28575, 0.451158, -0.182132, -0.26035, 0.121365, -0.246314, -0.26035, 0.452146, -0.182963, -0.28575, 0.121365, -0.246314, -0.28575, 0.452146, -0.182963, -0.26035, 0.120081, -0.247466, -0.26035, 0.452936, -0.183966, -0.28575, 0.120081, -0.247466, -0.28575, 0.452936, -0.183966, -0.26035, 0.118994, -0.248809, -0.26035, 0.453496, -0.185096, -0.28575, 0.118994, -0.248809, -0.28575, 0.453496, -0.185096, -0.26035, 0.118204, -0.250345, -0.26035, 0.453825, -0.186332, -0.28575, 0.118204, -0.250345, -0.28575, 0.453825, -0.186332, -0.26035, 0.117677, -0.252008, -0.26035, 0.453924, -0.187612, -0.28575, 0.117677, -0.252008, -0.28575, 0.453924, -0.187612, -0.26035, 0.117479, -0.253735, -0.26035, 0.453727, -0.18887, -0.28575, 0.117479, -0.253735, -0.28575, 0.453727, -0.18887, -0.26035, 0.117578, -0.255462, -0.26035, 0.453299, -0.190085, -0.28575, 0.117578, -0.255462, -0.28575, 0.453299, -0.190085, -0.26035, 0.132563, -0.353207, -0.26035, 0.45264, -0.191173, -0.28575, 0.132563, -0.353207, -0.28575, 0.45264, -0.191173, -0.26035, 0.133781, -0.358154, -0.26035, 0.451784, -0.192111, -0.28575, 0.133781, -0.358154, -0.28575, 0.451784, -0.192111, -0.26035, 0.135856, -0.362803, -0.26035, 0.177945, -0.392293, -0.28575, 0.135856, -0.362803, -0.28575, 0.177945, -0.392293, -0.26035, 0.138721, -0.367003, -0.26035, 0.176133, -0.393167, -0.28575, 0.138721, -0.367003, -0.28575, 0.176133, -0.393167, -0.26035, 0.142311, -0.370628, -0.26035, 0.174223, -0.393636, -0.28575, 0.142311, -0.370628, -0.28575, 0.174223, -0.393636, -0.26035, 0.16678, -0.39144, -0.26035, 0.172939, -0.3937, -0.28575, 0.16678, -0.39144, -0.28575, 0.172939, -0.3937, -0.26035, 0.168427, -0.39257, -0.26035, 0.172214, -0.393679, -0.28575, 0.168427, -0.39257, -0.28575, 0.172214, -0.393679, -0.26035, 0.170271, -0.393316, -0.28575, 0.170271, -0.393316)
 
-[node name="Wildstang111" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam")]
+[node name="Wildstang111" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam", "bumperMesh")]
 script = ExtResource("1_peche")
 drivetrain = NodePath("SwerveBase")
 firstPersonCam = NodePath("SwerveBase/1stPersonCam")
 thirdPersonCam = NodePath("3rdPersonCam")
+bumperMesh = [NodePath("SwerveBase/CollisionHolder/BR bumper2"), NodePath("SwerveBase/CollisionHolder/Right bumper2"), NodePath("SwerveBase/CollisionHolder/BL bumper2"), NodePath("SwerveBase/CollisionHolder/front bumper2"), NodePath("SwerveBase/CollisionHolder/leftBumper2")]
 metadata/_custom_type_script = "uid://cu67ycoxp12j7"
 
 [node name="SwerveBase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
@@ -26353,6 +26355,26 @@ texture = ExtResource("10_mfbnh")
 transform = Transform3D(-1.54738e-07, 0, -3.54, 0, 3.54, 0, 3.54, 0, -1.54738e-07, -0.288, 0.458, 0.073)
 pixel_size = 0.0001
 texture = ExtResource("11_ousvv")
+
+[node name="Sprite3D3" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.293803, 0.121, -0.493)
+pixel_size = 0.001
+texture = ExtResource("12_ousvv")
+
+[node name="Sprite3D4" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(-5.36422e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -5.36422e-08, 0.436, 0.121, 0)
+pixel_size = 0.001
+texture = ExtResource("12_ousvv")
+
+[node name="Sprite3D5" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.436, 0.121, 0)
+pixel_size = 0.001
+texture = ExtResource("12_ousvv")
+
+[node name="Sprite3D6" type="Sprite3D" parent="SwerveBase"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.294, 0.121, 0.493)
+pixel_size = 0.001
+texture = ExtResource("12_ousvv")
 
 [node name="intakeArmHinge" type="JoltHingeJoint3D" parent="."]
 limit_enabled = true

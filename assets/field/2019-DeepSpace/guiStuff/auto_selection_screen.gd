@@ -4,6 +4,7 @@ extends Control
 @onready var preloadHatchButton := $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PreloadButtons/Hatch
 @onready var selectionButton := $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartingOptions
 @onready var marginContainer := $MarginContainer
+@onready var cameraSelect := $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/cameraOptions
 
 var hatchImage := preload("res://assets/field/2019-DeepSpace/materials/hatchPannel.png")
 var cargoImage := preload("res://assets/field/2019-DeepSpace/materials/cargoImage.svg")
@@ -24,7 +25,7 @@ var preloadCargo := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#PhysicsServer3D.set_active(false)
+	get_tree().paused = true
 	#world.visible = false
 	get_tree().root.add_child.call_deferred(world)
 	robotNode = preload("res://assets/robots/Wildstang111/wildstang_111.tscn").instantiate()
@@ -44,45 +45,51 @@ func updateRobot() -> void:
 
 
 func _on_bay_1_hatch_pressed() -> void:
-	blueCargoShip.bay1StartsHatch = true
-	blueCargoShip.setBay1("Hatch")
-	redCargoShip.bay1StartsHatch = true
-	redCargoShip.setBay1("Hatch")
+	if blueCargoShip.bay1StartsHatch == false:
+		blueCargoShip.bay1StartsHatch = true
+		blueCargoShip.setBay1("Hatch")
+		redCargoShip.bay1StartsHatch = true
+		redCargoShip.setBay1("Hatch")
 
 
 func _on_bay_1_cargo_pressed() -> void:
-	blueCargoShip.bay1StartsHatch = false
-	blueCargoShip.setBay1("Cargo")
-	redCargoShip.bay1StartsHatch = false
-	redCargoShip.setBay1("Cargo")
+	if blueCargoShip.bay1StartsHatch == true:
+		blueCargoShip.bay1StartsHatch = false
+		blueCargoShip.setBay1("Cargo")
+		redCargoShip.bay1StartsHatch = false
+		redCargoShip.setBay1("Cargo")
 
 
 func _on_bay_2_hatch_pressed() -> void:
-	blueCargoShip.bay2StartsHatch = true
-	blueCargoShip.setBay2("Hatch")
-	redCargoShip.bay2StartsHatch = true
-	redCargoShip.setBay2("Hatch")
+	if blueCargoShip.bay2StartsHatch == false:
+		blueCargoShip.bay2StartsHatch = true
+		blueCargoShip.setBay2("Hatch")
+		redCargoShip.bay2StartsHatch = true
+		redCargoShip.setBay2("Hatch")
 
 
 func _on_bay_2_cargo_pressed() -> void:
-	blueCargoShip.bay2StartsHatch = false
-	blueCargoShip.setBay2("Cargo")
-	redCargoShip.bay2StartsHatch = false
-	redCargoShip.setBay2("Cargo")
+	if blueCargoShip.bay2StartsHatch == true:
+		blueCargoShip.bay2StartsHatch = false
+		blueCargoShip.setBay2("Cargo")
+		redCargoShip.bay2StartsHatch = false
+		redCargoShip.setBay2("Cargo")
 
 
 func _on_bay_3_hatch_pressed() -> void:
-	blueCargoShip.bay3StartsHatch = true
-	blueCargoShip.setBay3("Hatch")
-	redCargoShip.bay3StartsHatch = true
-	redCargoShip.setBay3("Hatch")
+	if blueCargoShip.bay3StartsHatch == false:
+		blueCargoShip.bay3StartsHatch = true
+		blueCargoShip.setBay3("Hatch")
+		redCargoShip.bay3StartsHatch = true
+		redCargoShip.setBay3("Hatch")
 
 
 func _on_bay_3_cargo_pressed() -> void:
-	blueCargoShip.bay3StartsHatch = false
-	blueCargoShip.setBay3("Cargo")
-	redCargoShip.bay3StartsHatch = false
-	redCargoShip.setBay3("Cargo")
+	if blueCargoShip.bay3StartsHatch == true:
+		blueCargoShip.bay3StartsHatch = false
+		blueCargoShip.setBay3("Cargo")
+		redCargoShip.bay3StartsHatch = false
+		redCargoShip.setBay3("Cargo")
 
 
 func _on_starting_options_item_selected(index: int) -> void:
@@ -105,10 +112,21 @@ func _on_button_pressed() -> void:
 		blueCargoShip.setBay2("Hatch")
 		blueCargoShip.setBay3("Hatch")
 	
-	#PhysicsServer3D.set_active(true)
+	camera.queue_free()
+	
 	robotNode.firstPersonCam.current = true
+	if cameraSelect.selected > 1:
+		robotNode.swapCam()
+		robotNode.drivetrain.FIELD_ORIENT = true
+	else:
+		robotNode.drivetrain.FIELD_ORIENT = false
+	if cameraSelect.selected % 2 == 0:
+		robotNode.invertCam()
+	
 	scorecard.visible = true
 	scorecard.waitToStart = false
+	
+	get_tree().paused = false
 	
 	get_tree().root.get_node("AutoSelectionScreen").call_deferred("free")
 

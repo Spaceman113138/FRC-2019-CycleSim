@@ -1,4 +1,4 @@
-extends Node3D
+class_name DeepSpaceHP extends Node3D
 
 @onready var hatchScene := preload("res://assets/field/2019-DeepSpace/gamePieces/HatchPanel.tscn")
 @onready var cargoScene := preload("res://assets/field/2019-DeepSpace/gamePieces/cargo.tscn")
@@ -31,12 +31,13 @@ func _physics_process(delta: float) -> void:
 		newHatch.reparent(get_tree().root.get_node("GameWorld/2019-Field"))
 		timer = 1.0
 	
-	if Input.is_action_just_pressed("CargoDrop") and timer > 2.0:
-		if sign(robotNode.global_position.x) == sign(global_position.x):
-			var newCargo: Cargo = cargoScene.instantiate()
-			add_child(newCargo)
-			newCargo.position = Vector3(0.021, 1.165, -0.177)
-			newCargo.reparent(get_tree().root.get_node("GameWorld/2019-Field"))
-			timer = 0.0
-	
 	timer += delta
+
+
+func dropCargo() -> void:
+	if timer > 2.0:
+		var newCargo: Cargo = cargoScene.instantiate()
+		add_child(newCargo)
+		newCargo.position = Vector3(0.021, 1.165, -0.177)
+		newCargo.reparent(get_tree().root.get_node("GameWorld/2019-Field"))
+		timer = 0.0

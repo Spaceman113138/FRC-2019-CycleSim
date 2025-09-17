@@ -93,6 +93,12 @@ func processEnabled():
 			print("climb")
 		else:
 			statemachine.requestState(WildstangStates.StoreState.new(self))
+	
+	if Input.is_action_just_pressed("CargoDrop"):
+		var colorString := "Blue" if isBlue else "Red"
+		var sideString := "+" if drivetrain.global_position.x >= 0.0 else "-"
+		var hp: DeepSpaceHP = get_tree().root.get_node("GameWorld/2019-Field/"+colorString+"DriverStationWall/HP" + sideString)
+		hp.dropCargo()
 
 
 func _on_hatch_intake_area_entered(area: Area3D) -> void:
@@ -173,7 +179,6 @@ func updateStart(location: int, startingGP: String, ISBLUE: bool):
 		hatch.collision_mask = 0
 	
 	statemachine.requestState(WildstangStates.StoreState.new(self))
-	
 
 
 func _on_manip_cargo_detector_body_entered(body: Node3D) -> void:
@@ -189,4 +194,4 @@ func _on_manip_cargo_detector_body_exited(body: Node3D) -> void:
 func _on_hatch_intake_area_exited(area: Area3D) -> void:
 	if area.name == "inHabZone" and hasHatch:
 		$hatchLatervator/latervator/FakeHatch.disabled = false
-		print("ran")
+		#print("ran")
