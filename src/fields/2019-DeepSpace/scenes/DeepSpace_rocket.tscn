@@ -1,0 +1,221 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctb5vvv6lhgfo"]
+
+[ext_resource type="PackedScene" uid="uid://cy7o3fl3wy3f" path="res://src/fields/2019-DeepSpace/gltf/2019 field - Rocket.gltf" id="1_rsrmk"]
+[ext_resource type="Script" uid="uid://xgik48qsctqc" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace_rocket.gd" id="2_6jvd6"]
+[ext_resource type="Texture2D" uid="uid://clq1kbm2b1nkw" path="res://src/fields/2019-DeepSpace/resources/ge-19208-red.png" id="2_8mt3o"]
+[ext_resource type="Script" uid="uid://cec3qgbpk5wt8" path="res://src/fields/2019-DeepSpace/scenes/hatch_attachment.gd" id="2_o38ff"]
+[ext_resource type="Texture2D" uid="uid://b5thhbubt0di5" path="res://src/fields/2019-DeepSpace/resources/ge-19207-red.png" id="3_6jvd6"]
+[ext_resource type="Script" uid="uid://cgjggq5m5jbll" path="res://src/fields/2019-DeepSpace/scenes/score_areas.gd" id="3_n40d4"]
+[ext_resource type="Texture2D" uid="uid://br0hbgua6jm" path="res://src/fields/2019-DeepSpace/resources/ge-19209-red.png" id="4_0kmfm"]
+[ext_resource type="Texture2D" uid="uid://flfytkdvjmqt" path="res://src/fields/2019-DeepSpace/resources/redLeftWing.png" id="6_6jvd6"]
+[ext_resource type="Texture2D" uid="uid://dil2h51utsdvi" path="res://src/fields/2019-DeepSpace/resources/ge-19117-red.png" id="7_6jvd6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ddf5g"]
+height = 0.055542
+radius = 0.0131836
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7tfj"]
+size = Vector3(0.0964661, 0.048584, 0.0210571)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6jvd6"]
+size = Vector2(0.06, 0.5)
+
+[node name="Rocket" instance=ExtResource("1_rsrmk")]
+script = ExtResource("2_6jvd6")
+
+[node name="StaticBody3D" parent="RocketBody" index="0"]
+collision_mask = 35
+
+[node name="hatchKeepout" type="StaticBody3D" parent="RocketBody" index="1"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="RocketBody/hatchKeepout" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.58729, 0)
+depth = 4.0
+polygon = PackedVector2Array(-0.525, 0.2, 0.525, 0.2, 0.25, 0.7, -0.25, 0.7)
+
+[node name="front" type="Decal" parent="RocketBody" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.000402451, 2.82414, 0.513161)
+size = Vector3(0.500858, 0.575333, 0.860107)
+texture_albedo = ExtResource("2_8mt3o")
+upper_fade = 1e-05
+lower_fade = 0.0
+
+[node name="left" type="Decal" parent="RocketBody" index="3"]
+transform = Transform3D(0.481754, -0.876307, 3.83046e-08, 0, -4.37114e-08, -1, 0.876307, 0.481754, -2.10581e-08, -0.158228, 2.81881, 0.344791)
+sorting_offset = 0.1
+size = Vector3(0.584679, 0.563511, 0.849429)
+texture_albedo = ExtResource("3_6jvd6")
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="right" type="Decal" parent="RocketBody" index="4"]
+transform = Transform3D(0.481754, 0.876307, -3.83046e-08, 0, -4.37114e-08, -1, -0.876307, 0.481754, -2.10581e-08, 0.158, 2.819, 0.345)
+sorting_offset = 0.1
+size = Vector3(0.584679, 0.563511, 0.849429)
+texture_albedo = ExtResource("4_0kmfm")
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="StaticBody3D" parent="RocketWing" index="0"]
+visible = false
+
+[node name="leftSprite" type="Sprite3D" parent="RocketWing" index="1"]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, -0.853, 0.836, 0.005)
+modulate = Color(0.427493, 0.427493, 0.427493, 1)
+pixel_size = 0.0003
+texture = ExtResource("6_6jvd6")
+
+[node name="StaticBody3D" parent="RocketWing2" index="0"]
+visible = false
+
+[node name="rightSprite" type="Sprite3D" parent="RocketWing2" index="1"]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 0.853, 0.836, 0.005)
+modulate = Color(0.427493, 0.427493, 0.427493, 1)
+pixel_size = 0.0003
+texture = ExtResource("7_6jvd6")
+
+[node name="HatchAttachment" type="Area3D" parent="." index="4"]
+transform = Transform3D(0.481754, 0, 0.876307, 0, 1, 0, -0.876307, 0, 0.481754, 0.379844, 0.48534, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment" index="0"]
+transform = Transform3D(1.77636e-15, -5.96046e-08, -0.999999, -1, -4.37114e-08, 0, -4.37114e-08, 0.999999, -5.96046e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="HatchAttachment2" type="Area3D" parent="." index="5"]
+transform = Transform3D(0.481754, 0, 0.876307, 0, 1, 0, -0.876307, 0, 0.481754, 0.379844, 1.18502, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment2" index="0"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="HatchAttachment3" type="Area3D" parent="." index="6"]
+transform = Transform3D(0.481754, 0, 0.876307, 0, 1, 0, -0.876307, 0, 0.481754, 0.379844, 1.91261, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment3" index="0"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="HatchAttachment4" type="Area3D" parent="." index="7"]
+transform = Transform3D(0.481754, 0, -0.876307, 0, 1, 0, 0.876307, 0, 0.481754, -0.383085, 0.48534, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment4" index="0"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="HatchAttachment5" type="Area3D" parent="." index="8"]
+transform = Transform3D(0.481754, 0, -0.876307, 0, 1, 0, 0.876307, 0, 0.481754, -0.383085, 1.18502, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment5" index="0"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="HatchAttachment6" type="Area3D" parent="." index="9"]
+transform = Transform3D(0.481754, 0, -0.876307, 0, 1, 0, 0.876307, 0, 0.481754, -0.383085, 1.91261, 0.463717)
+collision_layer = 0
+collision_mask = 192
+monitorable = false
+script = ExtResource("2_o38ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HatchAttachment6" index="0"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ddf5g")
+debug_color = Color(0.794408, 0.0689726, 1, 0.42)
+
+[node name="ScoreAreas" type="Area3D" parent="." index="10"]
+transform = Transform3D(0.376467, 0, 0.92643, 0, 1, 0, -0.92643, 0, 0.376467, 0.3302, 0.483148, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="ScoreAreas2" type="Area3D" parent="." index="11"]
+transform = Transform3D(0.376467, 0, 0.92643, 0, 1, 0, -0.92643, 0, 0.376467, 0.3302, 1.20086, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas2" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="ScoreAreas3" type="Area3D" parent="." index="12"]
+transform = Transform3D(0.376467, 0, 0.92643, 0, 1, 0, -0.92643, 0, 0.376467, 0.3302, 1.89691, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas3" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="ScoreAreas4" type="Area3D" parent="." index="13"]
+transform = Transform3D(-0.494048, 0, 0.869435, 0, 1, 0, -0.869435, 0, -0.494048, -0.331224, 0.483148, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas4" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="ScoreAreas5" type="Area3D" parent="." index="14"]
+transform = Transform3D(-0.494048, 0, 0.869435, 0, 1, 0, -0.869435, 0, -0.494048, -0.331224, 1.20086, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas5" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="ScoreAreas6" type="Area3D" parent="." index="15"]
+transform = Transform3D(-0.494048, 0, 0.869435, 0, 1, 0, -0.869435, 0, -0.494048, -0.331224, 1.89691, 0.44476)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_n40d4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScoreAreas6" index="0"]
+shape = SubResource("BoxShape3D_j7tfj")
+debug_color = Color(0.254272, 0.634906, 0, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.953375)
+mesh = SubResource("PlaneMesh_6jvd6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="17"]
+transform = Transform3D(0.466201, 0, -0.884679, 0, 1, 0, 0.884679, 0, 0.466201, -0.586137, 0, 0.582177)
+mesh = SubResource("PlaneMesh_6jvd6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="18"]
+transform = Transform3D(0.466387, 0, 0.884581, 0, 1, 0, -0.884581, 0, 0.466387, 0.586, 0, 0.582)
+mesh = SubResource("PlaneMesh_6jvd6")

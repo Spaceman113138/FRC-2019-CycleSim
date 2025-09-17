@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx74pnqexbib3"]
+
+[ext_resource type="Script" uid="uid://c8ixxlxwstts1" path="res://src/fields/2019-DeepSpace/gamePieces/cargo.gd" id="1_08n5t"]
+[ext_resource type="Texture2D" uid="uid://dshtr8nbd5wfx" path="res://src/fields/2019-DeepSpace/resources/firstLogo.png" id="2_nhrt8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lv3ru"]
+bounce = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lv3ru"]
+albedo_color = Color(0.834003, 0.356036, 0.0140442, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_08n5t"]
+material = SubResource("StandardMaterial3D_lv3ru")
+radius = 0.165
+height = 0.33
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wlxs4"]
+radius = 0.165
+
+[node name="Cargo" type="RigidBody3D"]
+collision_layer = 100
+collision_mask = 39
+mass = 0.25
+physics_material_override = SubResource("PhysicsMaterial_lv3ru")
+linear_damp = 3.0
+angular_damp = 1.0
+script = ExtResource("1_08n5t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_08n5t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wlxs4")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(9.55343e-16, -3.65072e-30, -0.5, 2.18557e-08, 0.5, 7.9789e-38, 0.5, -2.18557e-08, 9.55343e-16, -0.00313801, 0.127557, 3.86767e-10)
+size = Vector3(0.254835, 0.17765, 0.189541)
+texture_albedo = ExtResource("2_nhrt8")
+upper_fade = 4.55583e-05
+lower_fade = 5.179e-05
