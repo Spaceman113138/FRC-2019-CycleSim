@@ -11,6 +11,8 @@ class_name Wildstang extends Robot
 @onready var elevator: CascadeElevator = $CascadeElevator
 @onready var latervator: CascadeElevator = $hatchLatervator
 @onready var climber: Arm = $climberHinge
+@onready var hatchArmRight: Node3D = $hatchLatervator/latervator/HatchArm1
+@onready var hatchArmLeft: Node3D = $hatchLatervator/latervator/HatchArm2
 
 @onready var statemachine: StateMachine = StateMachine.new(WildstangStates.StoreState.new(self))
 
@@ -109,6 +111,7 @@ func _on_hatch_intake_area_entered(area: Area3D) -> void:
 		hatch.rotation.x = 0
 		hatch.collision_layer = 0
 		hatch.collision_mask = 0
+		statemachine.requestState(WildstangStates.StoreState.new(self))
 
 
 func scoreClimb() -> void:
@@ -134,9 +137,10 @@ func scoreClimb() -> void:
 	print(drivetrain.get_colliding_bodies())
 
 
-func updateStart(location: int, startingGP: String, ISBLUE: bool):
+func updateStart(location: int, startingGP: String, ISBLUE: bool, cameraIndex:int = -1):
 	isBlue = ISBLUE
 	startingIndex = location
+	#starting location
 	match location:
 		0:
 			global_position = Vector3(1.105, 0.114, -6.5) 
@@ -150,10 +154,20 @@ func updateStart(location: int, startingGP: String, ISBLUE: bool):
 			global_position = Vector3(-1.105, 0.231, -7.779)
 	rotation_degrees.y = 0
 	
+	#adjust for alliance
 	if not isBlue:
 		global_position.z *= -1.0
 		rotation_degrees.y = 180.0
 	
+	#add correct cameraView
+	if cameraIndex != -1:
+		if cameraIndex > 1:
+			swapCam()
+		if cameraIndex % 2 == 1:
+			invertCam()
+		currentCameraIndex = cameraIndex
+	
+	#remove any preloads
 	if not cargo == null:
 		cargo.queue_free()
 		hasCargo = false
@@ -161,6 +175,7 @@ func updateStart(location: int, startingGP: String, ISBLUE: bool):
 		hatch.queue_free() 
 		hasHatch = false
 	
+	#add correct preload
 	if startingGP == "Cargo":
 		cargo = preload("res://src/fields/2019-DeepSpace/gamePieces/cargo.tscn").instantiate()
 		add_child(cargo)
@@ -176,17 +191,22 @@ func updateStart(location: int, startingGP: String, ISBLUE: bool):
 		hatch.collision_layer = 0
 		hatch.collision_mask = 0
 	
+	startingIndex = location
+	preloadGP = startingGP
 	statemachine.requestState(WildstangStates.StoreState.new(self))
 
 
 func _on_manip_cargo_detector_body_entered(body: Node3D) -> void:
 	if body is Cargo:
 		hasCargo = true
+		passThroughArea.enabled = false
 
 
 func _on_manip_cargo_detector_body_exited(body: Node3D) -> void:
 	if body is Cargo:
 		hasCargo = false
+		if hasHatch == false:
+			passThroughArea.enabled = true
 
 
 func _on_hatch_intake_area_exited(area: Area3D) -> void:

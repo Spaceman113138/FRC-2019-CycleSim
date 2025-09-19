@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5sj63hfcnuu"]
+[gd_scene load_steps=19 format=3 uid="uid://c5sj63hfcnuu"]
 
 [ext_resource type="PackedScene" uid="uid://hdo0x3lbpndx" path="res://src/fields/2019-DeepSpace/gltf/2019 field - CargoShip.gltf" id="1_ve2pj"]
 [ext_resource type="Script" uid="uid://cr7meb3vllwh2" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace_cargo_ship.gd" id="2_kr3v0"]
@@ -11,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://d75wll2ugooe" path="res://src/fields/2019-DeepSpace/resources/ge-19080-right-red.png" id="5_06e83"]
 [ext_resource type="Texture2D" uid="uid://bvn85ta1xixxm" path="res://src/fields/2019-DeepSpace/resources/ge-19080-left-red.png" id="6_kr3v0"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur2jm"]
+albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fiusi"]
+material = SubResource("StandardMaterial3D_ur2jm")
+size = Vector3(0.05, 0.2, 0.001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qr7kb"]
+size = Vector3(0.04, 0.125, 0.001)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vishe"]
 size = Vector3(0.0216599, 0.306641, 1.36549)
 
@@ -19,7 +29,7 @@ size = Vector3(1.15125, 0.334473, 2.47455)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p804u"]
 height = 0.144989
-radius = 0.0078125
+radius = 0.04
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p804u"]
 size = Vector3(0.0964661, 0.048584, 0.0210571)
@@ -66,6 +76,174 @@ texture = ExtResource("5_06e83")
 transform = Transform3D(0.00687716, -0.0273726, 0.0283451, 0, 0.0287736, 0.0277863, -0.0394044, -0.00477728, 0.00494702, 0.47, 1.003, 2.241)
 pixel_size = 0.005
 texture = ExtResource("6_kr3v0")
+
+[node name="detailMeshes" type="Node3D" parent="CargoShip" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283, 0.482, 2.664)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes2" type="Node3D" parent="CargoShip" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283, 0.482, 2.664)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes2" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes2" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes5" type="Node3D" parent="CargoShip" index="9"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.708, 0.482, 1.62095)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes5" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes5" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes3" type="Node3D" parent="CargoShip" index="10"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.708, 0.482, 1.0605)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes3" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes3" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes4" type="Node3D" parent="CargoShip" index="11"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.708, 0.482, 0.494496)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes4" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes4" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes6" type="Node3D" parent="CargoShip" index="12"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.708, 0.482, 1.62095)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes6" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes6" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes7" type="Node3D" parent="CargoShip" index="13"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.708, 0.482, 1.0605)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes7" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes7" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="detailMeshes8" type="Node3D" parent="CargoShip" index="14"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.708, 0.482, 0.494496)
+
+[node name="hookAndLoop" type="MeshInstance3D" parent="CargoShip/detailMeshes8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="hookAndLoop2" type="MeshInstance3D" parent="CargoShip/detailMeshes8" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+mesh = SubResource("BoxMesh_fiusi")
+
+[node name="retroReflective" type="MeshInstance3D" parent="CargoShip/detailMeshes8" index="2"]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.130521, 0.246161, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
+
+[node name="retroReflective2" type="MeshInstance3D" parent="CargoShip/detailMeshes8" index="3"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.131, 0.246, 0)
+mesh = SubResource("BoxMesh_qr7kb")
+skeleton = NodePath("../../..")
 
 [node name="AutoCargoHold" type="StaticBody3D" parent="." index="1"]
 visible = false
@@ -140,7 +318,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="BayFrontRight" type="Area3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284036, 0.48534, 2.68373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284036, 0.48534, 2.67128)
 collision_layer = 0
 collision_mask = 192
 monitorable = false
@@ -152,7 +330,7 @@ shape = SubResource("CylinderShape3D_p804u")
 debug_color = Color(0.794408, 0.0689726, 1, 0.42)
 
 [node name="BayFrontLeft" type="Area3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282917, 0.48534, 2.68373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282917, 0.48534, 2.67128)
 collision_layer = 0
 collision_mask = 192
 monitorable = false

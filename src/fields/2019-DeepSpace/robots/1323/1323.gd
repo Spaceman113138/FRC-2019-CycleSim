@@ -110,12 +110,12 @@ func setUpStart(location: int, startingGP: String, ISBLUE: bool):
 		rotation_degrees.y = 180.0
 	
 	if startingGP == "Cargo":
-		var newCargo = preload("res://assets/field/2019-DeepSpace/gamePieces/cargo.tscn").instantiate()
+		var newCargo = preload("res://src/fields/2019-DeepSpace/gamePieces/cargo.tscn").instantiate()
 		add_child(newCargo)
 		newCargo.position = Vector3(0.0, 0.573, 0.1)
 		newCargo.reparent(fieldNode)
 	else:
-		var hatch = preload("res://assets/field/2019-DeepSpace/gamePieces/HatchPanel.tscn").instantiate()
+		var hatch = preload("res://src/fields/2019-DeepSpace/gamePieces/HatchPanel.tscn").instantiate()
 		hasHatchPannel = true
 		$Latervator/Latervator2.add_child(hatch)
 		hatch.freeze = true

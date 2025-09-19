@@ -26,6 +26,8 @@ const climberAngles: Dictionary = {
 	"Climb" : -40
 }
 
+const hatchArmSpeed: float = 360.0 * 2.0
+
 
 class BaseState extends State:
 	var robotNode: Wildstang
@@ -48,10 +50,13 @@ class StoreState extends BaseState:
 		robotNode.manipulatorCargoIntake.enabled = true
 	
 	func executeFunc(delta: float):
-		if robotNode.passthorughDetector.containsPiece():
+		if robotNode.passthorughDetector.containsPiece() and !robotNode.hasCargo and !robotNode.hasHatch:
 			robotNode.passThroughArea.enabled = true
 		else:
 			robotNode.passThroughArea.enabled = false
+		
+		robotNode.hatchArmRight.rotation_degrees.y = move_toward(robotNode.hatchArmRight.rotation_degrees.y, 0, hatchArmSpeed * delta)
+		robotNode.hatchArmLeft.rotation_degrees.y = move_toward(robotNode.hatchArmLeft.rotation_degrees.y, 0, hatchArmSpeed * delta)
 
 
 class CargoIntakeState extends BaseState:
@@ -63,6 +68,7 @@ class CargoIntakeState extends BaseState:
 		robotNode.groundIntake.targetAngle = intakeAngles["CargoIntake"]
 		robotNode.latervator.targetHeight = latervatorHeights["Store"]
 		robotNode.manipulatorCargoIntake.enabled = true
+		robotNode.passThroughArea.enabled = true
 	
 	func executeFunc(delta: float):
 		if robotNode.groundIntake.atTargetAngle and robotNode.elevator.atPosition:
@@ -88,6 +94,11 @@ class HatchIntakeState extends BaseState:
 		robotNode.groundIntake.targetAngle = intakeAngles["HatchIntake"]
 		robotNode.latervator.targetHeight = latervatorHeights["HatchIntake"]
 	
+	func executeFunc(delta: float):
+		robotNode.hatchArmRight.rotation_degrees.y = move_toward(robotNode.hatchArmRight.rotation_degrees.y, 90, hatchArmSpeed * delta)
+		robotNode.hatchArmLeft.rotation_degrees.y = move_toward(robotNode.hatchArmLeft.rotation_degrees.y, -90, hatchArmSpeed * delta)
+	
+	
 	func requirements():
 		return not (robotNode.hasHatch or robotNode.hasCargo)
 
@@ -111,6 +122,8 @@ class ScoreHatchPannel extends BaseState:
 	func executeFunc(delta: float):
 		time += delta
 		#print(time)
+		robotNode.hatchArmRight.rotation_degrees.y = move_toward(robotNode.hatchArmRight.rotation_degrees.y, 90, hatchArmSpeed * delta)
+		robotNode.hatchArmLeft.rotation_degrees.y = move_toward(robotNode.hatchArmLeft.rotation_degrees.y, -90, hatchArmSpeed * delta)
 		if time > 0.5:
 			robotNode.hasHatch = false
 			robotNode.hatch.freeze = false
@@ -121,6 +134,8 @@ class ScoreHatchPannel extends BaseState:
 			robotNode.hatch.apply_central_impulse(force)
 			robotNode.statemachine.requestState(StoreState.new(robotNode))
 			robotNode.get_node("hatchLatervator/latervator/FakeHatch").disabled = true
+			robotNode.passThroughArea.enabled = true
+			
 	
 	func requirements():
 		return robotNode.hasHatch

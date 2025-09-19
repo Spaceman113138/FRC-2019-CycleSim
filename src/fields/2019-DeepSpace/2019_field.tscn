@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://dgavxffs1bt07"]
 
-[ext_resource type="PackedScene" uid="uid://cgyfn6u1axn30" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace__scorecard.tscn" id="1_g2hme"]
+[ext_resource type="PackedScene" uid="uid://cgyfn6u1axn30" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace_scorecard.tscn" id="1_g2hme"]
 [ext_resource type="Material" uid="uid://d3d8eg7ce3tv2" path="res://src/fields/N-commonMaterials/carpet.tres" id="1_hqrfp"]
 [ext_resource type="PackedScene" uid="uid://cc4pn3xus8hta" path="res://src/fields/2019-DeepSpace/gltf/2019 field - FieldWall.gltf" id="2_herw4"]
 [ext_resource type="PackedScene" uid="uid://cx4c1ss8w7aew" path="res://src/fields/2019-DeepSpace/gltf/2019 field - DSmiddle.gltf" id="3_5cy3c"]

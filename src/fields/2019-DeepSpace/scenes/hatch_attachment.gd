@@ -37,20 +37,33 @@ func _physics_process(delta: float) -> void:
 			if area.get_parent() is HatchPanel and area.get_parent().freeze == false:
 				hatchPannel = area.get_parent()
 				hatchPannel.freeze = true
+				var desiredPos := getHatchProjPoint(hatchPannel)
 				hatchPannel.global_rotation.x = global_rotation.x
-				hatchPannel.global_position.y = global_rotation.y
-				hatchPannel.global_position.z = global_rotation.z
-				hatchPannel.global_position = global_position
+				hatchPannel.global_position = desiredPos
 				hatchPannel.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
 				if scorecard.currentGameState != scorecard.gameStates.AfterMatch:
 					scorecard.addHatchPannel(2, color, location)
 					scored.emit()
 				
 	else:
+		var desiredPos := getHatchProjPoint(hatchPannel)
 		hatchPannel.global_rotation.x = global_rotation.x
-		hatchPannel.global_position.y = global_rotation.y
-		hatchPannel.global_position.z = global_rotation.z
-		hatchPannel.global_position = global_position
+		hatchPannel.global_rotation.y = global_rotation.y
+		hatchPannel.global_position = desiredPos
+
+#project the hatchLocation onto the plane orthoginal to the main axis of the collsion shape for its desired position
+func getHatchProjPoint(hatch) -> Vector3:
+	#print(global_position)
+	#print(global_rotation)
+	#print(hatch.global_position)
+	var normalVector := Vector3(0, 0, 1.0)
+	normalVector = normalVector.rotated(Vector3.UP, rotation.y)
+	var d = -(global_position.x * normalVector.x + global_position.y * normalVector.y + global_position.z * normalVector.z)
+	
+	var distFromPlane = normalVector.dot(hatch.global_position) + d
+	var projPoint = hatch.global_position - (distFromPlane * normalVector)
+	return projPoint
+
 
 func addStartingHatch():
 	var hatchScene := preload("res://src/fields/2019-DeepSpace/gamePieces/HatchPanel.tscn")
@@ -58,8 +71,6 @@ func addStartingHatch():
 	add_child(hatchPannel)
 	hatchPannel.freeze = true
 	hatchPannel.global_rotation.x = global_rotation.x
-	hatchPannel.global_position.y = global_rotation.y
-	hatchPannel.global_position.z = global_rotation.z
 	hatchPannel.global_position = global_position
 	hatchPannel.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
 	hatchPannel.reparent.call_deferred(field)
@@ -74,7 +85,7 @@ func addStartingCargo():
 	cargo = preload("res://src/fields/2019-DeepSpace/gamePieces/cargo.tscn").instantiate()
 	add_child(cargo)
 	cargo.position = Vector3(0.018, .236, -0.373)
-	cargo.reparent.call_deferred(get_tree().root.get_node("GameWorld"))
+	cargo.reparent.call_deferred(get_tree().root.get_node("GameWorld/2019-Field"))
 
 
 func removeStartingCargo():

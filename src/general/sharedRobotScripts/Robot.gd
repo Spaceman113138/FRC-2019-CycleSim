@@ -24,6 +24,8 @@ var isBlue := true:
 			bumperMaterial.albedo_color = Color.RED
 
 var startingIndex: int = 0
+var currentCameraIndex: int = 0
+var preloadGP: String
 
 var logo := preload("res://icon.svg")
 var logoScaleFactor: Vector2 = Vector2(1.0, 1.0)
@@ -51,9 +53,14 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("swapCameraDirection"):
 		invertCam()
+		if currentCameraIndex % 2 == 0:
+			currentCameraIndex += 1
+		else:
+			currentCameraIndex -= 1
 	
 	if Input.is_action_just_pressed("swapCameraView"):
 		swapCam()
+		currentCameraIndex = (currentCameraIndex + 2) % 4
 
 func invertCam():
 	thirdPersonCam.rotation.y *= -1.0
@@ -71,5 +78,5 @@ func swapCam():
 	drivetrain.FIELD_ORIENT = not drivetrain.FIELD_ORIENT
 
 
-func updateStart(location: int, startingGP: String, ISBLUE: bool):
+func updateStart(location: int, startingGP: String, ISBLUE: bool, cameraIndex:int = -1):
 	return
