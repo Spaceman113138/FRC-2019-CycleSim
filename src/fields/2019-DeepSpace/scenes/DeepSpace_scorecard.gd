@@ -3,6 +3,9 @@ class_name DeepSpaceScorecard extends Control
 enum enableStates {Disabled, Enabled}
 enum gameStates {NotStarted, Sandstorm, Teleop, Endgame, AfterMatch}
 
+@onready var blueRP := $TextureRect/blueRPdot
+@onready var redRP := $TextureRect/redRPdot
+
 var currentEnableState := enableStates.Disabled:
 	set(val):
 		if currentEnableState != val:
@@ -41,6 +44,7 @@ var blueHatchPlacements: Dictionary = {
 	"Right" : 0,
 	"Middle" : 0
 }
+
 var blueCargoPlacements: Dictionary = {
 	"Left" : 0,
 	"Right" : 0,
@@ -52,6 +56,7 @@ var redHatchPlacements: Dictionary = {
 	"Right" : 0,
 	"Middle" : 0
 }
+
 var redCargoPlacements: Dictionary = {
 	"Left" : 0,
 	"Right" : 0,
@@ -110,6 +115,20 @@ func _process(delta: float) -> void:
 	else: #Teleop
 		currentGameState = gameStates.Teleop
 	timeBar.value = ceili(currentTime)
+	
+	if redHatchPlacements["Left"] == 6 and redCargoPlacements["Left"] == 6:
+		redRP.visible = true
+	elif redHatchPlacements["Right"] == 6 and redCargoPlacements["Right"] == 6:
+		redRP.visible = true
+	else:
+		redRP.visible = false
+	
+	if blueHatchPlacements["Left"] == 6 and blueCargoPlacements["Left"] == 6:
+		blueRP.visible = true
+	elif blueHatchPlacements["Right"] == 6 and blueCargoPlacements["Right"] == 6:
+		blueRP.visible = true
+	else:
+		blueRP.visible = false
 
 
 func addHatchPannel(points: int, color: String, location: String):

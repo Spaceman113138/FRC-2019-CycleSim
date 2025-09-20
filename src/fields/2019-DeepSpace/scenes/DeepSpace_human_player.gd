@@ -3,13 +3,12 @@ class_name DeepSpaceHP extends Node3D
 @onready var hatchScene := preload("res://src/fields/2019-DeepSpace/gamePieces/HatchPanel.tscn")
 @onready var cargoScene := preload("res://src/fields/2019-DeepSpace/gamePieces/cargo.tscn")
 @onready var hatchDetectionArea: Area3D = $Area3D
-var robotNode: Node3D
 
 var timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	robotNode = get_tree().root.get_node("GameWorld/Wildstang111/SwerveBase")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

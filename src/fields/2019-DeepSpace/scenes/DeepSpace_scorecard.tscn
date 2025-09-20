@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgyfn6u1axn30"]
+[gd_scene load_steps=7 format=3 uid="uid://cgyfn6u1axn30"]
 
 [ext_resource type="Script" uid="uid://dsxwgeq58qe2v" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace_scorecard.gd" id="1_w33ox"]
 [ext_resource type="Texture2D" uid="uid://cu2me7dpq5yuf" path="res://src/fields/2019-DeepSpace/resources/scorecard.svg" id="2_541i8"]
 [ext_resource type="Texture2D" uid="uid://divl144wuihmw" path="res://src/fields/2019-DeepSpace/resources/barBackground.svg" id="3_qqi2q"]
 [ext_resource type="Texture2D" uid="uid://dlfe77sxlbu7h" path="res://src/fields/2019-DeepSpace/resources/barMain.svg" id="4_16jhc"]
 [ext_resource type="Texture2D" uid="uid://dshd3xkocprbb" path="res://src/fields/2019-DeepSpace/resources/numBackground.svg" id="5_pnj6y"]
+[ext_resource type="Texture2D" uid="uid://c4rdi7aal6twy" path="res://src/fields/2019-DeepSpace/resources/rpDots.png" id="6_xnixn"]
 
 [node name="2019Scorecard" type="Control"]
 layout_mode = 3
@@ -224,6 +225,14 @@ offset_bottom = 53.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "135"
 horizontal_alignment = 1
+
+[node name="redRPdot" type="Sprite2D" parent="TextureRect"]
+position = Vector2(370, 62)
+texture = ExtResource("6_xnixn")
+
+[node name="blueRPdot" type="Sprite2D" parent="TextureRect"]
+position = Vector2(449, 62)
+texture = ExtResource("6_xnixn")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
