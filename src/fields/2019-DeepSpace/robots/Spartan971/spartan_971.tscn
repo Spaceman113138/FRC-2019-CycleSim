@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://mdojnn4dy7k4"]
+[gd_scene load_steps=6 format=3 uid="uid://mdojnn4dy7k4"]
 
 [ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_76n07"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="2_bd2vj"]
-[ext_resource type="PackedScene" uid="uid://dfie0bug2msvs" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-DrivetrainBase.gltf" id="3_jjhrt"]
-[ext_resource type="PackedScene" uid="uid://dbdtgonu8e1ie" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-ElevatorBase-Base.gltf" id="4_0wjgm"]
-[ext_resource type="PackedScene" uid="uid://dk5al1imjknfo" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-ElevatorBase-Uprights.gltf" id="5_y8wwu"]
+[ext_resource type="PackedScene" uid="uid://vxi6lhivh4hg" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Drivetrain.gltf" id="3_0pmab"]
 [ext_resource type="Script" uid="uid://1xr0kw7cfd4c" path="res://src/general/SharedRobotComponents/SwerveModule.gd" id="6_aq7yg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76n07"]
@@ -18,10 +16,13 @@ thirdPersonCam = NodePath("Camera3D2")
 metadata/_custom_type_script = "uid://dx8mnn4m08yw3"
 
 [node name="drivebase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
+collision_layer = 2
+collision_mask = 7
 mass = 50.0
-linear_damp = 5.0
-angular_damp = 5.0
+linear_damp = 7.0
+angular_damp = 10.0
 script = ExtResource("2_bd2vj")
+STATIC_ROT_MULTIPLIER = 275.0
 FL = NodePath("FL")
 FR = NodePath("FR")
 BL = NodePath("BL")
@@ -32,17 +33,12 @@ metadata/_custom_type_script = "uid://cqe1otigm2x0o"
 transform = Transform3D(-1, 1.98606e-08, -8.51369e-08, -8.99551e-09, 0.945308, 0.326179, 8.69587e-08, 0.326179, -0.945308, 0, 1.56741, -2.14365)
 current = true
 
-[node name="Drivetrain" parent="drivebase" instance=ExtResource("3_jjhrt")]
+[node name="Drivebase" parent="drivebase" node_paths=PackedStringArray("TargetParent") instance=ExtResource("3_0pmab")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
-
-[node name="EleBaseBase" parent="drivebase" instance=ExtResource("4_0wjgm")]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.0641375, 0.108865, 0)
-
-[node name="Root" parent="drivebase" instance=ExtResource("5_y8wwu")]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.0640911, 0.108372, 0)
+TargetParent = NodePath("..")
 
 [node name="FR" type="Node3D" parent="drivebase" node_paths=PackedStringArray("mesh", "ray", "TargetParent")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196, 0, 0.256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196, 0.032698, 0.256)
 script = ExtResource("6_aq7yg")
 mesh = NodePath("MeshInstance3D")
 ray = NodePath("RayCast3D")
@@ -59,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000823975, 0.0194092, 0)
 shape = SubResource("SphereShape3D_76n07")
 
 [node name="FL" type="Node3D" parent="drivebase" node_paths=PackedStringArray("mesh", "ray", "TargetParent")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196, 0, 0.256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196, 0.032698, 0.256)
 script = ExtResource("6_aq7yg")
 mesh = NodePath("MeshInstance3D")
 ray = NodePath("RayCast3D")
@@ -76,7 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000823975, 0.0194092, 0)
 shape = SubResource("SphereShape3D_76n07")
 
 [node name="BR" type="Node3D" parent="drivebase" node_paths=PackedStringArray("mesh", "ray", "TargetParent")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.195902, 0, -0.255995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.195902, 0.032698, -0.255995)
 script = ExtResource("6_aq7yg")
 mesh = NodePath("MeshInstance3D")
 ray = NodePath("RayCast3D")
@@ -93,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000823975, 0.0194092, 0)
 shape = SubResource("SphereShape3D_76n07")
 
 [node name="BL" type="Node3D" parent="drivebase" node_paths=PackedStringArray("mesh", "ray", "TargetParent")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196, 0, -0.256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196, 0.032698, -0.256)
 script = ExtResource("6_aq7yg")
 mesh = NodePath("MeshInstance3D")
 ray = NodePath("RayCast3D")

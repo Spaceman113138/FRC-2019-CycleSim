@@ -14,9 +14,9 @@ sky_material = SubResource("ProceduralSkyMaterial_3qla1")
 
 [sub_resource type="Environment" id="Environment_otdk2"]
 background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.25
 sky = SubResource("Sky_4b8aq")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="GameWorld" type="Node3D"]
 script = ExtResource("1_j7fvf")
@@ -26,7 +26,8 @@ environment = SubResource("Environment_otdk2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.91098, 0)
-light_energy = 2.0
+light_energy = 3.0
+light_indirect_energy = 3.0
 shadow_enabled = true
 
 [node name="2019-Field" parent="." instance=ExtResource("1_5do2m")]

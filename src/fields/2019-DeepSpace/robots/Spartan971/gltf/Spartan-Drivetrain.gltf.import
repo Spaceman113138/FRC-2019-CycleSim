@@ -1,0 +1,106 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://vxi6lhivh4hg"
+path="res://.godot/imported/Spartan-Drivetrain.gltf-09b3954467c6249ecad85a497c536ffd.scn"
+
+[deps]
+
+source_file="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Drivetrain.gltf"
+dest_files=["res://.godot/imported/Spartan-Drivetrain.gltf-09b3954467c6249ecad85a497c536ffd.scn"]
+
+[params]
+
+nodes/root_type="CollisionHolder"
+nodes/root_name="Drivebase"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path="uid://dyjwcf05hdix2"
+_subresources={
+"nodes": {
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3700_Bumpers <1>/occurrence of Placebo Bumepers/Placebo Bumepers": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1222/6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1222": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1223/6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1223": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1224/6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1224": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1225/6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1225": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0054_Front Elevator Support Tube/971-19-P-0054_Front Elevator Support Tube": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0054_Front Elevator Support Tube_971-19-P-0055_Back Elevator Support Tube/971-19-P-0054_Front Elevator Support Tube_971-19-P-0055_Back Elevator Support Tube": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0081_Carbon Fiber Grounded Stage/971-19-P-0081_Carbon Fiber Grounded Stage": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0081_Carbon Fiber Grounded Stage2/971-19-P-0081_Carbon Fiber Grounded Stage2": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0142_MirrorGrounded Stage Bearing Block/971-19-P-0142_MirrorGrounded Stage Bearing Block": {
+"physics/body_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0143_MirrorElevator Triangulation/971-19-P-0143_MirrorElevator Triangulation": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0145_Grounded Stage Plate1/971-19-P-0145_Grounded Stage Plate1": {
+"physics/body_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0147_Elevator Triangulation/971-19-P-0147_Elevator Triangulation": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0207_Elevator Downstop/971-19-P-0207_Elevator Downstop": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
