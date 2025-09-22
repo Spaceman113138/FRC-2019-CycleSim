@@ -9,7 +9,7 @@ var currentAngle: float = 0
 var atTargetAngle: bool = 0
 
 @export var P: float = 1
-
+@export var useLimits := false
 @export var armBody: RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
@@ -20,14 +20,19 @@ func _ready() -> void:
 	scoreboard.Enable.connect(func(): armJoint.motor_enabled = true)
 
 func _physics_process(delta: float) -> void:
-	currentAngle = armBody.rotation_degrees.x + angleOffset
-	var error = targetAngle - currentAngle
-	if abs(error) > tolorence:
-		atTargetAngle = false
-		armJoint.motor_target_velocity = P * error
+	if useLimits:
+		armJoint.limit_lower = deg_to_rad(targetAngle)
+		armJoint.limit_upper = deg_to_rad(targetAngle)
 	else:
-		atTargetAngle = true
-		armJoint.motor_target_velocity = 0
+		currentAngle = armBody.rotation_degrees.x + angleOffset
+		print(currentAngle)
+		var error = targetAngle - currentAngle
+		if abs(error) > tolorence:
+			atTargetAngle = false
+			armJoint.motor_target_velocity = P * error
+		else:
+			atTargetAngle = true
+			armJoint.motor_target_velocity = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -168,3 +168,5 @@ reset={
 3d/physics_engine="Jolt Physics (Extension)"
 jolt_physics_3d/simulation/baumgarte_stabilization_factor=0.5
 3d/solver/solver_iterations=32
+jolt_physics_extension_3d/solver/velocity_iterations=20
+jolt_physics_extension_3d/solver/position_iterations=5

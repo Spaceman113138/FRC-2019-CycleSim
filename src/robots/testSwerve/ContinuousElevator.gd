@@ -5,7 +5,7 @@ class_name ContinuousElevator extends Node3D
 var joints: Array[JoltSliderJoint3D]
 
 var currentHeight: float = 0
-var targetHeight: float = 0.0
+@export var targetHeight: float = 0.0
 @export var tolorence: float = 0.01
 @export var maxHeight: float = 1.5
 var atTargetHeight: bool = true
@@ -34,8 +34,8 @@ func _ready() -> void:
 		joint.enabled = true
 		joint.motor_max_force = 100
 		joint.exclude_nodes_from_collision = false
-		joint.solver_position_iterations = 50
-		joint.solver_velocity_iterations = 50
+		joint.solver_position_iterations = 200
+		joint.solver_velocity_iterations = 100
 		joint.position = components[-1].position
 		joint.node_a = components[0].get_path()
 		joint.node_b = components[i].get_path()
@@ -56,18 +56,10 @@ func _physics_process(delta: float) -> void:
 	tempJointInitialBasis = tempJointInitialBasis.rotated(Vector3.BACK, rotationDelta.z)
 	var axis = rotateThing(jointInitialBasis, rotationDelta).orthonormalized().x
 	
-	#var tempInitalOffset = initalOffset.rotated()
-	
 	var positionDelta := components[-1].global_position - components[0].global_position - Vector3(rotateThing(initalOffset, rotationDelta))
 	
-	#print(axis)
-	
 	currentHeight = positionDelta.project(axis).length()
-	
-	#print(components[-1].global_rotation_degrees)
-	
 	var error = targetHeight - currentHeight
-	#print([name, currentHeight, targetHeight, error, joints[-1].get_applied_force(), joints[-1].get_applied_torque()])
 	if abs(error) > tolorence:
 		joints[-1].motor_target_velocity = 5.0 * error
 		atTargetHeight = false

@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://mdojnn4dy7k4"]
+[gd_scene load_steps=11 format=3 uid="uid://mdojnn4dy7k4"]
 
 [ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_76n07"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="2_bd2vj"]
 [ext_resource type="PackedScene" uid="uid://vxi6lhivh4hg" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Drivetrain.gltf" id="3_0pmab"]
+[ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://src/robots/testSwerve/ContinuousElevator.gd" id="5_0wjgm"]
 [ext_resource type="Script" uid="uid://1xr0kw7cfd4c" path="res://src/general/SharedRobotComponents/SwerveModule.gd" id="6_aq7yg"]
+[ext_resource type="PackedScene" uid="uid://dv5wjrdx6id35" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-1stStage.gltf" id="6_bd2vj"]
+[ext_resource type="PackedScene" uid="uid://bauh2pcp4i6d5" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Carrage.gltf" id="7_bd2vj"]
+[ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://src/robots/testSwerve/Arm.gd" id="8_0wjgm"]
+[ext_resource type="PackedScene" uid="uid://db4fe3d7a5vo4" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Arm.gltf" id="9_y8wwu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76n07"]
 radius = 0.051
@@ -20,9 +25,9 @@ collision_layer = 2
 collision_mask = 7
 mass = 50.0
 linear_damp = 7.0
-angular_damp = 10.0
+angular_damp = 12.0
 script = ExtResource("2_bd2vj")
-STATIC_ROT_MULTIPLIER = 275.0
+STATIC_ROT_MULTIPLIER = 150.0
 FL = NodePath("FL")
 FR = NodePath("FR")
 BL = NodePath("BL")
@@ -107,3 +112,57 @@ shape = SubResource("SphereShape3D_76n07")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.973853, 0.227178, 0, -0.227178, 0.973853, 0, 1.19139, 1.63692)
+
+[node name="elevator" type="Node3D" parent="." node_paths=PackedStringArray("components")]
+script = ExtResource("5_0wjgm")
+components = [NodePath("../drivebase"), NodePath("FirstStageBody"), NodePath("CarrageBody")]
+targetHeight = 1.5
+metadata/_custom_type_script = "uid://cienae3qsx6ds"
+
+[node name="FirstStageBody" type="RigidBody3D" parent="elevator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064, 0.212, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="FirstStage" parent="elevator/FirstStageBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("6_bd2vj")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.5, 0)
+TargetParent = NodePath("..")
+
+[node name="CarrageBody" type="RigidBody3D" parent="elevator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0644521, 0.375986, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="Carrage" parent="elevator/CarrageBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("7_bd2vj")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+TargetParent = NodePath("..")
+
+[node name="MultiArmJoint" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_spring_enabled = true
+limit_spring_frequency = 35.0
+limit_spring_damping = 10.0
+motor_max_torque = 100.0
+node_a = NodePath("../elevator/CarrageBody")
+node_b = NodePath("../MultiArm/ArmBody")
+solver_velocity_iterations = 200
+solver_position_iterations = 100
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.025, 0.462, 0)
+
+[node name="MultiArm" type="Node3D" parent="." node_paths=PackedStringArray("armJoint", "armBody")]
+script = ExtResource("8_0wjgm")
+armJoint = NodePath("../MultiArmJoint")
+targetAngle = -90.0
+useLimits = true
+armBody = NodePath("ArmBody")
+metadata/_custom_type_script = "uid://dpnmvnyt2merd"
+
+[node name="ArmBody" type="RigidBody3D" parent="MultiArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0252612, 0.461828, 0)
+collision_layer = 2
+collision_mask = 7
+center_of_mass_mode = 1
+
+[node name="Arm" parent="MultiArm/ArmBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("9_y8wwu")]
+transform = Transform3D(4.37114e-08, -1, 8.74228e-08, 4.37114e-08, -8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, 0, 0, 0)
+TargetParent = NodePath("..")
