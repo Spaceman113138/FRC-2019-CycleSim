@@ -5,8 +5,12 @@ class_name Arm extends Node3D
 @export var angleOffset: float = 0
 @export var tolorence: float = 2.5
 var currentAngle: float = 0
-@export var targetAngle: float = 0
-var atTargetAngle: bool = 0
+@export var targetAngle: float = 0:
+	set(val):
+		targetAngle = val
+		_physics_process(0.0)
+
+var atTargetAngle: bool = false
 
 @export var P: float = 1
 @export var useLimits := false

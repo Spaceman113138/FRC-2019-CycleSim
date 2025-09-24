@@ -2,6 +2,16 @@
 class_name HatchPanel extends RigidBody3D
 
 #@export_tool_button("Generate") var generate = generateCollision
+@onready var intakeDetector := $intakeDetector
+
+var detectable := true:
+	set(val):
+		detectable = val
+		if detectable:
+			collision_layer = 4 + 16
+		else:
+			collision_layer = 4
+		#intakeDetector.set_deferred("monitorable", detectable)
 
 const outerDiameter := 0.48
 const innerDiameter := 0.15

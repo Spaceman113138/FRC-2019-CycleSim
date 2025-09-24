@@ -36,4 +36,4 @@ shadow_enabled = true
 transform = Transform3D(0.882127, 0.141636, -0.449212, 0, 0.953717, 0.300706, 0.471012, -0.265261, 0.841299, -3.3, 2.3, -0.1)
 
 [node name="Spartan971" parent="." instance=ExtResource("3_3qla1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89862, 0.0188984, 1.07486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95558, 0.0188984, -5.23191)

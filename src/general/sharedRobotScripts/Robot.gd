@@ -80,3 +80,15 @@ func swapCam():
 
 func updateStart(location: int, startingGP: String, ISBLUE: bool, cameraIndex:int = -1):
 	return
+
+
+func getPosition() -> Vector3:
+	return drivetrain.global_position
+
+#Returns Radians!!!!!!!
+func getRotationRads() -> Vector3:
+	return drivetrain.global_rotation
+
+
+func getRotationDegs() -> Vector3:
+	return drivetrain.global_rotation_degrees

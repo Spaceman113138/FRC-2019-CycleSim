@@ -5,7 +5,10 @@ class_name ContinuousElevator extends Node3D
 var joints: Array[JoltSliderJoint3D]
 
 var currentHeight: float = 0
-@export var targetHeight: float = 0.0
+@export var targetHeight: float = 0.0:
+	set(val):
+		targetHeight = val
+		_physics_process(0.0)
 @export var tolorence: float = 0.01
 @export var maxHeight: float = 1.5
 var atTargetHeight: bool = true

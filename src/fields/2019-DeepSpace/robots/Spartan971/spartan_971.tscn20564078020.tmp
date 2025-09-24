@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://mdojnn4dy7k4"]
+[gd_scene load_steps=11 format=3 uid="uid://mdojnn4dy7k4"]
 
-[ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_y8wwu"]
+[ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_76n07"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="2_bd2vj"]
 [ext_resource type="PackedScene" uid="uid://vxi6lhivh4hg" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Drivetrain.gltf" id="3_0pmab"]
 [ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://src/robots/testSwerve/ContinuousElevator.gd" id="5_0wjgm"]
@@ -9,21 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bauh2pcp4i6d5" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Carrage.gltf" id="7_bd2vj"]
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://src/robots/testSwerve/Arm.gd" id="8_0wjgm"]
 [ext_resource type="PackedScene" uid="uid://db4fe3d7a5vo4" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Arm.gltf" id="9_y8wwu"]
-[ext_resource type="Script" uid="uid://dpcegq42pdaqn" path="res://src/fields/2019-DeepSpace/scenes/Hatch_Snap.gd" id="10_y8wwu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76n07"]
 radius = 0.051
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_aq7yg"]
-height = 0.0269775
-radius = 0.0151367
-
 [node name="Spartan971" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam")]
-script = ExtResource("1_y8wwu")
+script = ExtResource("1_76n07")
 drivetrain = NodePath("drivebase")
 firstPersonCam = NodePath("drivebase/firstPerson")
 thirdPersonCam = NodePath("Camera3D2")
-metadata/_custom_type_script = "uid://1whac0ylbqno"
+metadata/_custom_type_script = "uid://dx8mnn4m08yw3"
 
 [node name="drivebase" type="RigidBody3D" parent="." node_paths=PackedStringArray("FL", "FR", "BL", "BR")]
 collision_layer = 2
@@ -161,26 +156,11 @@ armBody = NodePath("ArmBody")
 metadata/_custom_type_script = "uid://dpnmvnyt2merd"
 
 [node name="ArmBody" type="RigidBody3D" parent="MultiArm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118299, 0.461828, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0252612, 0.461828, 0)
 collision_layer = 2
-collision_mask = 5
-mass = 0.125
+collision_mask = 7
 center_of_mass_mode = 1
-linear_damp = 1.0
 
 [node name="Arm" parent="MultiArm/ArmBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("9_y8wwu")]
 transform = Transform3D(4.37114e-08, -1, 8.74228e-08, 4.37114e-08, -8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, 0, 0, 0)
 TargetParent = NodePath("..")
-
-[node name="SnapIntake" type="Area3D" parent="MultiArm/ArmBody"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0247549, 0.522534, -0.134862)
-collision_layer = 0
-collision_mask = 144
-script = ExtResource("10_y8wwu")
-metadata/_custom_type_script = "uid://c2ihnaxl1dmi4"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MultiArm/ArmBody/SnapIntake"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_aq7yg")
-
-[connection signal="body_entered" from="MultiArm/ArmBody/SnapIntake" to="MultiArm/ArmBody/SnapIntake" method="_on_body_entered"]
