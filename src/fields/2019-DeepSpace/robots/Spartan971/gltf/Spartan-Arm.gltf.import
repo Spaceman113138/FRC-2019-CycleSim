@@ -39,6 +39,9 @@ _subresources={
 "physics/body_type": 1,
 "physics/shape_type": 1
 },
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Bident <1>/G_FX77T50_B3_S1_NT18M_00 <1>/fitting_NT18M <1>": {
+"import/skip_import": true
+},
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Bident <1>/G_FX77T50_B3_S1_NT18M_00 <1>/occurrence of Suction Lip/Suction Lip": {
 "generate/physics": true,
 "physics/body_type": 1,
@@ -58,6 +61,9 @@ _subresources={
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/shape_type": 1
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Bident <1>/occurrence of G_FX39T50_B3_S1_NT18M_002": {
+"import/skip_import": true
 },
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Bident <1>/occurrence of G_FX39T50_B3_S1_NT18M_002/G_FX39T50_B3_S1_NT18M_002": {
 "physics/body_type": 1

@@ -1,5 +1,7 @@
 class_name Arm extends Node3D
 
+var setup := false
+
 @export var armJoint: JoltHingeJoint3D
 
 @export var angleOffset: float = 0
@@ -8,7 +10,8 @@ var currentAngle: float = 0
 @export var targetAngle: float = 0:
 	set(val):
 		targetAngle = val
-		_physics_process(0.0)
+		if setup:
+			_physics_process(0.0)
 
 var atTargetAngle: bool = false
 
@@ -22,6 +25,8 @@ func _ready() -> void:
 	var scoreboard: DeepSpaceScorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
 	scoreboard.Disable.connect(func(): armJoint.motor_enabled = false)
 	scoreboard.Enable.connect(func(): armJoint.motor_enabled = true)
+	
+	setup = true
 
 func _physics_process(delta: float) -> void:
 	if useLimits:

@@ -7,12 +7,17 @@ var statemachine: StateMachine
 @onready var elevator: ContinuousElevator = $elevator
 @onready var arm: Arm = $MultiArm
 @onready var hatchIntake: HatchSnap = $MultiArm/ArmBody/SnapIntake
+@onready var cargoIntake: CargoIntake = $FrontRollerBody/CargoIntake
+@onready var cargoArm: Arm = $frontBars
+@onready var cargoSnap: CargoSnap = $MultiArm/ArmBody/CargoSnap
 
 var flipArm: bool = false
 
 var hasHatch := false:
 	set(val):
 		hasHatch = val
+
+var hasCargo := false
 
 func _ready() -> void:
 	super._ready()
@@ -22,6 +27,9 @@ func _ready() -> void:
 	
 	hatchIntake.hasObject.connect(func(): hasHatch = true)
 	hatchIntake.lostObject.connect(func(): hasHatch = false)
+	
+	cargoSnap.hasObject.connect(func(): hasCargo = true)
+	cargoSnap.lostObject.connect(func(): hasCargo = false)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,10 +64,18 @@ func enableRequired(delta: float) -> void:
 		else:
 			statemachine.requestState(states.hatchHigh)
 	
+	if Input.is_action_just_pressed("cargoIntake"):
+		statemachine.requestState(states.cargoIntake)
+	elif Input.is_action_just_released("cargoIntake"):
+		statemachine.requestState(states.store)
+	
 	if Input.is_action_just_released("flip"):
 		flipArm = !flipArm
 	
 	if Input.is_action_just_pressed("Eject"):
 		if hasHatch:
 			hatchIntake.eject()
+			statemachine.requestState(states.store)
+		elif hasCargo:
+			cargoSnap.eject()
 			statemachine.requestState(states.store)

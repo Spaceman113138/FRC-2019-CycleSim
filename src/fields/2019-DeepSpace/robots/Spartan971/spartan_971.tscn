@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://mdojnn4dy7k4"]
+[gd_scene load_steps=20 format=3 uid="uid://mdojnn4dy7k4"]
 
 [ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_y8wwu"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="2_bd2vj"]
 [ext_resource type="PackedScene" uid="uid://vxi6lhivh4hg" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Drivetrain.gltf" id="3_0pmab"]
+[ext_resource type="PackedScene" uid="uid://uf520u5l2dmf" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-4barStatic.gltf" id="4_w105s"]
 [ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://src/robots/testSwerve/ContinuousElevator.gd" id="5_0wjgm"]
 [ext_resource type="Script" uid="uid://1xr0kw7cfd4c" path="res://src/general/SharedRobotComponents/SwerveModule.gd" id="6_aq7yg"]
 [ext_resource type="PackedScene" uid="uid://dv5wjrdx6id35" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-1stStage.gltf" id="6_bd2vj"]
@@ -10,13 +11,21 @@
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://src/robots/testSwerve/Arm.gd" id="8_0wjgm"]
 [ext_resource type="PackedScene" uid="uid://db4fe3d7a5vo4" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-Arm.gltf" id="9_y8wwu"]
 [ext_resource type="Script" uid="uid://dpcegq42pdaqn" path="res://src/fields/2019-DeepSpace/scenes/Hatch_Snap.gd" id="10_y8wwu"]
+[ext_resource type="Script" uid="uid://yrp4oshin0tf" path="res://src/fields/2019-DeepSpace/scenes/cargo_snap.gd" id="12_6uvg0"]
+[ext_resource type="PackedScene" uid="uid://df65d2sncq6uk" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-FrontBars.gltf" id="12_e0dpn"]
+[ext_resource type="PackedScene" uid="uid://cqgxurhc5mmoe" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-IntakeRollers.gltf" id="13_6uvg0"]
+[ext_resource type="Script" uid="uid://dk0f1c6qppfnn" path="res://src/fields/2019-DeepSpace/scenes/AlgeaIntake.gd" id="14_e0dpn"]
+[ext_resource type="PackedScene" uid="uid://dl24tb0gm4al" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-BackBar.gltf" id="14_ve0jt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76n07"]
 radius = 0.051
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aq7yg"]
-height = 0.0269775
-radius = 0.0151367
+height = 0.03302
+radius = 0.0449219
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uvg0"]
+size = Vector3(0.43396, 0.0213318, 0.189667)
 
 [node name="Spartan971" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam")]
 script = ExtResource("1_y8wwu")
@@ -46,6 +55,9 @@ current = true
 [node name="Drivebase" parent="drivebase" node_paths=PackedStringArray("TargetParent") instance=ExtResource("3_0pmab")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 TargetParent = NodePath("..")
+
+[node name="GroundIntakeBase" parent="drivebase" instance=ExtResource("4_w105s")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.0297743, 0.105223)
 
 [node name="FR" type="Node3D" parent="drivebase" node_paths=PackedStringArray("mesh", "ray", "TargetParent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196, 0.032698, 0.256)
@@ -121,6 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 0.973853, 0.227178, 0, -0.227178, 0.973853, 
 [node name="elevator" type="Node3D" parent="." node_paths=PackedStringArray("components")]
 script = ExtResource("5_0wjgm")
 components = [NodePath("../drivebase"), NodePath("FirstStageBody"), NodePath("CarrageBody")]
+P = 7.0
 metadata/_custom_type_script = "uid://cienae3qsx6ds"
 
 [node name="FirstStageBody" type="RigidBody3D" parent="elevator"]
@@ -183,4 +196,103 @@ metadata/_custom_type_script = "uid://c2ihnaxl1dmi4"
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_aq7yg")
 
+[node name="CargoSnap" type="Area3D" parent="MultiArm/ArmBody"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0247549, 0.501087, 0.130635)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("12_6uvg0")
+enabled = true
+metadata/_custom_type_script = "uid://c2ihnaxl1dmi4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MultiArm/ArmBody/CargoSnap"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.00302124)
+shape = SubResource("CylinderShape3D_aq7yg")
+
+[node name="mainIntakeHinge" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_spring_enabled = true
+limit_spring_frequency = 10.0
+limit_spring_damping = 5.0
+node_a = NodePath("../drivebase")
+node_b = NodePath("../frontBars/FrontBarBody")
+solver_velocity_iterations = 400
+solver_position_iterations = 200
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.223838, 0.137854, 0.256442)
+
+[node name="frontBars" type="Node3D" parent="." node_paths=PackedStringArray("armJoint", "armBody")]
+script = ExtResource("8_0wjgm")
+armJoint = NodePath("../mainIntakeHinge")
+targetAngle = 80.0
+useLimits = true
+armBody = NodePath("FrontBarBody")
+metadata/_custom_type_script = "uid://dpnmvnyt2merd"
+
+[node name="FrontBarBody" type="RigidBody3D" parent="frontBars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137902, 0.25658)
+collision_layer = 0
+collision_mask = 0
+mass = 0.125
+
+[node name="FrontBars" parent="frontBars/FrontBarBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("12_e0dpn")]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 0, -0.107679, -0.151327)
+TargetParent = NodePath("..")
+
+[node name="backHinge" type="JoltHingeJoint3D" parent="."]
+limit_spring_frequency = 10.0
+node_a = NodePath("../drivebase")
+node_b = NodePath("../BackArmsBody")
+solver_velocity_iterations = 400
+solver_position_iterations = 200
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.223838, 0.129428, -0.000524133)
+
+[node name="FrontRollerBody" type="RigidBody3D" parent="."]
+collision_layer = 2
+collision_mask = 7
+mass = 0.125
+
+[node name="FrontRollers" parent="FrontRollerBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("13_6uvg0")]
+transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, 0, 0.03, 0.105)
+TargetParent = NodePath("..")
+
+[node name="CargoIntake" type="Area3D" parent="FrontRollerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263123, 0.249419)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("14_e0dpn")
+forceAmount = 10.0
+reversed = true
+metadata/_custom_type_script = "uid://dk0f1c6qppfnn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontRollerBody/CargoIntake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00506592, 0, 0)
+shape = SubResource("BoxShape3D_6uvg0")
+debug_color = Color(0.994933, 0, 0.21392, 0.42)
+
+[node name="backToTop" type="JoltHingeJoint3D" parent="."]
+limit_spring_frequency = 10.0
+node_a = NodePath("../BackArmsBody")
+node_b = NodePath("../FrontRollerBody")
+solver_velocity_iterations = 400
+solver_position_iterations = 200
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.223838, 0.312712, -0.177458)
+
+[node name="frontToTop" type="JoltHingeJoint3D" parent="."]
+limit_spring_frequency = 10.0
+node_a = NodePath("../frontBars/FrontBarBody")
+node_b = NodePath("../FrontRollerBody")
+solver_velocity_iterations = 400
+solver_position_iterations = 200
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.223838, 0.3211, 0.0799357)
+
+[node name="BackArmsBody" type="RigidBody3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 0.125
+
+[node name="BackBars" parent="BackArmsBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("14_ve0jt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.0282503, 0.10535)
+TargetParent = NodePath("..")
+
 [connection signal="body_entered" from="MultiArm/ArmBody/SnapIntake" to="MultiArm/ArmBody/SnapIntake" method="_on_body_entered"]
+[connection signal="body_entered" from="MultiArm/ArmBody/CargoSnap" to="MultiArm/ArmBody/CargoSnap" method="_on_body_entered"]

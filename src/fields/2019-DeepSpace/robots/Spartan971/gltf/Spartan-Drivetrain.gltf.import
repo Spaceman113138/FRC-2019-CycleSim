@@ -34,6 +34,51 @@ animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
 "nodes": {
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 217-2000 CIM motor3/217-2000 CIM motor3": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 217-2000 CIM motor4": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/occurrence of 971-19-P-0020_Bumper Corner Plate2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/occurrence of 971-19-P-0095_Bumper Corner Plate Mirror2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0076_Tensioner Bearing Spacer2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-2000_Wheel Tensioner Opposite_For Mirror Assembly <1>/occurrence of 971-19-P-0039_Outside Wheels Shafts": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-4700_Transmission Mirror <1>/occurrence of 217-2000 CIM motor": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-4700_Transmission Mirror <1>/occurrence of 217-2000 CIM motor2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-4700_Transmission Mirror <1>/occurrence of 971-19-P-0051_Drivetrain Center Shaft": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/occurrence of 971-19-P-0020_Bumper Corner Plate": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/occurrence of 971-19-P-0095_Bumper Corner Plate Mirror": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3600_Battery <1>/occurrence of 971-19-P-0212_Motor Controller Plate": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3600_Battery <1>/occurrence of 971-19-P-0212_Motor Controller Plate2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3600_Battery <1>/occurrence of RoboRio": {
+"import/skip_import": true
+},
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3700_Bumpers <1>/occurrence of Placebo Bumepers/Placebo Bumepers": {
 "generate/physics": true,
 "physics/body_type": 1,
@@ -86,6 +131,12 @@ _subresources={
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/shape_type": 1
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0144_Grounded Stage Plate2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0144_Grounded Stage Plate22": {
+"import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-5000_Full Grounded Stage <1>/occurrence of 971-19-P-0145_Grounded Stage Plate1/971-19-P-0145_Grounded Stage Plate1": {
 "physics/body_type": 1

@@ -11,6 +11,7 @@ var currentHeight: float = 0
 		_physics_process(0.0)
 @export var tolorence: float = 0.01
 @export var maxHeight: float = 1.5
+@export var P := 5.0
 var atTargetHeight: bool = true
 
 var directionVectior: Vector3 = Vector3(0, 1, 0)#Defines the axis that the elevetor moves on
@@ -64,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	currentHeight = positionDelta.project(axis).length()
 	var error = targetHeight - currentHeight
 	if abs(error) > tolorence:
-		joints[-1].motor_target_velocity = 5.0 * error
+		joints[-1].motor_target_velocity = P * error
 		atTargetHeight = false
 	else:
 		joints[-1].motor_target_velocity = 0
