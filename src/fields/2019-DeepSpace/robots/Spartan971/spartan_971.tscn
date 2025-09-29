@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://mdojnn4dy7k4"]
+[gd_scene load_steps=31 format=4 uid="uid://mdojnn4dy7k4"]
 
 [ext_resource type="Script" uid="uid://1whac0ylbqno" path="res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.gd" id="1_y8wwu"]
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="2_bd2vj"]
@@ -18,8 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cqgxurhc5mmoe" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-IntakeRollers.gltf" id="13_6uvg0"]
 [ext_resource type="Script" uid="uid://dk0f1c6qppfnn" path="res://src/fields/2019-DeepSpace/scenes/AlgeaIntake.gd" id="14_e0dpn"]
 [ext_resource type="PackedScene" uid="uid://dl24tb0gm4al" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-BackBar.gltf" id="14_ve0jt"]
-[ext_resource type="PackedScene" uid="uid://oufxmrjoxcxf" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-StiltsLeg.gltf" id="19_rauk2"]
-[ext_resource type="PackedScene" uid="uid://djvm2fnnklahc" path="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-StiltsFoot.gltf" id="20_6hkvd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76n07"]
 radius = 0.051
@@ -3037,10 +3035,6 @@ radius = 0.0449219
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uvg0"]
 size = Vector3(0.43396, 0.0213318, 0.189667)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nh65f"]
-friction = 2.0
-rough = true
-
 [node name="Spartan971" type="Node3D" node_paths=PackedStringArray("drivetrain", "firstPersonCam", "thirdPersonCam", "bumperMesh")]
 script = ExtResource("1_y8wwu")
 drivetrain = NodePath("drivebase")
@@ -3348,82 +3342,6 @@ mass = 0.125
 [node name="BackBars" parent="BackArmsBody" node_paths=PackedStringArray("TargetParent") instance=ExtResource("14_ve0jt")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.0282503, 0.10535)
 TargetParent = NodePath("..")
-
-[node name="LeftStiltElevator" type="Node3D" parent="." node_paths=PackedStringArray("components")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00693509, 0.0439767, 0)
-script = ExtResource("5_0wjgm")
-components = [NodePath("../drivebase"), NodePath("StiltLeft")]
-useLimits = true
-metadata/_custom_type_script = "uid://cienae3qsx6ds"
-
-[node name="StiltLeft" type="RigidBody3D" parent="LeftStiltElevator"]
-collision_layer = 0
-collision_mask = 5
-center_of_mass_mode = 1
-
-[node name="StiltLeg" parent="LeftStiltElevator/StiltLeft" instance=ExtResource("19_rauk2")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.176173, 0.243191, -0.186828)
-
-[node name="leftFootArm" type="Node3D" parent="." node_paths=PackedStringArray("armJoint", "armBody")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0156068, 0.0439767, 0)
-script = ExtResource("8_0wjgm")
-armJoint = NodePath("../leftFootJoint")
-useLimits = true
-continuousRotation = false
-armBody = NodePath("leftFoot")
-metadata/_custom_type_script = "uid://dpnmvnyt2merd"
-
-[node name="leftFoot" type="RigidBody3D" parent="leftFootArm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167045, 0.0800592, -0.217705)
-physics_material_override = SubResource("PhysicsMaterial_nh65f")
-center_of_mass_mode = 1
-
-[node name="StiltFoot" parent="leftFootArm/leftFoot" instance=ExtResource("20_6hkvd")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.146432, 0.00803017)
-
-[node name="leftFootJoint" type="JoltHingeJoint3D" parent="."]
-limit_enabled = true
-node_a = NodePath("../LeftStiltElevator/StiltLeft")
-node_b = NodePath("../leftFootArm/leftFoot")
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.161661, 0.0787741, -0.217293)
-
-[node name="RightStiltElevator" type="Node3D" parent="." node_paths=PackedStringArray("components")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313954, 0.0439767, 0)
-script = ExtResource("5_0wjgm")
-components = [NodePath("../drivebase"), NodePath("StiltRight")]
-useLimits = true
-metadata/_custom_type_script = "uid://cienae3qsx6ds"
-
-[node name="StiltRight" type="RigidBody3D" parent="RightStiltElevator"]
-collision_layer = 0
-collision_mask = 5
-center_of_mass_mode = 1
-
-[node name="StiltLeg" parent="RightStiltElevator/StiltRight" instance=ExtResource("19_rauk2")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.176173, 0.243191, -0.186828)
-
-[node name="rightFootArm" type="Node3D" parent="." node_paths=PackedStringArray("armJoint", "armBody")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305069, 0.0439767, 0)
-script = ExtResource("8_0wjgm")
-armJoint = NodePath("../rightFootJoint")
-useLimits = true
-continuousRotation = false
-armBody = NodePath("rightFoot")
-metadata/_custom_type_script = "uid://dpnmvnyt2merd"
-
-[node name="rightFoot" type="RigidBody3D" parent="rightFootArm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0801018, -0.218178)
-physics_material_override = SubResource("PhysicsMaterial_nh65f")
-center_of_mass_mode = 1
-
-[node name="StiltFoot" parent="rightFootArm/rightFoot" instance=ExtResource("20_6hkvd")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.168, 0.146127, 0.0081386)
-
-[node name="rightFootJoint" type="JoltHingeJoint3D" parent="."]
-limit_enabled = true
-node_a = NodePath("../RightStiltElevator/StiltRight")
-node_b = NodePath("../rightFootArm/rightFoot")
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.158181, 0.0792167, -0.218621)
 
 [connection signal="body_entered" from="MultiArm/ArmBody/SnapIntake" to="MultiArm/ArmBody/SnapIntake" method="_on_body_entered"]
 [connection signal="body_entered" from="MultiArm/ArmBody/CargoSnap" to="MultiArm/ArmBody/CargoSnap" method="_on_body_entered"]

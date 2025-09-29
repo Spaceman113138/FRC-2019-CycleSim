@@ -10,10 +10,10 @@ var statemachine: StateMachine
 @onready var cargoIntake: CargoIntake = $FrontRollerBody/CargoIntake
 @onready var cargoArm: Arm = $frontBars
 @onready var cargoSnap: CargoSnap = $MultiArm/ArmBody/CargoSnap
-@onready var leftStilt: ContinuousElevator = $LeftStiltElevator
-@onready var rightStilt: ContinuousElevator = $RightStiltElevator
-@onready var leftFootArm: Arm = $leftFootArm
-@onready var rightFootArm: Arm = $rightFootArm
+#@onready var leftStilt: ContinuousElevator = $LeftStiltElevator
+#@onready var rightStilt: ContinuousElevator = $RightStiltElevator
+#@onready var leftFootArm: Arm = $leftFootArm
+#@onready var rightFootArm: Arm = $rightFootArm
 
 var flipArm: bool = false
 
@@ -92,9 +92,9 @@ func enableRequired(delta: float) -> void:
 			cargoSnap.eject()
 			statemachine.requestState(states.store)
 	
-	if Input.is_action_just_pressed("climb"):
-		climbIndex += 1
-		if climbIndex == 1:
-			statemachine.requestState(states.climbExtend)
-		elif climbIndex == 2:
-			statemachine.requestState(states.climbFolded)
+	#if Input.is_action_just_pressed("climb"):
+		#climbIndex += 1
+		#if climbIndex == 1:
+			#statemachine.requestState(states.climbExtend)
+		#elif climbIndex == 2:
+			#statemachine.requestState(states.climbFolded)

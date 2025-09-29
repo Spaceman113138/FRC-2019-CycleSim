@@ -55,8 +55,8 @@ var hatchLow: ScoreHatchLowState
 var hatchMid: ScoreHatchMidState
 var hatchHigh: ScoreHatchHighState
 var cargoShip: ScoreCSState
-var climbExtend: ClimbExtendedState
-var climbFolded: ClimbFoldedState
+#var climbExtend: ClimbExtendedState
+#var climbFolded: ClimbFoldedState
 
 func _init(RobotNode: Spartan971) -> void:
 	store = StoreState.new(RobotNode)
@@ -66,8 +66,8 @@ func _init(RobotNode: Spartan971) -> void:
 	hatchMid = ScoreHatchMidState.new(RobotNode)
 	hatchHigh = ScoreHatchHighState.new(RobotNode)
 	cargoShip = ScoreCSState.new(RobotNode)
-	climbExtend = ClimbExtendedState.new(RobotNode)
-	climbFolded = ClimbFoldedState.new(RobotNode)
+	#climbExtend = ClimbExtendedState.new(RobotNode)
+	#climbFolded = ClimbFoldedState.new(RobotNode)
 
 
 class BaseState extends State:
@@ -95,8 +95,8 @@ class StoreState extends BaseState:
 		robotNode.climbIndex = 0
 		robotNode.leftStilt.targetHeight = 0.0
 		robotNode.rightStilt.targetHeight = 0.0
-		robotNode.leftFootArm.targetAngle = 0.0
-		robotNode.rightFootArm.targetAngle = 0.0
+		#robotNode.leftFootArm.targetAngle = 0.0
+		#robotNode.rightFootArm.targetAngle = 0.0
 	
 	func executeFunc(delta: float):
 		if robotNode.hasHatch:
@@ -208,23 +208,23 @@ class ScoreCSState extends BaseState:
 			setSuperstructureTargets("CargoCS", robotNode.flipArm)
 
 
-class ClimbExtendedState extends BaseState:
-	func _init(RobotNode: Spartan971) -> void:
-		super._init(RobotNode, "ClimbExtend")
-	
-	func initFunc():
-		robotNode.leftStilt.targetHeight = stiltExtension
-		robotNode.rightStilt.targetHeight = stiltExtension
-		robotNode.leftFootArm.targetAngle = 0.0
-		robotNode.rightFootArm.targetAngle = 0.0
-
-
-class ClimbFoldedState extends BaseState:
-	func _init(RobotNode: Spartan971) -> void:
-		super._init(RobotNode, "ClimbFold")
-	
-	func initFunc():
-		robotNode.leftStilt.targetHeight = stiltExtension
-		robotNode.rightStilt.targetHeight = stiltExtension
-		robotNode.leftFootArm.targetAngle = footAngle
-		robotNode.rightFootArm.targetAngle = footAngle
+#class ClimbExtendedState extends BaseState:
+	#func _init(RobotNode: Spartan971) -> void:
+		#super._init(RobotNode, "ClimbExtend")
+	#
+	#func initFunc():
+		#robotNode.leftStilt.targetHeight = stiltExtension
+		#robotNode.rightStilt.targetHeight = stiltExtension
+		#robotNode.leftFootArm.targetAngle = 0.0
+		#robotNode.rightFootArm.targetAngle = 0.0
+#
+#
+#class ClimbFoldedState extends BaseState:
+	#func _init(RobotNode: Spartan971) -> void:
+		#super._init(RobotNode, "ClimbFold")
+	#
+	#func initFunc():
+		#robotNode.leftStilt.targetHeight = stiltExtension
+		#robotNode.rightStilt.targetHeight = stiltExtension
+		#robotNode.leftFootArm.targetAngle = footAngle
+		#robotNode.rightFootArm.targetAngle = footAngle
