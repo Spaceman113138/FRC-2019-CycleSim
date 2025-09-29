@@ -12,6 +12,7 @@ var currentHeight: float = 0
 @export var tolorence: float = 0.01
 @export var maxHeight: float = 1.5
 @export var P := 5.0
+@export var useLimits := false
 var atTargetHeight: bool = true
 
 var directionVectior: Vector3 = Vector3(0, 1, 0)#Defines the axis that the elevetor moves on
@@ -43,6 +44,14 @@ func _ready() -> void:
 		joint.position = components[-1].position
 		joint.node_a = components[0].get_path()
 		joint.node_b = components[i].get_path()
+		
+		if useLimits:
+			joint.limit_upper = 0.0
+			joint.limit_lower = 0.0
+			joint.limit_spring_enabled = true
+			joint.limit_spring_frequency = 35
+			joint.limit_spring_damping = 20
+		
 		joints.append(joint)
 
 	joints[-1].motor_enabled = true
@@ -54,22 +63,26 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var rotationDelta := components[0].global_rotation - initialRotation
-	var tempJointInitialBasis = jointInitialBasis.rotated(Vector3.UP, rotationDelta.y)
-	tempJointInitialBasis = tempJointInitialBasis.rotated(Vector3.RIGHT, rotationDelta.x)
-	tempJointInitialBasis = tempJointInitialBasis.rotated(Vector3.BACK, rotationDelta.z)
-	var axis = rotateThing(jointInitialBasis, rotationDelta).orthonormalized().x
-	
-	var positionDelta := components[-1].global_position - components[0].global_position - Vector3(rotateThing(initalOffset, rotationDelta))
-	
-	currentHeight = positionDelta.project(axis).length()
-	var error = targetHeight - currentHeight
-	if abs(error) > tolorence:
-		joints[-1].motor_target_velocity = P * error
-		atTargetHeight = false
+	if useLimits:
+		joints[0].limit_lower = targetHeight
+		joints[0].limit_upper = targetHeight
 	else:
-		joints[-1].motor_target_velocity = 0
-		atTargetHeight = true
+		var rotationDelta := components[0].global_rotation - initialRotation
+		var tempJointInitialBasis = jointInitialBasis.rotated(Vector3.UP, rotationDelta.y)
+		tempJointInitialBasis = tempJointInitialBasis.rotated(Vector3.RIGHT, rotationDelta.x)
+		tempJointInitialBasis = tempJointInitialBasis.rotated(Vector3.BACK, rotationDelta.z)
+		var axis = rotateThing(jointInitialBasis, rotationDelta).orthonormalized().x
+		
+		var positionDelta := components[-1].global_position - components[0].global_position - Vector3(rotateThing(initalOffset, rotationDelta))
+		
+		currentHeight = positionDelta.project(axis).length()
+		var error = targetHeight - currentHeight
+		if abs(error) > tolorence:
+			joints[-1].motor_target_velocity = P * error
+			atTargetHeight = false
+		else:
+			joints[-1].motor_target_velocity = 0
+			atTargetHeight = true
 	
 
 

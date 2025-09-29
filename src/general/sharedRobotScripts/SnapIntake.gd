@@ -25,14 +25,16 @@ func eject():
 
 
 func snap(body: RigidBody3D):
-	var joint := JoltGeneric6DOFJoint3D.new()
-	joint.solver_position_iterations = 200
-	joint.solver_velocity_iterations = 400
-	joint.node_a = get_parent().get_path()
-	joint.node_b = body.get_path()
-	get_parent().add_child(joint)
-	
-	objectBody = body
-	connectionJoint = joint 
-	
-	hasObject.emit()
+	if body.is_inside_tree():
+		var joint := JoltGeneric6DOFJoint3D.new()
+		get_parent().add_child(joint)
+		joint.solver_position_iterations = 200
+		joint.solver_velocity_iterations = 400
+		joint.node_a = get_parent().get_path()
+		joint.node_b = body.get_path()
+		
+		
+		objectBody = body
+		connectionJoint = joint 
+		
+		hasObject.emit()

@@ -15,6 +15,7 @@ func _ready():
 
 
 func updateForceVector(desiredTranslationVector: Vector3, desiredRotationForce: float):
+
 	if ray.is_colliding():
 		var rotationForce = rotationDirection * desiredRotationForce
 		forceVector = rotationForce + desiredTranslationVector

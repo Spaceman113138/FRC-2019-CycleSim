@@ -58,7 +58,10 @@ func _physics_process(delta: float) -> void:
 			module.desaturate(highestForce, MAX_MODULE_FORCE)
 	
 	for module in modules:
-		apply_force(module.forceVector, module.modulePosition)
+		var forceVector = module.forceVector
+		forceVector = forceVector.rotated(Vector3(1,0,0), rotation.x)
+		forceVector = forceVector.rotated(Vector3(0,0,1), rotation.z)
+		apply_force(forceVector, module.modulePosition)
 	
 	if translateVector.length() < 0.1:
 		apply_torque(Vector3.UP * STATIC_ROT_MULTIPLIER * sign(rotationAmount))

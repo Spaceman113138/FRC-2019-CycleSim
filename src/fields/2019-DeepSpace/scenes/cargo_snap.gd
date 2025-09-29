@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func snap(body: Node3D):
+	body.global_position = global_position + (global_basis.z * 0.17)
 	super.snap(body)
 	connectionJoint.global_position = global_position
 

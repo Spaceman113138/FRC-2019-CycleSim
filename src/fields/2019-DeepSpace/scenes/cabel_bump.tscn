@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo465qvkwxi5a"]
+
+[ext_resource type="PackedScene" uid="uid://bs3ahu5e1pf38" path="res://src/fields/2019-DeepSpace/gltf/2019 field - cableBump.gltf" id="1_ha1ip"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ha1ip"]
+friction = 0.25
+
+[node name="CabelBump" instance=ExtResource("1_ha1ip")]
+
+[node name="StaticBody3D" parent="cableBump" index="0"]
+physics_material_override = SubResource("PhysicsMaterial_ha1ip")

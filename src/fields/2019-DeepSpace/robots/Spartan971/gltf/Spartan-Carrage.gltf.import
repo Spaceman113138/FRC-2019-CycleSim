@@ -33,7 +33,19 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
+"materials": {
+"0.207843_0.211765_0.215686_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+}
+},
 "nodes": {
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/971-19-A-3000_CF Carriage Bearing Block Rev2 <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K12210": {
+"import/skip_import": true
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/971-19-A-3000_CF Carriage Bearing Block Rev2 <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K12211": {
+"import/skip_import": true
+},
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/971-19-A-3000_CF Carriage Bearing Block Rev2 <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K12212/6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K12212": {
 "generate/physics": true,
 "physics/body_type": 1
@@ -73,10 +85,25 @@ _subresources={
 "physics/body_type": 1,
 "physics/shape_type": 1
 },
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Elevator Bearing Block 5 <1>/occurrence of 6621K122_CHEMICAL-RESISTANT DRY-RUNNING SLEEVE BEARING_6621K1226": {
+"import/skip_import": true
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of 217-3351-STEP-20150821-BAG motor": {
+"import/skip_import": true
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of 971-19-P-0149_Elevator Dead Axle Plate": {
+"import/skip_import": true
+},
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of 971-19-P-0151_Carriage Structure/971-19-P-0151_Carriage Structure": {
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/shape_type": 1
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of No 8 Aluminum Spacer_0_375_ OD, 1_25_ Length": {
+"import/skip_import": true
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of No 8 Aluminum Spacer_0_375_ OD, 1_25_ Length2": {
+"import/skip_import": true
 }
 }
 }

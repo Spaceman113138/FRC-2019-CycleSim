@@ -32,6 +32,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:971-19-A-2800_Fourbar Intake/971-19-A-4500_Intake VP Gearbox <1>/971-19-A-5700_2Stage Versa Planetary <1>/occurrence of 971-19-P-0160_Intake Modified VP Output Shaft": {
+"import/skip_import": true
+},
+"PATH:971-19-A-2800_Fourbar Intake/971-19-A-4500_Intake VP Gearbox <1>/occurrence of 971-19-P-0188_Intake Chain Tensioner": {
+"import/skip_import": true
+},
+"PATH:971-19-A-2800_Fourbar Intake/occurrence of 18T_H_217-3488": {
+"import/skip_import": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

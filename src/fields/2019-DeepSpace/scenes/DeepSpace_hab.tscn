@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl5ef45fx7bdv"]
+[gd_scene load_steps=12 format=3 uid="uid://cl5ef45fx7bdv"]
 
 [ext_resource type="PackedScene" uid="uid://dobyf4s382jgv" path="res://src/fields/2019-DeepSpace/gltf/2019 field - HabComponents.gltf" id="1_dl2rv"]
 [ext_resource type="Script" uid="uid://c0sh0whpbdkl3" path="res://src/fields/2019-DeepSpace/scenes/DeepSpace_hab.gd" id="2_05u42"]
 [ext_resource type="Material" uid="uid://c7vu4bgfio4v1" path="res://src/fields/2019-DeepSpace/resources/darkerRed.tres" id="3_05u42"]
 [ext_resource type="Material" uid="uid://c5e3yg1ubhyba" path="res://src/fields/2019-DeepSpace/resources/darkerBlue.tres" id="3_dl2rv"]
 [ext_resource type="Material" uid="uid://cpomg36bgbc0y" path="res://src/fields/2019-DeepSpace/resources/blue.tres" id="5_x7w28"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_me17x"]
+friction = 0.5
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x7w28"]
 friction = 0.25
@@ -47,6 +50,9 @@ surface_material_override/0 = ExtResource("3_05u42")
 surface_material_override/1 = ExtResource("3_dl2rv")
 surface_material_override/3 = ExtResource("3_dl2rv")
 surface_material_override/4 = ExtResource("3_dl2rv")
+
+[node name="StaticBody3D" parent="habFloor" index="0"]
+physics_material_override = SubResource("PhysicsMaterial_me17x")
 
 [node name="StaticBody3D" parent="hab" index="0"]
 physics_material_override = SubResource("PhysicsMaterial_x7w28")

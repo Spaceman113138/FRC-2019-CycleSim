@@ -51,7 +51,7 @@ _subresources={
 "generate/physics": true,
 "physics/layer": 49,
 "physics/mask": 7,
-"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":1.5,"rough":true,"bounce":0.0,"absorbent":false,"script":null)
+"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":1.0,"rough":false,"bounce":0.0,"absorbent":false,"script":null)
 
 },
 "PATH:leftCargoHolder": {

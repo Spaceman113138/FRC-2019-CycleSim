@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dv5wjrdx6id35"
-path="res://.godot/imported/Spartan-1stStage.gltf-63b87fee33823ec721506bd5c7079de8.scn"
+uid="uid://bc6kjb8xuftrg"
+path="res://.godot/imported/Spartans-StiltsBase.gltf-a4bfffb3c03cfa624e7f4a64b7bf83f5.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-1stStage.gltf"
-dest_files=["res://.godot/imported/Spartan-1stStage.gltf-63b87fee33823ec721506bd5c7079de8.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-StiltsBase.gltf"
+dest_files=["res://.godot/imported/Spartans-StiltsBase.gltf-a4bfffb3c03cfa624e7f4a64b7bf83f5.scn"]
 
 [params]
 
 nodes/root_type="CollisionHolder"
-nodes/root_name="FirstStage"
+nodes/root_name="StiltsBase"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -32,17 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
-_subresources={
-"materials": {
-"0.203922_0.200000_0.200000_0.000000_0.000000": {
-"use_external/enabled": true,
-"use_external/path": "uid://5elk8isr64b2"
-},
-"0.207843_0.211765_0.215686_0.000000_0.000000": {
-"use_external/enabled": true,
-"use_external/path": "uid://5elk8isr64b2"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

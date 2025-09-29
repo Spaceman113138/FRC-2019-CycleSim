@@ -33,6 +33,12 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"0.901961_0.901961_0.901961_0.000000_0.831373": {
+"use_external/enabled": true,
+"use_external/path": "uid://btny7ydqmmgip"
+}
+},
 "nodes": {
 "PATH:971-19-A-2800_Fourbar Intake/occurrence of 971-19-P-0089_Intake Fourbar Link/971-19-P-0089_Intake Fourbar Link": {
 "physics/body_type": 1,

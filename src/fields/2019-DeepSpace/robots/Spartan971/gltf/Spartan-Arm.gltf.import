@@ -33,6 +33,16 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
+"materials": {
+"0.207843_0.211765_0.215686_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+},
+"1.000000_1.000000_1.000000_0.000000_0.952941": {
+"use_external/enabled": true,
+"use_external/path": "res://src/fields/2019-DeepSpace/robots/Spartan971/materials/1.000000_1.000000_1.000000_0.000000_0.952941.tres"
+}
+},
 "nodes": {
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/Bident <1>/G_FX77T50_B3_S1_NT18M_00 <1>/bellow_B3-7 <1>/occurrence of bellow_B3-7/bellow_B3-7": {
 "generate/physics": true,
@@ -82,6 +92,9 @@ _subresources={
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/shape_type": 1
+},
+"PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of 971-19-P-0202_Slider Crossbrace2": {
+"import/skip_import": true
 },
 "PATH:971-19-A-5200_Full Carriage_Tilt down 20deg/occurrence of 971-19-P-0202_Slider Crossbrace2/971-19-P-0202_Slider Crossbrace2": {
 "generate/physics": true,

@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dv5wjrdx6id35"
-path="res://.godot/imported/Spartan-1stStage.gltf-63b87fee33823ec721506bd5c7079de8.scn"
+uid="uid://oufxmrjoxcxf"
+path="res://.godot/imported/Spartans-StiltsLeg.gltf-fc7988653f6309693e00d0ad95c9ace9.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartan-1stStage.gltf"
-dest_files=["res://.godot/imported/Spartan-1stStage.gltf-63b87fee33823ec721506bd5c7079de8.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/Spartan971/gltf/Spartans-StiltsLeg.gltf"
+dest_files=["res://.godot/imported/Spartans-StiltsLeg.gltf-fc7988653f6309693e00d0ad95c9ace9.scn"]
 
 [params]
 
 nodes/root_type="CollisionHolder"
-nodes/root_name="FirstStage"
+nodes/root_name="StiltLeg"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -33,14 +33,11 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
-"materials": {
-"0.203922_0.200000_0.200000_0.000000_0.000000": {
-"use_external/enabled": true,
-"use_external/path": "uid://5elk8isr64b2"
-},
-"0.207843_0.211765_0.215686_0.000000_0.000000": {
-"use_external/enabled": true,
-"use_external/path": "uid://5elk8isr64b2"
+"nodes": {
+"PATH:971-19-A-4300_Mirrored Stilts Gearbox/971-19-A-1500_Stilt Foot_Mirrored <1>/971-19-A-5600_Stilt Tube with bottom clamp <1>/occurrence of 971-19-P-0030_Stilt Tube/971-19-P-0030_Stilt Tube": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
 }
 }
 }

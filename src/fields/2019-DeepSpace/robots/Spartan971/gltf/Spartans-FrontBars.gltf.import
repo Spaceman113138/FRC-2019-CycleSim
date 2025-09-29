@@ -33,6 +33,12 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
+"materials": {
+"0.901961_0.901961_0.901961_0.000000_0.752941": {
+"use_external/enabled": true,
+"use_external/path": "uid://btny7ydqmmgip"
+}
+},
 "nodes": {
 "PATH:971-19-A-2800_Fourbar Intake/occurrence of 971-19-P-0116_Intake Front Bent Link/971-19-P-0116_Intake Front Bent Link": {
 "physics/shape_type": 1

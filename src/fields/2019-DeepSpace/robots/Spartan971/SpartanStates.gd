@@ -6,13 +6,13 @@ const ElevatorHeights := {
 	"CargoStore" : 0.4,
 	"HatchIntake" : 0.05,
 	"HatchLow" : 0.0,
-	"CargoLow" : 0.1,
+	"CargoLow" : 0.35,
 	"HatchMid" : 0.70,
-	"CargoMid" : 0.80,
+	"CargoMid" : 1.1,
 	"HatchHigh" : 1.43,
 	"CargoHigh" : 1.43,
-	"CargoCS" : 0.0,
-	"CargoIntake" : 0.4
+	"CargoCS" : 0.8,
+	"CargoIntake" : 0.6
 }
 
 const ArmAngles := {
@@ -25,26 +25,28 @@ const ArmAngles := {
 	"HatchMid" : 90.0,
 	"CargoMid" : 90.0,
 	"HatchHigh" : 90.0,
-	"CargoHigh" : 75.0,
+	"CargoHigh" : 60.0,
 	"CargoIntake" : -130.0,
 	"CargoCS" : 90.0
 }
 
 const IntakeAngles := {
-	"Store" : 0.0,
-	"HatchStore" : 0.0,
-	"CargoStore" : 0.0,
-	"HatchIntake" : 0.0,
-	"HatchLow" : 0.0,
-	"HatchMid" : 0.0,
-	"HatchHigh" : 0.0,
-	"CargoLow" : 0.0,
-	"CargoMid" : 0.0,
-	"CargoHigh" : 0.0,
-	"CargoCS" : 0.0,
+	"Store" : -20.0,
+	"HatchStore" : -20.0,
+	"CargoStore" : -20.0,
+	"HatchIntake" : -20.0,
+	"HatchLow" : -20.0,
+	"HatchMid" : -20.0,
+	"HatchHigh" : -20.0,
+	"CargoLow" : -20.0,
+	"CargoMid" : -20.0,
+	"CargoHigh" : -20.0,
+	"CargoCS" : -20.0,
 	"CargoIntake" : 80.0
 }
 
+const stiltExtension := -0.80
+const footAngle := 45.0
 
 var store: StoreState
 var hatchIntake: HatchIntakeState
@@ -52,6 +54,9 @@ var cargoIntake: CargoIntakeState
 var hatchLow: ScoreHatchLowState
 var hatchMid: ScoreHatchMidState
 var hatchHigh: ScoreHatchHighState
+var cargoShip: ScoreCSState
+var climbExtend: ClimbExtendedState
+var climbFolded: ClimbFoldedState
 
 func _init(RobotNode: Spartan971) -> void:
 	store = StoreState.new(RobotNode)
@@ -60,13 +65,16 @@ func _init(RobotNode: Spartan971) -> void:
 	hatchLow = ScoreHatchLowState.new(RobotNode)
 	hatchMid = ScoreHatchMidState.new(RobotNode)
 	hatchHigh = ScoreHatchHighState.new(RobotNode)
+	cargoShip = ScoreCSState.new(RobotNode)
+	climbExtend = ClimbExtendedState.new(RobotNode)
+	climbFolded = ClimbFoldedState.new(RobotNode)
 
 
 class BaseState extends State:
 	var robotNode: Spartan971
 	
 	func setSuperstructureTargets(targetState: String, flipped: bool):
-		var offset = 0.0 if flipped or robotNode.hasHatch else 0.05
+		var offset = 0.0 if flipped or robotNode.hasHatch else 0.2
 		robotNode.elevator.targetHeight = ElevatorHeights[targetState] - offset
 		robotNode.cargoArm.targetAngle = IntakeAngles[targetState]
 		if flipped:
@@ -84,17 +92,23 @@ class StoreState extends BaseState:
 		super._init(RobotNode, "Store")
 	
 	func initFunc():
-		pass
+		robotNode.climbIndex = 0
+		robotNode.leftStilt.targetHeight = 0.0
+		robotNode.rightStilt.targetHeight = 0.0
+		robotNode.leftFootArm.targetAngle = 0.0
+		robotNode.rightFootArm.targetAngle = 0.0
 	
 	func executeFunc(delta: float):
 		if robotNode.hasHatch:
 			robotNode.elevator.targetHeight = ElevatorHeights["HatchStore"]
 			if robotNode.elevator.atTargetHeight:
-				robotNode.arm.targetAngle = ElevatorHeights["HatchStore"]
+				robotNode.arm.targetAngle = ArmAngles["HatchStore"]
+				robotNode.cargoArm.targetAngle = IntakeAngles["HatchStore"]
 		elif robotNode.hasCargo:
 			robotNode.elevator.targetHeight = ElevatorHeights["CargoStore"]
 			if robotNode.elevator.atTargetHeight:
-				robotNode.arm.targetAngle = ElevatorHeights["CargoStore"]
+				robotNode.arm.targetAngle = ArmAngles["CargoStore"]
+				robotNode.cargoArm.targetAngle = IntakeAngles["HatchStore"]
 		else:
 			setSuperstructureTargets("Store", false)
 
@@ -132,6 +146,10 @@ class CargoIntakeState extends BaseState:
 	
 	func initFunc():
 		setSuperstructureTargets("CargoIntake", false)
+	
+	func executeFunc(delta: float) -> void:
+		if robotNode.hasCargo:
+			robotNode.statemachine.requestState(robotNode.states.store)
 
 
 class ScoreHatchLowState extends BaseState:
@@ -188,3 +206,25 @@ class ScoreCSState extends BaseState:
 			setSuperstructureTargets("HatchLow", robotNode.flipArm)
 		else:
 			setSuperstructureTargets("CargoCS", robotNode.flipArm)
+
+
+class ClimbExtendedState extends BaseState:
+	func _init(RobotNode: Spartan971) -> void:
+		super._init(RobotNode, "ClimbExtend")
+	
+	func initFunc():
+		robotNode.leftStilt.targetHeight = stiltExtension
+		robotNode.rightStilt.targetHeight = stiltExtension
+		robotNode.leftFootArm.targetAngle = 0.0
+		robotNode.rightFootArm.targetAngle = 0.0
+
+
+class ClimbFoldedState extends BaseState:
+	func _init(RobotNode: Spartan971) -> void:
+		super._init(RobotNode, "ClimbFold")
+	
+	func initFunc():
+		robotNode.leftStilt.targetHeight = stiltExtension
+		robotNode.rightStilt.targetHeight = stiltExtension
+		robotNode.leftFootArm.targetAngle = footAngle
+		robotNode.rightFootArm.targetAngle = footAngle

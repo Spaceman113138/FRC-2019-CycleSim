@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dogg66akcwa5j"]
+[gd_scene load_steps=8 format=3 uid="uid://dogg66akcwa5j"]
 
 [ext_resource type="PackedScene" uid="uid://dgavxffs1bt07" path="res://src/fields/2019-DeepSpace/2019_field.tscn" id="1_5do2m"]
 [ext_resource type="Script" uid="uid://cnq85aw0sub6a" path="res://src/general/game_world.gd" id="1_j7fvf"]
@@ -17,6 +17,9 @@ background_mode = 2
 background_color = Color(1, 1, 1, 1)
 background_energy_multiplier = 1.25
 sky = SubResource("Sky_4b8aq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qla1"]
+size = Vector3(6.1167, 1, 12.2977)
 
 [node name="GameWorld" type="Node3D"]
 script = ExtResource("1_j7fvf")
@@ -38,3 +41,11 @@ transform = Transform3D(0.882127, 0.141636, -0.449212, 0, 0.953717, 0.300706, 0.
 
 [node name="Spartan971" parent="." instance=ExtResource("3_3qla1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95558, 0.0188984, -5.23191)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 4.55481e-08, -7.46198e-08, 0, 0.853551, 0.52101, 8.74228e-08, 0.52101, -0.853551, 1.62292, -0.388722, -5.95095)
+shape = SubResource("BoxShape3D_3qla1")
+disabled = true
+debug_color = Color(0, 0.628723, 0.489609, 0.42)

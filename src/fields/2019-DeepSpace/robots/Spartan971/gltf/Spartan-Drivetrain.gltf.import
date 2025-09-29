@@ -33,14 +33,72 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dyjwcf05hdix2"
 _subresources={
+"materials": {
+"0.203922_0.200000_0.200000_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "res://src/fields/2019-DeepSpace/robots/Spartan971/materials/0.203922_0.200000_0.200000_0.000000_0.000000.tres"
+},
+"0.207843_0.211765_0.215686_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+},
+"0.274510_0.274510_0.274510_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+},
+"0.286275_0.290196_0.294118_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+},
+"0.400000_0.400000_0.400000_0.000000_0.000000": {
+"use_external/enabled": true,
+"use_external/path": "uid://5elk8isr64b2"
+}
+},
 "nodes": {
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1100_Wheel Tensioner <1>/occurrence of 971-19-P-0003_Tensioner Standoff3": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1100_Wheel Tensioner <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V23": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1100_Wheel Tensioner <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V2_front countersink2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1100_Wheel Tensioner <1>/occurrence of 971-19-P-0039_Outside Wheels Shafts3": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1100_Wheel Tensioner <1>/occurrence of 971-19-P-0076_Tensioner Bearing Spacer3": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 217-2000 CIM motor3": {
+"import/skip_import": true
+},
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 217-2000 CIM motor3/217-2000 CIM motor3": {
 "import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 217-2000 CIM motor4": {
 "import/skip_import": true
 },
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-1300_Transmission <1>/occurrence of 971-19-P-0051_Drivetrain Center Shaft2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-2000_Wheel Tensioner Opposite <1>/occurrence of 971-19-P-0003_Tensioner Standoff4": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-2000_Wheel Tensioner Opposite <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V24": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-2000_Wheel Tensioner Opposite <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V2_back countersink2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/971-19-A-2000_Wheel Tensioner Opposite <1>/occurrence of 971-19-P-0039_Outside Wheels Shafts4": {
+"import/skip_import": true
+},
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/occurrence of 971-19-P-0020_Bumper Corner Plate2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/occurrence of 971-19-P-0023_Center Wheel Outside Plate": {
 "import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-1200_Drivetrain Siderail <1>/occurrence of 971-19-P-0095_Bumper Corner Plate Mirror2": {
@@ -49,7 +107,28 @@ _subresources={
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>": {
 "import/skip_import": true
 },
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0003_Tensioner Standoff2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V22": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V2_front countersink": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0039_Outside Wheels Shafts2": {
+"import/skip_import": true
+},
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-1100_Wheel Tensioner_For Mirror Assembly <1>/occurrence of 971-19-P-0076_Tensioner Bearing Spacer2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-2000_Wheel Tensioner Opposite_For Mirror Assembly <1>/occurrence of 971-19-P-0003_Tensioner Standoff": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-2000_Wheel Tensioner Opposite_For Mirror Assembly <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V2": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-2000_Wheel Tensioner Opposite_For Mirror Assembly <1>/occurrence of 971-19-P-0038_Tensioner Side Plate V2_back countersink": {
 "import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-2300_Drivetrain Siderail Mirror <1>/971-19-A-2000_Wheel Tensioner Opposite_For Mirror Assembly <1>/occurrence of 971-19-P-0039_Outside Wheels Shafts": {
@@ -77,6 +156,9 @@ _subresources={
 "import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3600_Battery <1>/occurrence of RoboRio": {
+"import/skip_import": true
+},
+"PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3700_Bumpers <1>": {
 "import/skip_import": true
 },
 "PATH:Spartan-Drivetrain/971-19-A-1000_Drivetrain <1>/971-19-A-3700_Bumpers <1>/occurrence of Placebo Bumepers/Placebo Bumepers": {

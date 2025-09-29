@@ -17,6 +17,7 @@ var atTargetAngle: bool = false
 
 @export var P: float = 1
 @export var useLimits := false
+@export var continuousRotation := true
 @export var armBody: RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
@@ -30,11 +31,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if useLimits:
-		armJoint.limit_lower = deg_to_rad(targetAngle)
-		armJoint.limit_upper = deg_to_rad(targetAngle)
+		var target := targetAngle
+		if not continuousRotation:
+			target = move_toward(rad_to_deg(armJoint.limit_lower), targetAngle, 30.0)
+		armJoint.limit_lower = deg_to_rad(target)
+		armJoint.limit_upper = deg_to_rad(target)
+		
 	else:
 		currentAngle = armBody.rotation_degrees.x + angleOffset
-		print(currentAngle)
 		var error = targetAngle - currentAngle
 		if abs(error) > tolorence:
 			atTargetAngle = false
