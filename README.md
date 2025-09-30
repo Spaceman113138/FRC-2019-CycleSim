@@ -12,6 +12,7 @@ My recreation of the FRC 2019 game Deep Space game featuring robots from 111 Wil
 - Left Shift : Cargo Intake
 - Right Shift : Hatch Intake
 - C : Climb
+- K : Eject/Drop/Score game piece
 
 # Spartan 971 Specific
 - H : Swap Arm Side
