@@ -90,7 +90,7 @@ var blueScore: int = 0.0:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timeBar.max_value = totalTime
-	currentEnableState = enableStates.Disabled
+	currentEnableState = enableStates.Enabled
 	currentGameState = gameStates.NotStarted
 	
 	timer.timeout.connect(func(): currentEnableState = enableStates.Enabled)
@@ -98,6 +98,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(currentEnableState)
 	if waitToStart:
 		return
 	currentTime = min(currentTime + delta, totalTime)

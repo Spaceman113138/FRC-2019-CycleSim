@@ -55,6 +55,7 @@ var hatchLow: ScoreHatchLowState
 var hatchMid: ScoreHatchMidState
 var hatchHigh: ScoreHatchHighState
 var cargoShip: ScoreCSState
+var extendedStore: ExtendedStoreState
 #var climbExtend: ClimbExtendedState
 #var climbFolded: ClimbFoldedState
 
@@ -66,6 +67,7 @@ func _init(RobotNode: Spartan971) -> void:
 	hatchMid = ScoreHatchMidState.new(RobotNode)
 	hatchHigh = ScoreHatchHighState.new(RobotNode)
 	cargoShip = ScoreCSState.new(RobotNode)
+	extendedStore = ExtendedStoreState.new(RobotNode)
 	#climbExtend = ClimbExtendedState.new(RobotNode)
 	#climbFolded = ClimbFoldedState.new(RobotNode)
 
@@ -92,9 +94,10 @@ class StoreState extends BaseState:
 		super._init(RobotNode, "Store")
 	
 	func initFunc():
-		robotNode.climbIndex = 0
-		robotNode.leftStilt.targetHeight = 0.0
-		robotNode.rightStilt.targetHeight = 0.0
+		pass
+		#robotNode.climbIndex = 0
+		#robotNode.leftStilt.targetHeight = 0.0
+		#robotNode.rightStilt.targetHeight = 0.0
 		#robotNode.leftFootArm.targetAngle = 0.0
 		#robotNode.rightFootArm.targetAngle = 0.0
 	
@@ -111,6 +114,15 @@ class StoreState extends BaseState:
 				robotNode.cargoArm.targetAngle = IntakeAngles["HatchStore"]
 		else:
 			setSuperstructureTargets("Store", false)
+
+
+class ExtendedStoreState extends BaseState:
+	func _init(RobotNode: Spartan971) -> void:
+		super._init(RobotNode, "Store")
+	
+	func initFunc():
+		setSuperstructureTargets("HatchStore", false)
+
 
 
 class HatchIntakeState extends BaseState:

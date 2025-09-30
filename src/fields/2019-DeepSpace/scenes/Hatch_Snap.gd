@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 
 
 func snap(body: Node3D):
-	body.rotation.y = 0
-	body.rotation.x = 0
+	#body.rotation.y = 0
+	#body.rotation.x = 0
 	super.snap(body)
 	body.detectable = false
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://begenhcnnveyu"
-path="res://.godot/imported/1323 - oitherUpright.gltf-21e3cfd7228f0c618d7f3752185de028.scn"
+path="res://.godot/imported/1323 - oitherUpright.gltf-abce1521fad3d294072f9ef25c939057.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - oitherUpright.gltf"
-dest_files=["res://.godot/imported/1323 - oitherUpright.gltf-21e3cfd7228f0c618d7f3752185de028.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - oitherUpright.gltf"
+dest_files=["res://.godot/imported/1323 - oitherUpright.gltf-abce1521fad3d294072f9ef25c939057.scn"]
 
 [params]
 

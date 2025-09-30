@@ -14,6 +14,8 @@ var field: Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scorecard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
+	if scorecard == null:
+		return
 	scorecard.TeleopStart.connect(func(): if cargo != null: cargo.sleeping = false)
 	field = get_tree().root.get_node("GameWorld/2019-Field")
 	

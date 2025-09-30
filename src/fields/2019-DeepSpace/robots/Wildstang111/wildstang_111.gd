@@ -47,6 +47,15 @@ func _physics_process(delta: float) -> void:
 		hatch.rotation.y = 0
 
 
+func removePieces():
+	if not cargo == null:
+		cargo.queue_free()
+		hasCargo = false
+	if not hatch == null:
+		hatch.queue_free() 
+		hasHatch = false
+
+
 func processEnabled():
 	if Input.is_action_just_pressed("cargoIntake"):
 		statemachine.requestState(WildstangStates.CargoIntakeState.new(self))

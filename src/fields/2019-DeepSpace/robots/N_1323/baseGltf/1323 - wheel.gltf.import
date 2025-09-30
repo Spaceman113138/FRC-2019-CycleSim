@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5x1xyxyd3o3g"
-path="res://.godot/imported/1323 - manipulatorRoller.gltf-9b025a30f9906ae6d191362073443949.scn"
+uid="uid://bbt7ysgpwwobe"
+path="res://.godot/imported/1323 - wheel.gltf-8c314c504d27fd1e9a476c4f9a8e89ad.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - manipulatorRoller.gltf"
-dest_files=["res://.godot/imported/1323 - manipulatorRoller.gltf-9b025a30f9906ae6d191362073443949.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - wheel.gltf"
+dest_files=["res://.godot/imported/1323 - wheel.gltf-8c314c504d27fd1e9a476c4f9a8e89ad.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Wheel"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -26,20 +26,12 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:manipulatorRoller": {
-"generate/physics": true,
-"physics/body_type": 1,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

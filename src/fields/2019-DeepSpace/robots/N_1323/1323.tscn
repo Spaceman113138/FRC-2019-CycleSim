@@ -1,15 +1,15 @@
 [gd_scene load_steps=148 format=4 uid="uid://cbbikudim1ajr"]
 
 [ext_resource type="Script" uid="uid://cqe1otigm2x0o" path="res://src/robots/testSwerve/swerve_base.gd" id="1_gm32w"]
-[ext_resource type="Script" uid="uid://bvxg1kt6bj70e" path="res://src/fields/2019-DeepSpace/robots/1323/1323.gd" id="1_nv782"]
+[ext_resource type="Script" uid="uid://bvxg1kt6bj70e" path="res://src/fields/2019-DeepSpace/robots/N_1323/1323.gd" id="1_nv782"]
 [ext_resource type="Script" uid="uid://1xr0kw7cfd4c" path="res://src/general/SharedRobotComponents/SwerveModule.gd" id="2_ls8si"]
 [ext_resource type="Script" uid="uid://brxsta62qnntb" path="res://src/general/sharedRobotScripts/CollisionHolder.gd" id="3_ls8si"]
 [ext_resource type="Script" uid="uid://dk0f1c6qppfnn" path="res://src/fields/2019-DeepSpace/scenes/AlgeaIntake.gd" id="5_aka4p"]
 [ext_resource type="Script" uid="uid://dpnmvnyt2merd" path="res://src/robots/testSwerve/Arm.gd" id="5_meidc"]
 [ext_resource type="Script" uid="uid://3foqq3qa6ssn" path="res://src/general/SharedRobotComponents/Intake.gd" id="6_tl4kf"]
 [ext_resource type="Script" uid="uid://cienae3qsx6ds" path="res://src/robots/testSwerve/ContinuousElevator.gd" id="7_nv782"]
-[ext_resource type="PackedScene" uid="uid://bv5yi0wka0u65" path="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - Hatchwheel (1).gltf" id="10_3r5s5"]
-[ext_resource type="PackedScene" uid="uid://cp7o0jpbewsjs" path="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - Hatchwheel.gltf" id="11_ch4cl"]
+[ext_resource type="PackedScene" uid="uid://bv5yi0wka0u65" path="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - Hatchwheel (1).gltf" id="10_3r5s5"]
+[ext_resource type="PackedScene" uid="uid://cp7o0jpbewsjs" path="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - Hatchwheel.gltf" id="11_ch4cl"]
 [ext_resource type="Script" uid="uid://dt5h6j8ff54ho" path="res://src/fields/2019-DeepSpace/scenes/hatch_intake.gd" id="12_ch4cl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mtt1"]

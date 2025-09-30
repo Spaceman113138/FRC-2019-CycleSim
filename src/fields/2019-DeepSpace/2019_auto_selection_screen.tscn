@@ -60,6 +60,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Robot"
+horizontal_alignment = 1
+
+[node name="robotOption" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Wildstang 111"
+popup/item_0/id = 0
+popup/item_1/text = "Spartan Robotics 971"
+popup/item_1/id = 1
+
 [node name="HSeparator7" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -267,6 +283,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Start Match"
 
+[connection signal="item_selected" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/robotOption" to="." method="_on_robot_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Blue" to="." method="_on_blue_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartingOptions" to="." method="_on_starting_options_item_selected"]

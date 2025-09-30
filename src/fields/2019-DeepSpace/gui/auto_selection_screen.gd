@@ -6,6 +6,8 @@ extends Control
 @onready var marginContainer := $MarginContainer
 @onready var cameraSelect := $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/cameraOptions
 
+var wildstang := preload("res://src/fields/2019-DeepSpace/robots/Wildstang111/wildstang_111.tscn")
+var spartans := preload("res://src/fields/2019-DeepSpace/robots/Spartan971/spartan_971.tscn")
 
 var gameWorld := preload("res://src/general/GameWorld.tscn")
 @onready var world: Node3D = gameWorld.instantiate()
@@ -21,23 +23,34 @@ var preloadCargo := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().paused = true
-	#world.visible = false
+	get_tree().paused = false
 	get_tree().root.add_child.call_deferred(world)
-	robotNode = preload("res://src/fields/2019-DeepSpace/robots/Wildstang111/wildstang_111.tscn").instantiate()
-	world.add_child(robotNode)
-	
-	updateRobot.call_deferred()
+	addRobot(wildstang)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 
+func addRobot(resource: PackedScene):
+	if robotNode != null:
+		robotNode.removePieces()
+		robotNode.queue_free()
+	
+	robotNode = resource.instantiate()
+	world.add_child(robotNode)
+	call_deferred("updateRobot")
+
+
 func updateRobot() -> void:
-	robotNode.updateStart(
-		selectionButton.selected, 
-		"Hatch" if preloadHatchButton.button_pressed else "Cargo", isBlue)
+	if get_tree().paused == false:
+		get_tree().paused = true
+		call_deferred("updateRobot")
+	else:
+		robotNode.updateStart(
+			selectionButton.selected, 
+			"Hatch" if preloadHatchButton.button_pressed else "Cargo", isBlue)
+		get_tree().paused = false
 
 
 func _on_bay_1_hatch_pressed() -> void:
@@ -153,3 +166,10 @@ func _on_hatch_pressed() -> void:
 func _on_cargo_pressed() -> void:
 	preloadCargo = true
 	updateRobot()
+
+
+func _on_robot_option_item_selected(index: int) -> void:
+	if index == 0:
+		addRobot(wildstang)
+	else:
+		addRobot(spartans)

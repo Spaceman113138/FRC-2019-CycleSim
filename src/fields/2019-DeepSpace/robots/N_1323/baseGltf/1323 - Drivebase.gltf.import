@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsikv2xtv7vi0"
-path="res://.godot/imported/1323 - collider.gltf-1e07880e26f39936ad5fa8763c2623e7.scn"
+uid="uid://cj78ytkksa3p3"
+path="res://.godot/imported/1323 - Drivebase.gltf-43fb99e8433b85da4f8c66bcaddd1fe5.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - collider.gltf"
-dest_files=["res://.godot/imported/1323 - collider.gltf-1e07880e26f39936ad5fa8763c2623e7.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - Drivebase.gltf"
+dest_files=["res://.godot/imported/1323 - Drivebase.gltf-43fb99e8433b85da4f8c66bcaddd1fe5.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Drivebase"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -26,7 +26,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
@@ -34,10 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:collider": {
+"PATH:Drivebase": {
 "generate/physics": true,
-"mesh_instance/cast_shadow": 0,
 "physics/body_type": 1,
+"physics/layer": 2,
+"physics/mask": 23,
 "physics/shape_type": 1
 }
 }

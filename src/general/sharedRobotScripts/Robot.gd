@@ -35,6 +35,7 @@ func _ready() -> void:
 	scoreboard = get_tree().root.get_node("GameWorld/2019-Field/2019Scorecard")
 	fieldNode = get_tree().root.get_node("GameWorld/2019-Field")
 	scoreboard.Enable.connect(func(): drivetrain.enabled = true)
+	scoreboard.SandstormStart.connect(func(): drivetrain.enabled = true)
 	scoreboard.Disable.connect(func(): drivetrain.enabled = false)
 	cameraTransform = thirdPersonCam.position
 	

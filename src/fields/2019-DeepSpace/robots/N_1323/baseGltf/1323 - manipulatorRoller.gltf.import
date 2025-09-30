@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://do2q6hp0yfo5y"
-path="res://.godot/imported/1323 - Latervator.gltf-14eaf4f66647f8ba0c4d48629f5801c7.scn"
+uid="uid://c5x1xyxyd3o3g"
+path="res://.godot/imported/1323 - manipulatorRoller.gltf-3beaedc2aff73e3c302dfb64a7008a67.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/1323/1323 - Latervator.gltf"
-dest_files=["res://.godot/imported/1323 - Latervator.gltf-14eaf4f66647f8ba0c4d48629f5801c7.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - manipulatorRoller.gltf"
+dest_files=["res://.godot/imported/1323 - manipulatorRoller.gltf-3beaedc2aff73e3c302dfb64a7008a67.scn"]
 
 [params]
 
 nodes/root_type=""
-nodes/root_name="Latervator"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -34,11 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Latervator": {
+"PATH:manipulatorRoller": {
 "generate/physics": true,
 "physics/body_type": 1,
-"physics/layer": 2,
-"physics/mask": 7
+"physics/shape_type": 1
 }
 }
 }

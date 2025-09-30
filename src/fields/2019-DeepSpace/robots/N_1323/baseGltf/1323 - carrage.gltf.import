@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c20ooa6dom60q"
-path="res://.godot/imported/1323 - carrage.gltf-820904acfc1c9b53bef4fc6384cec7a7.scn"
+path="res://.godot/imported/1323 - carrage.gltf-4279cf86795ecd96ee4b1e20c8818a8d.scn"
 
 [deps]
 
-source_file="res://src/fields/2019-DeepSpace/robots/1323/baseGltf/1323 - carrage.gltf"
-dest_files=["res://.godot/imported/1323 - carrage.gltf-820904acfc1c9b53bef4fc6384cec7a7.scn"]
+source_file="res://src/fields/2019-DeepSpace/robots/N_1323/baseGltf/1323 - carrage.gltf"
+dest_files=["res://.godot/imported/1323 - carrage.gltf-4279cf86795ecd96ee4b1e20c8818a8d.scn"]
 
 [params]
 
