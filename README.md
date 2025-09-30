@@ -1,3 +1,17 @@
-# FRC (Better Name Pending)
+# FRC 2019 Cycle Sim
 
-The goal of this project is to create a game that allows users to play FRC as if it were a video game similar to xRC sim or Mosim. Unlike these existing projects, I would like to add ai controlled robots to comepete with or against you preforming both offence and defence. I am also considering trying to implement multiplayer, but that is lower down on the todo list.
+My recreation of the FRC 2019 game Deep Space game featuring robots from 111 Wildstang and 971 Spartan Robotics in Godot.
+
+# Controls (Keyboard Only):
+- WSAD : for translation
+- QE : for rotation
+- U : Cargo Ship Score Setpoint
+- I : Rocket Low Score Setpoint
+- O : Rocket Mid Score Setpoint
+- P : Rocket High Score Setpoint
+- Left Shift : Cargo Intake
+- Right Shift : Hatch Intake
+- C : Climb
+
+# Spartan 971 Specific
+- H : Swap Arm Side
